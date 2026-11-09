@@ -1,11 +1,19 @@
 name: Release catalog
 
-# Every merge to main that changes catalog content publishes a new versioned
-# catalog release automatically (merging a PR is the approval gate). The version
-# is derived from the previous release: minor bump when resources are added or
-# removed, patch bump when they are updated. A maintainer can force a version by
-# raising catalog_version in catalog/catalog.yaml. Also refreshes the rolling
-# `catalog-latest` release whose latest.json the macOS app polls.
+# Publishes the catalog the macOS app reads (catalog-latest/latest.json).
+#
+# Two jobs, so nothing reaches users without a maintainer's sign-off:
+#   1. build   (read-only): validates, builds, and computes the next version from
+#              the previous release (minor bump when resources are added or
+#              removed, patch bump for updates or collection/contributor changes).
+#              The diff is written to the run summary for review.
+#   2. publish (contents: write): runs in the `catalog-release` environment,
+#              which requires approval from the repository owner or an authorized
+#              maintainer (Settings > Environments > catalog-release > Required
+#              reviewers) and only deploys from protected branches. Until someone
+#              approves, no release is created and latest.json is untouched.
+#
+# A maintainer can force a version by raising catalog_version in catalog/catalog.yaml.
 on:
   push:
     branches: [main]
@@ -23,12 +31,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  release:
-    name: Publish catalog release
+  build:
+    name: Build catalog release candidate
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
-      contents: write   # create releases and upload assets; nothing else
+      contents: read
+    outputs:
+      publish: ${{ steps.check.outputs.publish }}
+      version: ${{ steps.check.outputs.version }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -64,32 +75,71 @@ jobs:
           VERSION=$(python -c "import json;print(json.load(open('dist/latest.json'))['catalog_version'])")
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           if gh release view "catalog-v${VERSION}" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
-            echo "catalog-v${VERSION} already published; no catalog content changed."
+            echo "catalog-v${VERSION} already published; no catalog content changed." | tee -a "$GITHUB_STEP_SUMMARY"
             echo "publish=false" >> "$GITHUB_OUTPUT"
           else
-            echo "Publishing catalog-v${VERSION}" | tee -a "$GITHUB_STEP_SUMMARY"
-            cat dist/CHANGES.md >> "$GITHUB_STEP_SUMMARY"
+            {
+              echo "## Release candidate: catalog-v${VERSION}"
+              echo
+              echo "Awaiting maintainer approval in the \`catalog-release\` environment. Review the changes below before approving."
+              echo
+              python -c "import json;d=json.load(open('dist/latest.json'));print(f\"**{d['resources_count']} resources** · bundle sha256 \`{d['bundle']['sha256']}\` · {d['bundle']['size']} bytes\")"
+              echo
+              cat dist/CHANGES.md
+            } >> "$GITHUB_STEP_SUMMARY"
+            (cd dist/packages && zip -q -r -X ../packages.zip .)
             echo "publish=true" >> "$GITHUB_OUTPUT"
           fi
-      - name: Publish versioned release
+      - name: Upload release candidate
         if: steps.check.outputs.publish == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          VERSION: ${{ steps.check.outputs.version }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: catalog-release-candidate
+          path: dist/
+          retention-days: 30
+          if-no-files-found: error
+
+  publish:
+    name: Publish catalog (maintainer approval required)
+    needs: build
+    if: needs.build.outputs.publish == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: catalog-release
+      url: https://github.com/${{ github.repository }}/releases/tag/catalog-v${{ needs.build.outputs.version }}
+    permissions:
+      contents: write   # create releases and upload assets; nothing else
+    env:
+      GH_TOKEN: ${{ github.token }}
+      VERSION: ${{ needs.build.outputs.version }}
+    steps:
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: catalog-release-candidate
+          path: dist
+      - name: Verify candidate matches the approved version
         run: |
-          (cd dist/packages && zip -q -r -X ../packages.zip .)
+          python3 - <<'PY'
+          import hashlib, json, os
+          latest = json.load(open("dist/latest.json"))
+          assert latest["catalog_version"] == os.environ["VERSION"], "version mismatch"
+          for key, name in (("bundle", "catalog-bundle.json"), ("index", "catalog.json")):
+              data = open(f"dist/{name}", "rb").read()
+              assert hashlib.sha256(data).hexdigest() == latest[key]["sha256"], f"{name} hash mismatch"
+              assert len(data) == latest[key]["size"], f"{name} size mismatch"
+          print("Candidate verified:", latest["catalog_version"])
+          PY
+      - name: Publish versioned release
+        run: |
           gh release create "catalog-v${VERSION}" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
             --title "Skilldeck Catalog ${VERSION}" --notes-file dist/CHANGES.md \
             dist/catalog.json dist/catalog-bundle.json dist/latest.json dist/packages.zip dist/quality-report.md dist/packages/*.zip
       - name: Update rolling catalog-latest pointer
-        if: steps.check.outputs.publish == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          VERSION: ${{ steps.check.outputs.version }}
         run: |
           if ! gh release view catalog-latest --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             gh release create catalog-latest --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease \
               --title "Catalog update pointer" --notes "Rolling pointer polled by the Skilldeck app. Points at catalog-v${VERSION}."
           fi
           gh release upload catalog-latest dist/latest.json --clobber --repo "$GITHUB_REPOSITORY"
-          gh release edit catalog-latest --repo "$GITHUB_REPOSITORY" --notes "Rolling pointer polled by the Skilldeck app. Points at catalog-v${VERSION}."
+          gh release edit catalog-latest --repo "$GITHUB_REPOSITORY" --notes "Rolling pointer polled by the Skilldeck app. Points at catalog-v${VERSION} (approved deployment, run ${GITHUB_RUN_ID})."

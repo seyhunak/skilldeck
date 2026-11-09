@@ -1,4 +1,4 @@
-<!-- First time? See docs/SUBMISSION_GUIDE.md. Once merged, your resource is published automatically. -->
+<!-- First time? See docs/SUBMISSION_GUIDE.md. Once merged, your resource ships in the next maintainer-approved catalog release. -->
 
 ## What does this PR do?
 

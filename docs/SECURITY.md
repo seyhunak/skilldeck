@@ -30,4 +30,4 @@ Allowed file extensions only; limits of 512 KB per file, 2 MB and 60 files per p
 
 ## CI
 
-`validate-submission.yml` runs on pull requests with `contents: read`, no secrets, and `persist-credentials: false`. Only `release-catalog.yml` on `main` gets `contents: write`, scoped to its job. All third-party actions are pinned to full commit SHAs.
+`validate-submission.yml` runs on pull requests with `contents: read`, no secrets, and `persist-credentials: false`. Only the publish job of `release-catalog.yml` gets `contents: write`. It runs in the `catalog-release` environment, which requires approval from the owner or an authorized maintainer and only deploys from protected branches, so the `latest.json` the app trusts can't change without a maintainer's sign-off. `main` is protected: changes need a pull request that passes validation, and force-pushes are blocked. All third-party actions are pinned to full commit SHAs.

@@ -101,7 +101,7 @@ cp -R templates/skill resources/<domain>/<use-case>/<your-skill-id>
 python3 scripts/validate_catalog.py --only <your-skill-id>
 ```
 
-Then open a pull request. CI runs the same validator, and a maintainer reviews it for usefulness, accuracy, and safety. **Once it's merged, it's published.** A new catalog release is cut automatically, and every Skilldeck app picks it up at launch or on its next periodic check, listing it under *New in the Catalog*.
+Then open a pull request. CI runs the same validator, and a maintainer reviews it for usefulness, accuracy, and safety. **Once it's merged, a release candidate is built automatically. When the repository owner or an authorized maintainer approves it**, it's published, and every Skilldeck app picks it up at launch or on its next periodic check, listing it under *New in the Catalog*.
 
 👉 **Start with the [Submission guide](docs/SUBMISSION_GUIDE.md)**, which works entirely in the browser if you like. Then see the [Contributor guide](docs/CONTRIBUTOR_GUIDE.md) and the [package format](docs/FORMAT.md).
 
