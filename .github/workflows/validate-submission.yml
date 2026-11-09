@@ -2,18 +2,10 @@ name: Validate submission
 
 # Runs on every pull request. Read-only: contributor content is parsed as data,
 # never executed, and no secrets are available to this workflow.
+# Runs on every pull request (no path filter) so it can be a required status
+# check on main without blocking PRs that only touch the app or docs.
 on:
   pull_request:
-    paths:
-      - "resources/**"
-      - "contributors/**"
-      - "catalog/**"
-      - "schemas/**"
-      - "scripts/**"
-      - "templates/**"
-      - "tests/**"
-      - "requirements.txt"
-      - ".github/workflows/validate-submission.yml"
 
 permissions:
   contents: read
