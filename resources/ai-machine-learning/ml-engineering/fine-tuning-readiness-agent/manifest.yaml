@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: fine-tuning-readiness-agent
+name: Fine-Tuning Readiness Agent
+type: agent
+description: "Decides whether a problem should be solved with prompting, retrieval, fine-tuning, or a combination, then specifies data requirements, a baseline-first eval plan, and go/no-go criteria for a fine-tuning project."
+purpose: >
+  Fine-tuning is often proposed to fix problems it cannot fix, such as missing or fast-changing knowledge, while problems
+  it does fix - format consistency, style, narrow classification, latency at a smaller model - get solved with ever longer
+  prompts. This agent diagnoses the gap, checks whether prompting and retrieval have been honestly exhausted, audits the
+  available training data, and produces a readiness verdict with an evaluation plan.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [ml-engineering, model-selection]
+tags: [fine-tuning, ml-engineering, training-data, rag, decision-framework]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/approach-decision-matrix.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [golden-dataset-construction, data-labeling-guidelines]
+related: [model-selection-analyst-agent, llm-evaluation-agent, prompt-optimization, model-card-writing, rag-evaluation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Advisory only; does not start training jobs or upload data. Training data often contains personal or licensed content - flags consent, licensing, and retention questions for the data owner rather than resolving them."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

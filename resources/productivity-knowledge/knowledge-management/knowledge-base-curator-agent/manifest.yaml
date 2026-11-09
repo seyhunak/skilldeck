@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: knowledge-base-curator-agent
+name: Knowledge Base Curator
+type: agent
+description: "Audits a wiki, docs folder, or note vault read-only and returns a curation plan: duplicates and conflicts, stale and orphan pages, top-task coverage gaps, a target structure, and one action per page."
+purpose: >
+  Knowledge bases decay into duplicated, outdated, ownerless pages until people stop
+  trusting search and ask colleagues instead. This agent inventories the content, tests it
+  against the questions readers actually bring, and returns a page-by-page curation plan
+  with a task-oriented information architecture and a light governance loop. Every finding
+  cites a page path, and nothing is moved, archived, or deleted until a human approves
+  each wave.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [knowledge-management, document-intelligence]
+tags: [knowledge-management, wiki, information-architecture, content-audit, documentation]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/kb-audit-rubric.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [atomic-note-writing]
+related: [decision-log-maintenance, sop-writing, plain-language-rewriting, technical-documentation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Read-only audit. Never moves, archives, or deletes pages; deletion candidates require owner approval. Personal data or credentials found in pages are referenced by path only."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

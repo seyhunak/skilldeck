@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: research-paper-summary-prompt
+name: Research Paper Summary
+type: prompt
+description: "Produces a structured critical summary of a research paper: question, method, findings with effect sizes, validity threats, what it does and does not show, and relevance to the reader."
+purpose: >
+  Abstracts oversell and readers rarely have time to judge methods. This prompt reads a
+  paper the way a careful reviewer would, separating what the authors claim from what
+  the design can support, and returns a summary that tells the reader how much to trust
+  the result and whether it applies to their situation.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [academic-research, technical-research]
+tags: [paper-summary, critical-appraisal, academic-research, research-methods, reading-notes]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [literature-review-agent, research-synthesis-matrix, citation-management, technical-research-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Summarises only the supplied paper text; instructs the model to say when a section was not provided rather than reconstruct it, and to quote numbers exactly."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

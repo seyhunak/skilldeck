@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: owasp-top-10-review
+name: "OWASP Top 10 Review"
+type: skill
+description: "Reviews application code against the OWASP Top 10:2021 categories (and the 2025 update where the user's team has adopted it), with per-category code patterns to look for and evidence-based findings."
+purpose: >
+  The OWASP Top 10 is the most widely used awareness baseline for web application risk,
+  but reviewing against it needs concrete code patterns, not category names. This skill
+  gives an agent a category-by-category inspection procedure with language-agnostic
+  signals, false-positive checks, and a findings format.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [security-review]
+tags: [owasp, secure-code-review, web-security, appsec]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [application-security-audit-agent, structured-code-review, secrets-exposure-review, dependency-vulnerability-triage, security-finding-writeup-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not professional security advice; findings need confirmation by a qualified reviewer before severity is final. Static review of code the user owns or is authorised to assess. Describe vulnerable patterns and fixes only; never produce working exploit payloads and never print secret values."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

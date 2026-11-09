@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: working-capital-analysis
+name: Working Capital Analysis
+type: skill
+description: "Calculates DSO, DIO, DPO, cash conversion cycle, and NWC as % of revenue with stated conventions, values each day of change in cash, separates seasonality from trend, and flags window-dressing and earnings-quality signals."
+purpose: >
+  Working capital is where profit turns into cash, or does not. This skill measures days
+  tied up in receivables and inventory net of supplier credit, translates day changes into
+  cash amounts, and separates real improvement from seasonality, factoring, or period-end
+  timing.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [financial-statement-analysis, fpa]
+tags: [working-capital, cash-conversion-cycle, dso, liquidity, treasury]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [financial-ratio-analysis, cash-flow-forecasting-agent, financial-statement-analysis-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  professional_advice_disclaimer: true
+  notes: "Analytical support, not accounting, treasury, or investment advice; changes to customer or supplier terms need sign-off from accountable finance and commercial owners. Never recommends paying suppliers beyond agreed or statutory terms."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

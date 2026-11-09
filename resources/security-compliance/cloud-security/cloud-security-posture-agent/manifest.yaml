@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: cloud-security-posture-agent
+name: "Cloud Security Posture Agent"
+type: agent
+description: "Reviews AWS, Azure, or GCP configuration exports and IaC against CIS Foundations Benchmarks and provider best practices, returning prioritised misconfigurations with evidence and remediation steps."
+purpose: >
+  Cloud breaches are dominated by misconfiguration: public storage, over-privileged
+  identities, disabled logging, and exposed management ports. This agent reviews
+  configuration evidence the user supplies or collects read-only, maps each issue to the
+  relevant CIS benchmark area, and ranks it by exposure and blast radius so teams fix what
+  matters first.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [cloud-security, identity-access]
+tags: [cloud-security, cspm, cis-benchmarks, aws, azure, gcp]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [access-review, secrets-exposure-review]
+related: [infrastructure-as-code-review-agent, security-architecture-review-agent, dockerfile-hardening, security-finding-writeup-prompt, security-log-analysis]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not professional security advice and not a CIS certification. Read-only review of cloud accounts the user owns or is authorised to assess; any remediation that changes configuration requires approval by the account owner. Never prints keys, tokens, or connection strings found in exports, and never attempts to access resources it finds exposed."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

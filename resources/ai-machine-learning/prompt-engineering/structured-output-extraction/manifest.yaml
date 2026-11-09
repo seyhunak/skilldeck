@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: structured-output-extraction
+name: Structured Output Extraction
+type: skill
+description: "Gets reliable JSON from LLMs: schema design for extraction, enums and nullability, constrained decoding vs prompting, validation, bounded repair loops, and field-level accuracy measurement."
+purpose: >
+  Free-form model output breaks downstream parsers and quietly invents values for
+  missing fields. This skill designs extraction schemas that make absence explicit,
+  picks the strongest available enforcement mechanism, validates every response, repairs
+  within a strict retry budget, and measures field-level accuracy, so structured outputs
+  can feed real systems.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [prompt-engineering, agent-development]
+tags: [structured-output, json-schema, extraction, validation, llm]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [tool-schema-design, golden-dataset-construction, hallucination-detection, system-prompt-architect-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Extraction inputs are often documents with personal data; recommends minimizing fields extracted and logging validation errors without raw values."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

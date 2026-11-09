@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: board-update-drafting-agent
+name: Board Update Drafting Agent
+type: agent
+description: Drafts a board or investor update from metrics, financials, and leadership notes - headline narrative, KPI table with variance explanations, wins and concerns stated plainly, decisions and asks - with every number traced to its source.
+purpose: >
+  Board and investor updates take leaders hours to assemble and often bury bad news,
+  mix metric definitions between periods, or omit the specific help needed. This agent
+  turns raw metrics and notes into a concise, candid update that leads with the
+  headline, explains variances against plan, separates decisions requested from
+  information, and flags any figure it could not reconcile.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [executive-communication]
+tags: [board-update, investor-update, executive-communication, kpi-reporting, governance, narrative]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [decision-memo-writing]
+related: [quarterly-business-review-routine, executive-summary-prompt, financial-results-commentary-prompt, budget-variance-analysis-agent, kpi-tree-design]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Drafts only, never sends; material non-public information and forward-looking statements require review by the CEO, CFO, and legal counsel before distribution.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: source-credibility-assessment
+name: Source Credibility Assessment
+type: skill
+description: "Evaluates a source's credibility with SIFT lateral reading and CRAAP criteria, checks provenance and bias, and assigns a reliability grade. Use before relying on any web source."
+purpose: >
+  Research quality is capped by source quality. This skill gives any agent a fast,
+  repeatable way to decide how much weight a source deserves: lateral reading to learn
+  who is behind it, CRAAP criteria for fitness, provenance tracing for recycled claims,
+  and a two-axis grade that keeps source reliability separate from claim credibility.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [web-research, academic-research]
+tags: [source-evaluation, sift, craap, credibility, media-literacy]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [fact-checking-agent, search-query-formulation, citation-management, competitor-research-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Grades are judgements, recorded with reasons, not facts about a source. Does not access paywalled or private material."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,34 @@
+name: Resource request
+description: Suggest an agent, skill, prompt, or routine the catalog is missing.
+labels: [resource-request]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: [Agent, Skill, Prompt, Routine]
+    validations:
+      required: true
+  - type: input
+    id: domain
+    attributes:
+      label: Domain and use case
+      placeholder: "software-development / code-review"
+  - type: textarea
+    id: job
+    attributes:
+      label: The job to be done
+      description: What task should it handle, for whom, and what output should it produce?
+    validations:
+      required: true
+  - type: textarea
+    id: existing
+    attributes:
+      label: Closest existing resources
+      description: Search the app first — what's close, and why isn't it enough?
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I'd like to write this myself (see docs/CONTRIBUTOR_GUIDE.md)

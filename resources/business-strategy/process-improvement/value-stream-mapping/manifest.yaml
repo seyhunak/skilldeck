@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: value-stream-mapping
+name: Value Stream Mapping
+type: skill
+description: Maps a value stream from request to delivery - process time, wait time, %C&A, lead time, and waste - then designs a future state with flow improvements and an implementation plan.
+purpose: >
+  Most delay in business processes sits in queues and handoffs between steps, not in
+  the work itself, and it is invisible on ordinary flowcharts. Value stream mapping
+  makes it visible by measuring each step's process time, waiting time, and quality,
+  so teams can calculate flow efficiency, locate waste, and design a future state that
+  shortens lead time without guessing.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [process-improvement, business-analysis]
+tags: [value-stream-mapping, lean, lead-time, flow-efficiency, waste, process-mapping]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [process-improvement-agent, operating-model-analyst-agent, sop-writing, raci-matrix-design]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Works on process-level data; timings attributed to steps and roles, never to named individuals.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

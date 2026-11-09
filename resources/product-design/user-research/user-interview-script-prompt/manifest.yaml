@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: user-interview-script-prompt
+name: User Interview Script
+type: prompt
+description: "Generates a non-leading, past-behavior-focused user interview script with screener criteria, warm-up, story-based core questions, probes, and a wrap-up, tailored to a research goal and participant type."
+purpose: >
+  Most interview scripts ask people to predict their future behavior or validate the
+  team's idea, which produces polite, useless answers. This prompt produces a script
+  anchored in specific past events, with neutral wording, follow-up probes, and a bias
+  check, so a single interviewer can run sessions that yield evidence.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [user-research, product-discovery]
+tags: [user-interviews, research-script, discovery, non-leading-questions, qualitative]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [jobs-to-be-done-analysis, ux-research-synthesis-agent, expert-interview-guide, product-discovery-sprint-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Generates a script only. Recruiting, consent, recording, and incentives are the researcher's responsibility; the script includes a consent reminder."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

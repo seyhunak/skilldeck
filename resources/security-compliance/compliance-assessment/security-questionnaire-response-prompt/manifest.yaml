@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: security-questionnaire-response-prompt
+name: "Security Questionnaire Response"
+type: prompt
+description: "Drafts answers to customer security questionnaires (SIG, CAIQ, or custom) strictly from supplied evidence, flagging unsupported questions instead of guessing and citing the source for every answer."
+purpose: >
+  Sales-driven questionnaire answers that overstate controls create contractual and
+  reputational risk. This prompt drafts accurate, consistent answers from the
+  organisation's own policies, reports, and answer library, marks each as supported,
+  partial, or needs-owner, and leaves the final submission to an accountable human.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [compliance-assessment]
+tags: [security-questionnaire, caiq, sig, trust, evidence]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [vendor-security-assessment-agent, compliance-gap-analysis-agent, security-policy-writing]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not legal advice. Questionnaire answers can become contractual representations: every answer must be reviewed by the control owner and approved by security or legal before submission. Answers come only from supplied evidence; the prompt never invents controls, certifications, or dates."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

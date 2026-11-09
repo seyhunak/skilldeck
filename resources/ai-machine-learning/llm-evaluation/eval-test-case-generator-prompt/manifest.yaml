@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: eval-test-case-generator-prompt
+name: Eval Test Case Generator
+type: prompt
+description: Generates a categorized batch of eval test cases for an LLM feature, covering core behavior, edge cases, and adversarial inputs, each with a checkable pass criterion.
+purpose: >
+  Most LLM eval sets are a few dozen happy-path examples written by the person who
+  built the feature. This prompt expands a feature spec into a structured test plan
+  across behavior categories, input perturbations, and adversarial probes, and writes
+  every case with an explicit pass criterion and grading method, so the set can be
+  run by code or an LLM judge rather than by eyeballing outputs.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [llm-evaluation, ai-safety]
+tags: [evals, test-cases, adversarial, edge-cases, llm-testing]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [golden-dataset-construction, llm-evaluation-agent, jailbreak-red-teaming, llm-judge-rubric-design, llm-output-critique-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Adversarial cases are for authorized testing of your own system only. Generated cases are synthetic and need human review before they gate a release.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

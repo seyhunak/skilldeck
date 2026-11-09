@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: campaign-performance-analyst-agent
+name: Campaign Performance Analyst
+type: agent
+description: "Analyzes multi-channel campaign results against goals: normalizes spend and conversion data, compares channels on consistent metrics, flags attribution caveats, and recommends budget shifts."
+purpose: >
+  Channel dashboards each tell a flattering story in their own metrics. This agent
+  reconciles exports from ad platforms, analytics, and CRM into one comparable view,
+  checks the numbers against the campaign's original goals, separates platform-reported
+  from observed outcomes, and returns a readout with clear findings, confidence levels,
+  and recommended actions for the next flight.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [campaign-planning, paid-acquisition, growth-analysis]
+tags: [campaign-analysis, marketing-analytics, roas, cac, channel-mix, reporting]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [marketing-attribution-analysis]
+related: [campaign-launch-routine, paid-search-optimization-agent, metric-anomaly-investigation-agent, customer-segmentation]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Works on exported, aggregated campaign data. Does not change budgets, bids, or campaigns in any platform. Flags any user-level data received and asks for aggregation."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

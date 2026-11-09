@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: deep-research-brief-prompt
+name: Deep Research Brief
+type: prompt
+description: "Turns a vague research question into a scoped research plan: decision context, sub-questions, hypotheses, source strategy, evidence standards, and a stop rule."
+purpose: >
+  Research effort is wasted when nobody agrees what question is being answered or when
+  to stop. This prompt converts a loose request into a one-page brief that a human
+  researcher or a research agent can execute: the decision it serves, decomposed sub-
+  questions, competing hypotheses, where to look, what evidence counts, and what done
+  looks like.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [web-research, technical-research]
+tags: [research-planning, research-brief, scoping, deep-research, question-design]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [technical-research-agent, fact-checking-agent, search-query-formulation, market-intelligence-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Planning only; the prompt does not perform searches. It asks the model to flag unknowns rather than answer the research question from memory."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

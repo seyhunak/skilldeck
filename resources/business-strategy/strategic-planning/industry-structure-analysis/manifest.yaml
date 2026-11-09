@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: industry-structure-analysis
+name: Industry Structure Analysis
+type: skill
+description: Applies Porter's Five Forces to a clearly defined industry with cited evidence for each force, rates force strength, explains the resulting profitability, and identifies strategic implications and likely shifts.
+purpose: >
+  Five Forces analyses are frequently a box-ticking exercise of unsupported adjectives.
+  This skill defines the industry boundary first, assesses each force with specific
+  structural evidence and observable indicators, connects the forces to where profit
+  is captured, and translates the analysis into positioning choices and signposts of
+  structural change, while labelling evidence quality throughout.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [strategic-planning, business-analysis]
+tags: [five-forces, industry-analysis, competitive-strategy, porter, market-structure]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [strategic-planning-agent, scenario-planning, market-intelligence-agent, evidence-based-swot, competitor-research-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Uses supplied or public evidence only; never fabricates market shares, margins, or citations, and labels unsupported claims as hypotheses.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

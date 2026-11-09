@@ -1,0 +1,43 @@
+schema_version: "1.1"
+id: security-log-analysis
+name: "Security Log Analysis"
+type: skill
+description: "Analyses authentication, cloud audit, web, and endpoint logs for anomalies and indicators of compromise, building a normalised timeline with hypotheses, queries, and confidence levels."
+purpose: >
+  Investigations stall when analysts stare at raw logs without a hypothesis or a baseline.
+  This skill normalises log sources, establishes what normal looks like, hunts for
+  specific suspicious patterns such as password spraying, impossible travel, and privilege
+  changes, and records findings with the exact evidence and confidence so others can
+  reproduce them.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [incident-response, identity-access]
+tags: [log-analysis, threat-hunting, ioc, siem, authentication-logs]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [incident-response-coordinator-agent, secrets-exposure-review, access-review, metric-anomaly-investigation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not professional forensic or legal advice; conclusions used for disciplinary, legal, or notification decisions need review by a qualified investigator. Analyse only logs the user is authorised to access. Work on copies, preserve originals, minimise personal data in outputs, and never print credentials or tokens that appear in log lines."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

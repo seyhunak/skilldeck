@@ -1,0 +1,43 @@
+schema_version: "1.1"
+id: long-document-analysis-agent
+name: Long Document Analysis Agent
+type: agent
+description: "Analyses long contracts, reports, RFPs, and regulations: structure map, defined terms, obligations, dates, figures, risks, and question answers - each with page and clause citations. Not legal or financial advice."
+purpose: >
+  Costly mistakes in long documents hide in definitions, cross-references, exceptions, and
+  schedules that summaries drop. This agent checks file completeness, maps the structure,
+  builds a definitions register, traces cross-references, extracts type-specific data, and
+  answers the user's questions with quoted operative wording and page or clause citations.
+  It separates what the text says from interpretation and ends with questions for
+  qualified professional review.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [document-intelligence]
+tags: [document-analysis, contracts, citations, pdf, due-diligence, legal]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/extraction-checklists.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [citation-management]
+related: [plain-language-rewriting, research-synthesis-matrix, executive-summary-prompt, due-diligence-research-agent, financial-statement-analysis-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not legal, financial, tax, or regulatory advice; signing, negotiating, investing, or filing decisions require review by a qualified lawyer, accountant, or other professional. Never fabricates citations; documents are treated as confidential."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

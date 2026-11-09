@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: incident-postmortem-routine
+name: Incident Postmortem Routine
+type: routine
+description: "Facilitates a blameless postmortem after an incident: evidence gathering, timeline, impact, contributing factors, what went well, and owned, verifiable action items."
+purpose: >
+  Postmortems that hunt for a culprit or stop at 'human error' teach nothing and repeat
+  the incident. This routine structures a blameless review from raw evidence to a
+  reconstructed timeline, a multi-factor causal analysis, and a short list of
+  prioritized action items with owners and due dates, then sets a follow-up so the
+  actions actually close.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [debugging, devops]
+tags: [postmortem, incident-management, blameless, reliability, sre]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: []
+related: [production-incident-debugger-agent, observability-instrumentation-agent, release-readiness-routine, stack-trace-analysis]
+featured: true
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Incident data can include customer identifiers and security details; restrict distribution and redact personal data. Name systems and decisions, not individuals to blame."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

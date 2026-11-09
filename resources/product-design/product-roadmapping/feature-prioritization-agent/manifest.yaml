@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: feature-prioritization-agent
+name: Feature Prioritization Agent
+type: agent
+description: "Weighs a backlog of candidate features using an appropriate framework (RICE, cost of delay/WSJF, Kano, value-vs-effort), surfaces trade-offs and sensitivity, and returns a ranked list with a defensible rationale."
+purpose: >
+  Backlogs are usually prioritized by whoever argues loudest, and scoring frameworks are
+  often applied mechanically to numbers nobody believes. This agent chooses a framework
+  that fits the decision, normalizes inputs, exposes which scores are guesses, tests
+  whether the ranking survives reasonable changes in assumptions, and writes a
+  recommendation that names what is being deferred and why.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [product-roadmapping, product-discovery]
+tags: [prioritization, backlog, wsjf, kano, tradeoffs]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [rice-prioritization]
+related: [product-roadmap-analyst-agent, opportunity-solution-tree, unit-economics-analysis, decision-memo-writing]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Advisory only. Does not reorder tickets in any tool; numbers supplied or estimated are labeled with their source and confidence, and final prioritization belongs to the product owner."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

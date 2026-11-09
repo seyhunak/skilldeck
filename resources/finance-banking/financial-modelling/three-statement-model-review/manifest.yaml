@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: three-statement-model-review
+name: Three-Statement Model Review
+type: skill
+description: "Audits the mechanics of an integrated financial model: balance and cash checks, roll-forwards, working capital signs, debt and revolver logic, circularity, hard-codes, and formula consistency, with a severity-ranked log."
+purpose: >
+  Models that feed lending, valuation, and budget decisions often contain silent errors
+  and balancing plugs. This skill applies a model-audit checklist and mechanical stress
+  tests so integrity issues are found and ranked, with cell references and fixes, before
+  anyone relies on the outputs.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [financial-modelling]
+tags: [financial-model, model-audit, spreadsheets, integrity-checks, financial-modelling]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [dcf-valuation, cash-flow-forecasting-agent, financial-statement-analysis-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  professional_advice_disclaimer: true
+  notes: "Mechanics review only, not audit, accounting, or investment advice; formal model audits and decision reliance need sign-off by qualified professionals. Does not edit the model unless asked, and then only a copy."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

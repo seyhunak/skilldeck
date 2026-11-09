@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: persona-development
+name: Persona Development
+type: skill
+description: "Builds evidence-based personas from research data by clustering behaviors, goals, and contexts rather than demographics, with an evidence trail, anti-persona, and explicit validity limits."
+purpose: >
+  Personas invented in a workshop encode stereotypes and get ignored; personas built
+  from behavioral evidence change design decisions. This skill guides an agent to
+  identify behavioral variables, place participants on them, find clusters, and write
+  lean personas that cite the research behind every attribute and state how many
+  participants they rest on.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [user-research, product-discovery]
+tags: [personas, user-research, segmentation, behavioral-variables, ux]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [jobs-to-be-done-analysis, journey-mapping, ux-research-synthesis-agent, customer-segmentation]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Uses participant codes, never real names or photos of participants. Avoids protected-attribute stereotypes; demographic details are included only when research shows they change behavior."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

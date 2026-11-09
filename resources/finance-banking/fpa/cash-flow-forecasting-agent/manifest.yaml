@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: cash-flow-forecasting-agent
+name: Cash Flow Forecasting Agent
+type: agent
+description: "Builds and rolls a 13-week direct cash flow forecast from AR/AP, payroll, tax, and debt schedules, with liquidity headroom, covenant checks, scenarios, prior-week variance analysis, and an assumptions register."
+purpose: >
+  Liquidity problems are visible weeks ahead in a good short-term cash forecast. This
+  agent builds a 13-week receipts-and-disbursements forecast from collection behaviour and
+  committed obligations, tracks accuracy against actuals, runs downside scenarios, and
+  flags the weeks where cash or headroom falls short so management can decide in time.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [fpa, financial-modelling]
+tags: [cash-forecasting, treasury, liquidity, 13-week-cash-flow, scenarios]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [working-capital-analysis]
+related: [loan-covenant-analysis, budget-variance-analysis-agent, three-statement-model-review, credit-risk-analysis-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not treasury, lending, investment, or legal advice; funding decisions, payment prioritization, and lender communication require qualified human approval. Never initiates payments or draws facilities, and never advises breaching payment terms."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

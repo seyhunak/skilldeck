@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: customer-segmentation
+name: Customer Segmentation
+type: skill
+description: "Segments customers with RFM scoring, behavioral clustering, or needs-based research and turns segments into actionable profiles. Use for targeting, lifecycle programs, or prioritizing markets."
+purpose: >
+  Segments are only useful if they are stable, sizeable, distinguishable, and actionable.
+  This skill helps an agent choose the right segmentation approach for the question, run
+  RFM or behavioural segmentation on exported data with clear thresholds, validate
+  segments, and describe each one with the action it implies.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [growth-analysis, lifecycle-marketing, positioning]
+tags: [segmentation, rfm, customer-analytics, targeting, clustering]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [cohort-retention-analysis-agent, persona-development, email-lifecycle-agent, jobs-to-be-done-analysis]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Prefers pseudonymised customer data. Excludes sensitive attributes (health, ethnicity, religion and similar) from segmentation features and flags any proxy for them."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

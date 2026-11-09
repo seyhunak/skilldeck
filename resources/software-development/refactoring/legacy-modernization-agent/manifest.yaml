@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: legacy-modernization-agent
+name: Legacy Code Modernization Agent
+type: agent
+description: Plans incremental modernization of a legacy system using the strangler fig pattern - maps seams and dependencies, chooses slices, designs routing and data migration, and returns a phased roadmap with rollback points.
+purpose: >
+  Big-bang rewrites of legacy systems routinely overrun and fail to reach parity.
+  This agent plans the alternative: replacing a legacy system slice by slice while it
+  keeps running. It maps the current system's capabilities, seams, and data
+  ownership, picks the first slices by value and risk, designs the interception layer
+  and data synchronization, and produces a phased roadmap where every phase ships to
+  production, has a parity check, and can be rolled back.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [refactoring, architecture-assessment, dependency-management]
+tags: [legacy-modernization, strangler-fig, migration, seams, incremental-delivery, architecture]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/migration-patterns.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [git-history-forensics, architecture-decision-records]
+related: [code-refactoring-agent, technical-debt-assessment-agent, architecture-review-agent, database-migration-planner-agent, feature-flag-rollout-planning, dependency-upgrade-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Produces plans only from read-only analysis; never changes routing, data, or deployments. Data migration and cutover steps require explicit owner approval and a tested rollback before execution.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

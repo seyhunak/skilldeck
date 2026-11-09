@@ -1,0 +1,43 @@
+schema_version: "1.1"
+id: cicd-troubleshooting-agent
+name: CI/CD Troubleshooting Agent
+type: agent
+description: Diagnoses failing or slow CI/CD pipelines from logs and workflow config - classifies the failure, finds the first real error, and resolves caching, flaky infrastructure, runner, and environment drift issues.
+purpose: >
+  A red pipeline blocks a whole team, and the error that matters is usually buried
+  hundreds of lines above the one that is shown. This agent reads pipeline logs and
+  configuration the way an experienced build engineer does: it locates the first
+  genuine failure, classifies it as code, test, dependency, cache, environment,
+  infrastructure, or permissions, tests the hypothesis against a passing run, and
+  proposes the minimal fix plus a guard that stops it recurring. It also speeds up slow
+  pipelines by finding where time is lost.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [devops, debugging, test-generation]
+tags: [ci-cd, github-actions, gitlab-ci, build-failures, caching, flaky-tests, devops]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/failure-signatures.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [flaky-test-diagnosis, stack-trace-analysis]
+related: [dockerfile-hardening, infrastructure-as-code-review-agent, dependency-upgrade-agent, test-strategy-agent, debug-error-message-prompt, release-readiness-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Reads logs and workflow files only; never prints secret values that leak into logs, and does not re-run, cancel, or edit pipelines, rotate credentials, or change runner settings without explicit approval.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

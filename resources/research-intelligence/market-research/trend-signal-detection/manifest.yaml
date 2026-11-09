@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: trend-signal-detection
+name: Trend Signal Detection
+type: skill
+description: "Separates weak signals from hype by scoring a trend on adoption indicators - usage, spend, hiring, standards, switching - versus attention indicators. Use for trend reports and radar inputs."
+purpose: >
+  Trend reports confuse attention with adoption: press coverage and funding rounds are
+  counted as proof that customers are using something. This skill collects signals
+  across independent indicator families, weights behavioural evidence above talk, places
+  the trend on an adoption curve with stated uncertainty, and defines what to watch
+  next.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [market-research, technical-research]
+tags: [trends, weak-signals, foresight, adoption, hype-cycle]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [technology-radar-agent, market-intelligence-agent, regulatory-horizon-scanning-agent, weekly-competitive-intelligence-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Signal scores are structured judgements, not predictions. Proxy metrics such as stars, searches, or job posts are labelled as proxies."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

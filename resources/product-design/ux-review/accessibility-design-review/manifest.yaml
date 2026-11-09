@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: accessibility-design-review
+name: Accessibility Design Review
+type: skill
+description: "Reviews designs before build against WCAG 2.2 AA concerns that are decided at design time: color contrast, target size, focus and interaction states, text alternatives, reading order, motion, and form error design."
+purpose: >
+  Many accessibility defects are baked in at the design stage and become expensive once
+  components ship. This skill lets an agent review mockups, prototypes, and design specs
+  for the WCAG 2.2 success criteria a designer controls, compute contrast ratios
+  correctly, check state coverage, and write annotations developers need, while being
+  clear about what only code-level and assistive-technology testing can confirm.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [ux-review, design-systems]
+tags: [accessibility, wcag, inclusive-design, contrast, design-review]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [frontend-accessibility-review-agent, design-system-audit-agent, usability-heuristic-review-agent, ux-copy-review]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Design-stage review only. It is not a conformance audit or certification; final conformance requires testing the built product with assistive technologies, ideally including disabled users."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

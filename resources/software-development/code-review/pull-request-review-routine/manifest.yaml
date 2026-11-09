@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: pull-request-review-routine
+name: Pull Request Review Routine
+type: routine
+description: "A reviewer's workflow for one pull request: establish context, check size and scope, review in risk order, verify tests, write labelled comments, and make an explicit approve or request-changes call."
+purpose: >
+  Ad-hoc reviews skim the diff top to bottom and miss what matters: whether the change
+  does the right thing, its riskiest paths, and its tests. This routine gives reviewers
+  a repeatable order of operations with time boxes and decision rules, so reviews are
+  faster, more consistent, and end in a clear, justified decision.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [code-review]
+tags: [code-review, pull-requests, review-workflow, quality]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: [structured-code-review]
+related: [pull-request-review-agent, code-review-feedback-prompt, error-handling-review, frontend-accessibility-review-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "The reviewer, not an assistant, approves or requests changes. Assistants may draft comments but must not post, approve or merge without the reviewer's explicit instruction."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

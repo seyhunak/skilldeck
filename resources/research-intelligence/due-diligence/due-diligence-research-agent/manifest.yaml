@@ -1,0 +1,43 @@
+schema_version: "1.1"
+id: due-diligence-research-agent
+name: Due Diligence Research Agent
+type: agent
+description: "Researches a target company from public records - corporate structure, filings, financial signals, litigation, sanctions exposure, reputation - and returns a red-flag report. Not legal advice."
+purpose: >
+  Before signing a partner, supplier, or investment, teams need a disciplined first pass
+  over public records. This agent verifies the entity, maps ownership and officers,
+  reads filings for financial signals, searches litigation, regulatory actions,
+  sanctions and adverse media, and returns a sourced red-flag register that tells
+  counsel and finance exactly what to verify. It supports, never replaces, legal and
+  financial review.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [due-diligence]
+tags: [due-diligence, company-research, red-flags, public-records, legal]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [company-profile-research, source-credibility-assessment, expert-interview-guide]
+related: [vendor-evaluation-research-routine, vendor-security-assessment-agent, financial-statement-analysis-agent, fact-checking-agent, executive-research-memo-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not legal, financial, or investment advice. Findings are research leads from public sources; sanctions hits, litigation interpretation, and any go/no-go decision require sign-off by qualified counsel and compliance. Name matches are never treated as confirmed without identifiers."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: llm-judge-rubric-design
+name: LLM Judge Rubric Design
+type: skill
+description: "Designs LLM-as-judge rubrics: criteria and anchored scales, pointwise vs pairwise setup, judge prompt structure, calibration against human labels, and controls for position, length, and self-preference bias."
+purpose: >
+  An uncalibrated LLM judge produces confident numbers that may not track what humans
+  care about. This skill turns a vague quality goal into decomposed, anchored criteria,
+  chooses the right comparison format, and requires agreement measurement against a
+  human-labeled sample before the judge is trusted for decisions, so automated
+  evaluation becomes a measured instrument rather than an opinion.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [llm-evaluation]
+tags: [llm-evaluation, llm-as-judge, rubrics, calibration, evals]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [golden-dataset-construction, hallucination-detection, llm-evaluation-agent, llm-output-critique-prompt, data-labeling-guidelines]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Evaluates model outputs the user provides; outputs may include user data, so recommends sampling from de-identified logs. Judge scores support, not replace, human review for high-stakes decisions."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

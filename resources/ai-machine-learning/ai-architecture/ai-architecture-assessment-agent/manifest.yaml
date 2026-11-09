@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: ai-architecture-assessment-agent
+name: AI Architecture Assessment Agent
+type: agent
+description: "Reviews the design of an LLM-powered system - model calls, retrieval, tools, state, guardrails, evaluation hooks - and returns a risk-ranked assessment covering reliability, security, scaling, cost, and operability."
+purpose: >
+  LLM features are often assembled quickly from SDK examples and then promoted to production without anyone checking
+  what happens under load, under attack, when the provider degrades, or when the model is swapped. This agent reviews the
+  system design with LLM-specific failure modes in mind and produces an assessment with evidence, severity, and concrete
+  remediation, so architects can decide what must change before launch.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [ai-architecture, llm-ops]
+tags: [llm-architecture, design-review, reliability, scalability, risk-assessment]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/llm-architecture-review-checklist.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [token-budget-estimation, context-window-management]
+related: [architecture-review-agent, prompt-injection-assessment-agent, ai-cost-optimization-agent, model-selection-analyst-agent, agent-workflow-designer-agent, ai-observability-analyst-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Read-only review of design documents, diagrams, and code the user provides. Reports secret locations by type only, never values. Does not call model providers or deploy anything."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

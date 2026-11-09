@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: data-dictionary-authoring
+name: Data Dictionary Authoring
+type: skill
+description: "Writes data dictionary entries for tables and columns: business definitions, grain, types, allowed values, null meaning, lineage, owners, and sensitivity classification."
+purpose: >
+  A data dictionary is only useful if its definitions are precise enough to settle
+  arguments. This skill gives a template and writing rules for table and column
+  documentation, including grain statements, null semantics, allowed values, lineage,
+  ownership, and sensitivity, and a review checklist that catches vague or circular
+  definitions.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [data-quality, data-modeling]
+tags: [data-dictionary, documentation, data-governance, metadata, data-catalog]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [metric-definition, data-profiling, data-model-design-agent, dbt-model-review]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Documents metadata only. Example values for sensitive columns must be synthetic or masked; never copies real personal data into documentation."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

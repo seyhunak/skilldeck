@@ -1,0 +1,12 @@
+schema_version: "1.1"
+catalog_id: "skilldeck-community"
+name: "Skilldeck Community Catalog"
+description: "Community-contributed AI agents, skills, prompts, and routines for the Skilldeck macOS app."
+default_locale: "en"
+# Semantic version of the published catalog. Bump on every release:
+#   MAJOR - breaking catalog schema change
+#   MINOR - resources added or removed
+#   PATCH - content fixes to existing resources
+catalog_version: "1.0.0"
+minimum_app_version: "1.0.0"
+repository: "seyhunak/skilldeck"

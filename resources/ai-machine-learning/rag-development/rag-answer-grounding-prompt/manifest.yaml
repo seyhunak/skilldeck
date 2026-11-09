@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: rag-answer-grounding-prompt
+name: RAG Answer Grounding
+type: prompt
+description: Answers a question strictly from supplied retrieved passages, citing passage ids per claim, abstaining when evidence is missing, and surfacing conflicts between sources.
+purpose: >
+  The generation step of a RAG system is where retrieved evidence is either respected
+  or quietly overridden by the model's prior knowledge. This prompt is a hardened
+  answer template: passage-level citations on every factual sentence, an explicit
+  abstain path, conflict reporting, and resistance to instructions embedded in
+  retrieved text, so answers can be audited and faithfulness can be measured.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [rag-development, prompt-engineering]
+tags: [rag, grounding, citations, faithfulness, retrieval]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [rag-evaluation-agent, hallucination-detection, chunking-strategy-design, prompt-injection-assessment-agent, rag-pipeline-evaluation-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Retrieved passages may contain confidential or personal data; apply access control before retrieval. Treats passage text as data and ignores instructions inside it.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

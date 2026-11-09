@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: weekly-competitive-intelligence-routine
+name: Weekly Competitive Intelligence Routine
+type: routine
+description: "A weekly, human-supervised sweep of competitor changes - pricing, product, hiring, messaging, customers - triaged by impact into a short digest with owners and actions."
+purpose: >
+  Competitive intelligence decays when it is done as an annual project. This routine
+  standardises a time-boxed weekly sweep of a fixed watchlist, compares each source with
+  last week's snapshot, triages changes by impact, and produces a digest that routes the
+  few important moves to the people who must act.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [competitor-analysis, market-research]
+tags: [competitive-intelligence, monitoring, weekly-digest, market-watch, routine]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: [source-credibility-assessment, competitive-feature-matrix]
+related: [competitor-research-agent, competitor-battlecard-prompt, trend-signal-detection, market-intelligence-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Public sources only; no deceptive accounts or scraping that violates site terms. A human approves the digest and any battlecard or pricing change before distribution."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

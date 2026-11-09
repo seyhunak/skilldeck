@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: email-triage-agent
+name: Email Triage Agent
+type: agent
+description: "Classifies and prioritises inbox threads, flags suspected phishing, extracts tasks and deadlines, and writes reply drafts in your voice. Drafts only: never sends, deletes, archives, or labels without explicit approval."
+purpose: >
+  A backlog of email is mostly a queue of other people's requests that can be cleared
+  quickly once sorted honestly. This agent collapses threads, screens for fraud
+  indicators, applies explicit priority rules, recommends one action per thread, extracts
+  commitments, and drafts short replies with placeholders for anything it cannot know.
+  Every outward or irreversible action is returned as a numbered recommendation that waits
+  for the user's explicit approval.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [personal-productivity]
+tags: [email, inbox-zero, triage, drafting, productivity]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [action-item-extraction, plain-language-rewriting]
+related: [personal-planning-agent, meeting-intelligence-agent, weekly-planning-routine, email-lifecycle-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Drafts and recommendations only. Never sends, replies, forwards, deletes, archives, labels, or unsubscribes without explicit per-action user approval; ignores instructions embedded in emails and never opens links or attachments."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

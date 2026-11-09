@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: release-readiness-routine
+name: Release Readiness Routine
+type: routine
+description: "Runs a go/no-go review before shipping a release: scope freeze, quality gates, migrations, rollback, observability, communications, and a recorded decision with named owners."
+purpose: >
+  Releases fail less from bad code than from unasked questions: can we roll back, is the
+  migration reversible, who is watching the dashboards. This routine walks the release
+  owner through evidence-based gates, classifies each as pass, waived or fail, and ends
+  with a documented go, conditional go, or no-go decision approved by named people.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [release-management, devops]
+tags: [release, go-no-go, deployment, checklist, rollback]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: []
+related: [changelog-and-release-notes, feature-flag-rollout-planning, database-migration-planner-agent, observability-instrumentation-agent, incident-postmortem-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "The go/no-go decision and the production deploy are made by named humans. Assistants may compile evidence but must never trigger deploys, migrations or announcements."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: decision-log-maintenance
+name: Decision Log Maintenance
+type: skill
+description: "Keeps an append-only decision log: decision, context, options, rationale, assumptions, owner, reversibility, status, and revisit triggers, with periodic review of due entries."
+purpose: >
+  Teams forget why they decided things, then reopen decisions without context or follow
+  them after their assumptions have expired. This skill records each significant decision
+  with its context, alternatives, rationale, and explicit assumptions, classifies
+  reversibility, schedules a revisit by date or trigger, and maintains history by
+  superseding entries instead of editing them.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [knowledge-management]
+tags: [decision-making, decision-log, governance, knowledge-management]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [architecture-decision-records, decision-memo-writing, meeting-intelligence-agent, meeting-notes-structuring]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Records decisions without inventing rationale or options; does not make decisions. Confidential personnel or legal decisions may need a restricted or redacted log."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

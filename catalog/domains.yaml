@@ -1,0 +1,122 @@
+# Canonical domain and use-case taxonomy.
+# Packages live at resources/<domain>/<use-case>/<resource-id>/ and the
+# use-case directory must appear in the manifest's use_cases list.
+domains:
+  - id: software-development
+    name: Software Development
+    symbol: chevron.left.forwardslash.chevron.right
+    use_cases:
+      - repository-analysis
+      - code-review
+      - debugging
+      - api-development
+      - architecture-assessment
+      - database-optimization
+      - test-generation
+      - documentation
+      - refactoring
+      - devops
+      - dependency-management
+      - performance
+      - release-management
+  - id: ai-machine-learning
+    name: AI & Machine Learning
+    symbol: brain
+    use_cases:
+      - agent-development
+      - rag-development
+      - llm-evaluation
+      - prompt-engineering
+      - model-selection
+      - ml-engineering
+      - ai-architecture
+      - ai-safety
+      - llm-ops
+  - id: research-intelligence
+    name: Research & Intelligence
+    symbol: magnifyingglass
+    use_cases:
+      - web-research
+      - competitor-analysis
+      - market-research
+      - technical-research
+      - due-diligence
+      - academic-research
+      - policy-research
+  - id: business-strategy
+    name: Business & Strategy
+    symbol: briefcase
+    use_cases:
+      - business-analysis
+      - strategic-planning
+      - process-improvement
+      - business-case-development
+      - pricing
+      - organizational-change
+      - executive-communication
+  - id: product-design
+    name: Product & Design
+    symbol: square.on.square
+    use_cases:
+      - prd-generation
+      - product-discovery
+      - ux-review
+      - user-research
+      - product-roadmapping
+      - design-systems
+      - product-analytics
+  - id: marketing-growth
+    name: Marketing & Growth
+    symbol: megaphone
+    use_cases:
+      - seo-auditing
+      - content-strategy
+      - campaign-planning
+      - growth-analysis
+      - copywriting
+      - lifecycle-marketing
+      - paid-acquisition
+      - positioning
+  - id: finance-banking
+    name: Finance & Banking
+    symbol: banknote
+    use_cases:
+      - financial-statement-analysis
+      - credit-risk-analysis
+      - financial-modelling
+      - banking-operations
+      - fraud-analysis
+      - fpa
+      - accounting-operations
+  - id: security-compliance
+    name: Security & Compliance
+    symbol: lock.shield
+    use_cases:
+      - threat-modeling
+      - security-review
+      - compliance-assessment
+      - privacy-review
+      - incident-response
+      - cloud-security
+      - identity-access
+  - id: data-analytics
+    name: Data & Analytics
+    symbol: chart.bar.xaxis
+    use_cases:
+      - sql-analysis
+      - data-quality
+      - dashboard-design
+      - analytics-interpretation
+      - data-visualization
+      - data-modeling
+      - experimentation
+  - id: productivity-knowledge
+    name: Productivity & Knowledge
+    symbol: books.vertical
+    use_cases:
+      - document-intelligence
+      - knowledge-management
+      - meeting-synthesis
+      - personal-productivity
+      - writing-assistance
+      - learning

@@ -1,0 +1,50 @@
+name: Build catalog
+
+# Rebuilds the complete catalog on the default branch and uploads it as a build
+# artifact. Publishing happens in release-catalog.yml.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "resources/**"
+      - "contributors/**"
+      - "catalog/**"
+      - "schemas/**"
+      - "scripts/**"
+      - "requirements.txt"
+      - ".github/workflows/build-catalog.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Validate and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check -r requirements.txt
+      - name: Validate full catalog
+        run: python scripts/validate_catalog.py --quiet --report validation-report.md
+      - name: Tooling tests
+        run: python -m unittest discover -s tests
+      - name: Launch gate
+        run: python scripts/check_launch_catalog.py
+      - name: Build catalog
+        run: python scripts/build_catalog.py
+      - name: Quality report
+        run: |
+          python scripts/quality_report.py --out dist/quality-report.md
+          head -n 20 dist/quality-report.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: skilldeck-catalog
+          path: dist/
+          retention-days: 30

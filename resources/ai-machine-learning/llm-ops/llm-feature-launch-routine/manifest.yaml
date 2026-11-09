@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: llm-feature-launch-routine
+name: LLM Feature Launch Routine
+type: routine
+description: Takes an LLM feature from a measured eval baseline through launch criteria, shadow and canary stages, and monitored ramp to general availability, with rollback triggers at each stage.
+purpose: >
+  LLM features fail in production in ways unit tests never see: quality drift on real
+  traffic, cost blowouts from long inputs, latency tails, and safety incidents from
+  inputs nobody imagined. This routine standardizes the path from "the demo works"
+  to general availability: written launch criteria, an eval baseline, staged exposure
+  with explicit go/no-go gates, and a rollback plan rehearsed before it is needed.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [llm-ops, llm-evaluation, ai-safety]
+tags: [launch, rollout, canary, evals, llm-ops, monitoring]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: []
+related: [llm-evaluation-agent, ai-observability-analyst-agent, token-budget-estimation, ai-guardrails-design-agent, eval-test-case-generator-prompt, model-upgrade-regression-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Production traces may contain user personal data; sample and review them under your data policy. Every stage advance and rollback decision requires a named human owner.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

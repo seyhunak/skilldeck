@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: seo-audit-agent
+name: SEO Audit Agent
+type: agent
+description: "Audits a website across technical SEO, on-page, content quality, and links, then returns an evidence-backed findings register with an impact-by-effort prioritized fix plan."
+purpose: >
+  Most SEO audits are tool exports with hundreds of undifferentiated warnings. This agent
+  works through crawl data, Search Console exports, and page samples the way a senior SEO
+  consultant would: it confirms each issue against evidence, estimates how many URLs and
+  how much traffic it affects, separates indexation blockers from cosmetic warnings, and
+  hands back a short, sequenced fix plan that engineering and content teams can actually
+  ship.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [seo-auditing, content-strategy]
+tags: [seo, technical-seo, site-audit, on-page-seo, link-analysis, search-console]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [technical-seo-crawl-analysis, on-page-seo-optimization, keyword-research]
+related: [monthly-seo-health-check-routine, content-strategy-agent, content-brief-creation]
+featured: true
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Read-only analysis of supplied exports and, only when the user permits, fetching public pages of the user's own site. Never changes the site, submits sitemaps, files disavows, or contacts other sites."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

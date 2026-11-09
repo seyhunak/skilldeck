@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: structured-code-review
+name: Structured Code Review
+type: skill
+description: "Checklist-driven review of a diff with fixed severity levels (blocker to nit) and a comment format that is specific, actionable, and kind."
+purpose: >
+  Ad-hoc reviews over-index on style and miss correctness, security, and data risks.
+  This skill fixes the order of attention, defines severities so verdicts are consistent
+  across reviewers, and requires every serious finding to be verified and paired with a
+  concrete suggestion.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [code-review]
+tags: [code-review, pull-requests, quality, checklist]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [pull-request-review-agent, error-handling-review, code-review-feedback-prompt, pull-request-review-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Produces review text only; never posts comments, approves, or merges without explicit human instruction."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: monthly-seo-health-check-routine
+name: Monthly SEO Health Check Routine
+type: routine
+description: "A monthly, human-run checklist to review organic performance, indexing coverage, crawl health, Core Web Vitals, and top-page changes, ending in a short dated issue log and fix tickets."
+purpose: >
+  SEO regressions usually come from releases nobody connected to search: a noindex on a
+  template, a broken redirect map, a slow new component. A fixed monthly review of the
+  same data sources, compared month over month, catches them while they are cheap to fix
+  and creates a historical record.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [seo-auditing]
+tags: [seo, health-check, monitoring, search-console, core-web-vitals]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: [technical-seo-crawl-analysis]
+related: [seo-audit-agent, on-page-seo-optimization, keyword-research]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Uses the team's own analytics, Search Console, and crawler. Read-only; any change to robots, redirects, or templates goes through normal engineering review."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

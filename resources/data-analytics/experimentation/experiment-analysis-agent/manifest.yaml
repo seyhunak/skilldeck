@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: experiment-analysis-agent
+name: Experiment Analysis Agent
+type: agent
+description: "Analyzes A/B test results end to end: SRM and data-validity checks, primary and guardrail metrics, variance reduction (CUPED), intervals, and a ship/no-ship recommendation."
+purpose: >
+  A/B test readouts are often decided by a single p-value on a dashboard. This agent
+  checks the experiment is trustworthy before reading results (sample ratio mismatch,
+  assignment, exposure), analyzes the pre-registered primary metric with the right
+  test and interval, applies variance reduction where valid, reviews guardrails and
+  segments carefully, and returns a decision memo that separates evidence from
+  judgement.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [experimentation, analytics-interpretation]
+tags: [ab-testing, experimentation, statistics, srm, cuped, decision-making]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/validity-checks.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [statistical-significance-testing, metric-definition]
+related: [cohort-retention-analysis-agent, ml-experiment-review-agent, product-discovery-agent, insight-narrative-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Analyzes aggregate or user-level experiment data read-only. Never changes experiment allocation or feature flags; the ship decision belongs to the accountable human owner."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

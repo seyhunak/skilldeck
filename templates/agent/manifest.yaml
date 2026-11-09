@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: your-agent-id                      # lowercase kebab-case, must match the directory name
+name: Your Agent Name
+type: agent
+description: One or two sentences (30-300 chars) on the specific task this agent performs and what it produces.
+purpose: >
+  A short paragraph (60-800 chars) explaining the problem this agent solves,
+  who it is for, and why its output is useful.
+version: 1.0.0
+author:
+  name: Your Name
+  github: octocat                       # your GitHub username; used for attribution
+license: MIT
+domain: software-development            # an id from catalog/domains.yaml
+use_cases:                              # ids from that domain; the first is usually the directory name
+  - repository-analysis
+tags: [codebase, architecture]
+created: "2026-01-01"
+updated: "2026-01-01"
+content:
+  entrypoint: agent.md
+  files: []                             # every other file in the package, e.g. references/checklist.md
+compatibility:                          # never exceed catalog/compatibility.yaml
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: []                        # resource ids this agent needs (usually skills)
+related: []                             # resource ids users may also want
+featured: false                         # maintainers set this
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: State data boundaries and actions that require human approval.
+status: submitted                       # maintainers change this to approved on merge
+tested: false
+tested_with: []
+changelog:
+  - "1.0.0: Initial submission."

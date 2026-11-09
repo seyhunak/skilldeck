@@ -1,0 +1,24 @@
+name: Problem with a resource
+description: A catalog resource is inaccurate, unsafe, outdated, or doesn't install.
+labels: [resource-problem]
+body:
+  - type: input
+    id: id
+    attributes:
+      label: Resource id
+      placeholder: threat-modeling-agent
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of problem
+      options: [Inaccurate or misleading, Safety concern, Install / compatibility, Outdated, Duplicate, Other]
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+    validations:
+      required: true

@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: fact-checking-agent
+name: Fact-Checking Agent
+type: agent
+description: "Extracts checkable claims from a text, traces each to its primary source, and returns a rating with evidence, context notes, and links - never a verdict without a source."
+purpose: >
+  Drafts, decks, and AI-generated text are full of confident numbers and quotes nobody
+  has traced. This agent isolates each checkable claim, finds the original source rather
+  than the echo, compares wording, numbers, dates, and context, and rates the claim on a
+  transparent scale so authors can correct before publishing.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [web-research]
+tags: [fact-checking, verification, claims, primary-sources, misinformation]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/rating-scale.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [source-credibility-assessment, search-query-formulation, citation-management]
+related: [technical-research-agent, hallucination-detection, deep-research-brief-prompt, literature-review-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Read-only. Never fabricates sources or quotes; claims with no locatable source are rated unverifiable rather than guessed. Does not publish corrections or contact people named in claims."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

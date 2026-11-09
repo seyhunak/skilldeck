@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: investment-memo-prompt
+name: Investment Memo
+type: prompt
+description: "Structures diligence and valuation material into a committee memo with falsifiable thesis, bear case, valuation sensitivity, risk register, diligence gaps, and cited facts, without recommending a trade."
+purpose: >
+  Investment committees decide better when memos separate evidence from advocacy. This
+  prompt organizes supplied material into a rigorous memo with testable thesis statements,
+  an equally specific bear case, cited facts, and explicit diligence gaps, and frames the
+  output as deliberation material rather than advice.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [financial-modelling]
+tags: [investment, investment-memo, private-equity, due-diligence, valuation]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [dcf-valuation, financial-statement-analysis-agent, earnings-call-analysis, decision-memo-writing]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not investment, legal, or tax advice and never a buy or sell recommendation; committee decisions and external communications require qualified human review. Facts must cite supplied sources; gaps are labelled, not filled."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: chart-selection
+name: Chart Selection
+type: skill
+description: "Chooses the right chart for an analytical question based on the comparison being made, data shape, and audience, and specifies encoding, scale, and annotation rules."
+purpose: >
+  Most misleading charts are not malicious; they are the wrong form for the question.
+  This skill maps the question type (change over time, ranking, part-to-whole,
+  distribution, relationship, deviation) to chart forms that support accurate
+  perception, and adds the scale, ordering, and labeling rules that keep the chart
+  honest.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [data-visualization, dashboard-design]
+tags: [data-visualization, charts, dashboards, storytelling, perception]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [bi-dashboard-specification-agent, insight-narrative-prompt, metric-definition, cohort-retention-analysis-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Advisory only; produces chart specifications, not rendered images or connections to BI tools."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

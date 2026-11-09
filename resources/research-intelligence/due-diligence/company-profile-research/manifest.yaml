@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: company-profile-research
+name: Company Profile Research
+type: skill
+description: "Builds a sourced company profile from public records - legal entity, ownership, leadership, products, financial signals, footprint, and news - with a source and date on every field."
+purpose: >
+  A reliable company profile is the base layer for sales, partnership, vendor, and
+  diligence work, yet most profiles mix up legal entities and copy unsourced figures
+  from aggregator sites. This skill pins down the exact entity first, pulls each field
+  from the most authoritative public source available, and records gaps instead of
+  filling them.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [due-diligence, competitor-analysis]
+tags: [company-research, public-records, osint, corporate-profile, due-diligence]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [due-diligence-research-agent, competitor-research-agent, vendor-evaluation-research-routine, source-credibility-assessment]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: true
+  notes: "Public sources only. Records personal data about officers only to the extent it appears in official registers and is needed; no home addresses, family details, or social media profiling of individuals."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

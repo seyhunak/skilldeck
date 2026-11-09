@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: dockerfile-hardening
+name: Dockerfile Hardening
+type: skill
+description: "Hardens Dockerfiles with multi-stage builds, digest-pinned bases, non-root users, minimal runtimes, BuildKit secrets, cache-friendly layers, and .dockerignore."
+purpose: >
+  Default container images ship build tools, run as root, and sometimes leak secrets
+  into layers. This skill applies a short list of high-value controls, explains each
+  trade-off (such as losing a shell in distroless images), and verifies results with
+  image history, user checks, and a vulnerability scan.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [devops]
+tags: [docker, containers, security, devops, supply-chain]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [infrastructure-as-code-review-agent, cicd-troubleshooting-agent, dependency-upgrade-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Inspects build files that may reference secrets; never prints secret values and recommends BuildKit secret mounts instead of build args."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

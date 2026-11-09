@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: prompt-injection-assessment-agent
+name: Prompt Injection Assessment Agent
+type: agent
+description: "Assesses an LLM application for direct and indirect prompt injection: maps untrusted input sources, tool permissions, and data exfiltration paths, then rates exploitability and recommends layered mitigations."
+purpose: >
+  Prompt injection is an architectural problem, not a wording problem: any untrusted text that reaches a model with
+  access to private data and an outbound channel can turn the model against its user. This agent maps where untrusted
+  content enters, what the model can read and do, and how data could leave, then designs authorized test cases and ranks
+  findings so teams fix the highest-impact paths first.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [ai-safety]
+tags: [prompt-injection, llm-security, ai-safety, threat-assessment, data-exfiltration]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/injection-test-matrix.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [jailbreak-red-teaming]
+related: [ai-guardrails-design-agent, threat-modeling-agent, application-security-audit-agent, mcp-server-design-agent, stride-threat-enumeration]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "For authorized assessment of systems the user owns or is permitted to test. Test payloads are benign canaries; never exfiltrate real data, target third-party systems, or run tests against production without written approval from the system owner."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

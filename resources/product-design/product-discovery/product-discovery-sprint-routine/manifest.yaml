@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: product-discovery-sprint-routine
+name: Product Discovery Sprint Routine
+type: routine
+description: "A supervised two-week discovery cycle: frame the outcome, map assumptions, run interviews and lightweight experiments, synthesize evidence, and end with a documented build, pivot, or stop decision."
+purpose: >
+  Discovery without a cadence drifts into endless research or collapses into building
+  the first idea. This routine gives a product trio a repeatable two-week cycle with
+  fixed checkpoints, pre-committed evidence thresholds, and a decision review, so each
+  cycle ends with a clear, documented choice backed by what customers actually did and
+  said.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [product-discovery, user-research]
+tags: [product-discovery, discovery-sprint, product-trio, experiments, cadence]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: []
+related: [product-discovery-agent, opportunity-solution-tree, user-interview-script-prompt, ux-research-synthesis-agent, ab-test-design]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Involves contact with real customers and their data. Participant consent, data handling, and any test that exposes users to unreleased offers or prices require explicit human approval."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

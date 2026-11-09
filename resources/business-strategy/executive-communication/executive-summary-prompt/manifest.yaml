@@ -1,0 +1,37 @@
+schema_version: "1.1"
+id: executive-summary-prompt
+name: Executive Summary
+type: prompt
+description: Condenses a long report, proposal, or analysis into a one-page, decision-ready executive summary that leads with the answer, the ask, and the evidence that matters.
+purpose: >
+  Senior readers decide from the first page. This prompt turns a long document into a summary organised by the pyramid principle - answer first, then supporting points, then the decision or action required - while preserving numbers exactly, flagging gaps, and never adding claims that are not in the source.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [executive-communication]
+tags: [executive-summary, summarization, executive-communication, decision-support, business-writing]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [decision-memo-writing, board-update-drafting-agent, strategy-options-evaluation-prompt, long-document-analysis-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Summarises only the supplied document; must not add facts, figures, or conclusions absent from the source, and flags confidential material for the user to handle.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

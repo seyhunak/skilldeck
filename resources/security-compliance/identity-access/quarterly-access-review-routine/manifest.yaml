@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: quarterly-access-review-routine
+name: "Quarterly Access Review Routine"
+type: routine
+description: "A human-supervised quarterly user access review: scope in-scope systems, pull and reconcile account exports, route exceptions to owners, record decisions, verify removals, and package audit evidence."
+purpose: >
+  Auditors test that access reviews happen on schedule, cover every in-scope system, are
+  performed by the right reviewers, and result in timely removals. This routine
+  standardises the quarter's workflow so the review is complete, the evidence is
+  consistent, and revocations are verified rather than assumed.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [identity-access, compliance-assessment]
+tags: [access-review, user-access-review, soc-2, iso-27001, identity-governance]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: [access-review]
+related: [compliance-gap-analysis-agent, security-log-analysis, security-policy-writing]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not legal or audit advice. Access removals and exceptions require approval by system owners and managers, and the completed review needs sign-off by the control owner. Account exports contain personal data: store evidence in the approved restricted location and never include passwords or credential material."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

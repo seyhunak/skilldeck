@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: campaign-launch-routine
+name: Campaign Launch Routine
+type: routine
+description: "A human-supervised pre-launch, launch-day, and first-week routine for marketing campaigns: brief sign-off, tracking QA, asset and policy checks, staged go-live, and early monitoring."
+purpose: >
+  Campaigns lose money in their first days to broken tracking, wrong audiences, mismatched
+  landing pages, and unapproved claims. This routine sequences the checks that prevent
+  those failures, defines who approves each gate, and sets early-warning thresholds so
+  problems are caught before the budget is spent.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [campaign-planning, paid-acquisition, lifecycle-marketing]
+tags: [campaign-launch, go-to-market, tracking-qa, launch-checklist, marketing-ops]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: []
+related: [campaign-performance-analyst-agent, marketing-attribution-analysis, ad-copy-variations-prompt, brand-voice-guardian-agent, feature-launch-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Every go-live, budget commitment, and external send requires named human approval. The routine is guidance and does not operate ad or email platforms."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

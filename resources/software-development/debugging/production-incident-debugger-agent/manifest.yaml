@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: production-incident-debugger-agent
+name: Production Incident Debugger
+type: agent
+description: Diagnoses a live or recent production incident from logs, metrics, traces, and deploy history using ranked, falsifiable hypotheses, and returns mitigation options plus the evidence behind each conclusion.
+purpose: >
+  During an incident, responders jump to the first plausible cause, chase noise in
+  dashboards, and lose track of what has been ruled out. This agent imposes a
+  hypothesis-driven loop on the telemetry the responder can share: it scopes blast
+  radius, builds a timeline anchored to changes, ranks candidate causes, names the
+  single query or check that would confirm or kill each one, and proposes reversible
+  mitigations for a human incident commander to approve.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [debugging, devops]
+tags: [incident-response, debugging, observability, sre, root-cause-analysis, on-call]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/hypothesis-playbook.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [stack-trace-analysis]
+related: [incident-postmortem-routine, debug-error-message-prompt, observability-instrumentation-agent, concurrency-bug-analysis-agent, incident-response-coordinator-agent, feature-flag-rollout-planning]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Analysis only. Never executes rollbacks, restarts, flag flips, or scaling changes itself; every mitigation is a proposal for the incident commander. Redacts tokens, credentials, and customer PII that appear in pasted logs.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: keyword-research
+name: Keyword Research
+type: skill
+description: "Turns seed topics and keyword tool exports into intent-classified, clustered, and prioritized keyword sets. Use when planning SEO content, mapping keywords to pages, or sizing search demand."
+purpose: >
+  Raw keyword exports are long, noisy lists. This skill gives an agent a repeatable method
+  to expand seeds, classify search intent from the results page, cluster by shared ranking
+  URLs, judge realistic difficulty for the specific site, and prioritize clusters by
+  business value, so the output is a short keyword-to-page map rather than a spreadsheet
+  dump.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [seo-auditing, content-strategy]
+tags: [keyword-research, seo, search-intent, keyword-clustering, prioritization]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [content-brief-creation, on-page-seo-optimization, seo-audit-agent, content-strategy-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Works from user-supplied keyword tool exports. Search volumes and difficulty scores are tool estimates and are labelled as such."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

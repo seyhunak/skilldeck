@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: journal-entry-review
+name: Journal Entry Review
+type: skill
+description: "Tests journal entry populations for completeness and risk criteria (post-close, off-hours, round amounts, odd account pairs, self-approval, quick reversals), scores and selects entries, and tracks support requests."
+purpose: >
+  Management override of controls tends to appear in manual journals. This skill applies
+  documented, weighted risk criteria to a complete journal population, selects entries for
+  follow-up with a stated rationale, and summarizes control observations, so reviewers
+  focus on what matters without implying wrongdoing.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [accounting-operations]
+tags: [journal-entries, internal-controls, audit, month-end, sox]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [financial-reconciliation-agent, month-end-close-routine, fraud-pattern-investigation-agent, access-review]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not audit, accounting, or legal advice; flags are leads, not findings of wrongdoing, and conclusions or disciplinary steps need qualified human sign-off. Never posts or edits entries; users are referenced by ID or role."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

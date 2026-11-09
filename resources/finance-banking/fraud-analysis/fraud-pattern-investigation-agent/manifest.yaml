@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: fraud-pattern-investigation-agent
+name: Fraud Pattern Investigation Agent
+type: agent
+description: "Finds and explains suspicious patterns in transaction and case data through anomaly profiling, velocity tests, link analysis, and typology mapping, returning evidence-rated leads for human fraud investigators."
+purpose: >
+  Fraud teams need to know what pattern sits behind a loss spike and which leads deserve
+  investigator time. This agent profiles anomalies against a baseline, links entities
+  through shared attributes, maps patterns to known typologies with supporting and
+  contradicting evidence, and suggests rules to back-test, without making determinations
+  about anyone.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [fraud-analysis, banking-operations]
+tags: [fraud-detection, typologies, link-analysis, investigations, transaction-monitoring]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [journal-entry-review]
+related: [kyc-document-review, aml-alert-review-agent, financial-reconciliation-agent, banking-operations-analyst-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Investigative support only, never a fraud determination or legal advice; customer actions, reports, and disciplinary steps require authorized investigators and legal/compliance sign-off. No tipping-off, pseudonymized data, no protected characteristics."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

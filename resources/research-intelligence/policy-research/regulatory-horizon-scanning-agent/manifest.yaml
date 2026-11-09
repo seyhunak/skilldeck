@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: regulatory-horizon-scanning-agent
+name: Regulatory Horizon Scanning Agent
+type: agent
+description: "Tracks proposed and upcoming regulation affecting a sector or product across jurisdictions, with stage, key dates, likely impact, and confidence, sourced to official texts."
+purpose: >
+  Regulation usually arrives with years of warning that organizations fail to notice
+  until a deadline is close. This agent scans official legislative and regulatory
+  sources for a defined scope, places each item on a stage-and-date timeline, summarises
+  what it would require, rates relevance and likelihood, and hands compliance and legal
+  teams a watchlist they can verify.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [policy-research]
+tags: [regulation, policy-research, horizon-scanning, compliance-planning, public-policy]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [source-credibility-assessment, trend-signal-detection, citation-management]
+related: [compliance-gap-analysis-agent, privacy-impact-assessment-agent, market-intelligence-agent, fact-checking-agent, search-query-formulation]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  professional_advice_disclaimer: true
+  notes: "Not legal advice. Summarises public regulatory developments and their possible relevance; interpretation of obligations, applicability, and compliance deadlines must be confirmed by qualified legal or compliance professionals."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

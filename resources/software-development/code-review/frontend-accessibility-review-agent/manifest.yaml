@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: frontend-accessibility-review-agent
+name: Frontend Accessibility Review Agent
+type: agent
+description: Reviews frontend component code (HTML, JSX, Vue, Svelte, templates, CSS) against WCAG 2.2 Level AA, covering semantics, ARIA, keyboard and focus behaviour, names and states, and returns line-level findings with fixes and manual test steps.
+purpose: >
+  Automated scanners catch only part of the accessibility failures in a UI, and design
+  reviews never see the code that ships. This agent reads components the way a screen
+  reader and a keyboard user will experience them, checks them against specific WCAG 2.2
+  success criteria and WAI-ARIA Authoring Practices patterns, and returns
+  severity-ranked findings with the criterion, the offending code, a corrected
+  snippet, and how to verify the fix with assistive technology.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [code-review]
+tags: [accessibility, wcag, aria, frontend, code-review, keyboard-navigation]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/component-patterns.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [structured-code-review]
+related: [accessibility-design-review, pull-request-review-agent, unit-test-design, test-strategy-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Read-only code review. Does not certify legal conformance (ADA, EN 301 549, Section 508); findings support but do not replace testing by people who use assistive technology and a formal audit where one is required.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

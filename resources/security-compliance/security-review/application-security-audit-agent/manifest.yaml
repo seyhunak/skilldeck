@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: application-security-audit-agent
+name: "Application Security Audit Agent"
+type: agent
+description: "Audits an application's source code and configuration against OWASP ASVS 4.0.3 requirements and returns a requirement-mapped findings report with evidence, severity, and remediation."
+purpose: >
+  Teams preparing for a release, a penetration test, or a customer security review need to
+  know which ASVS requirements their application meets and where it falls short. This
+  agent performs a read-only, requirement-by-requirement code and configuration audit at a
+  chosen ASVS level and produces findings an engineer can verify and fix, plus a coverage
+  statement showing what was and was not assessed.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [security-review, threat-modeling]
+tags: [appsec, owasp-asvs, code-audit, secure-code-review, vulnerability-assessment]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/asvs-chapter-guide.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [owasp-top-10-review, secrets-exposure-review, dependency-vulnerability-triage]
+related: [threat-modeling-agent, security-finding-writeup-prompt, pull-request-review-agent, error-handling-review]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not professional security or legal advice; a qualified security reviewer must confirm findings and severities before they drive release or contractual decisions. Read-only static review of code the user owns or is authorised to assess. Never runs exploits, never produces weaponised payloads, never prints secret values (location and type only). Does not certify ASVS conformance."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

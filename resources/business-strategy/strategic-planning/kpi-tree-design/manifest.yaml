@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: kpi-tree-design
+name: KPI Tree Design
+type: skill
+description: Decomposes a north-star or top-level business metric into a tree of mathematically linked input drivers, separates controllable levers from outcomes, and assigns owners and definitions to each node.
+purpose: >
+  Teams track dozens of metrics without knowing how they connect to the outcome that
+  matters, so effort goes to whatever is easiest to move. This skill builds a driver
+  tree whose branches combine by explicit arithmetic (sums, products, ratios), ending
+  in leading indicators that specific teams can influence, so planning, target setting,
+  and variance diagnosis all share one coherent model.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [strategic-planning, business-analysis]
+tags: [kpi-tree, driver-tree, north-star-metric, metrics-design, performance-management]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [okr-design-agent, strategic-planning-agent, metric-anomaly-investigation-agent, unit-economics-analysis, bi-dashboard-specification-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Designs metric structures; does not access live data. Metrics used for individual performance evaluation need HR and management review.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

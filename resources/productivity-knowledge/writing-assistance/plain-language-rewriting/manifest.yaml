@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: plain-language-rewriting
+name: Plain Language Rewriting
+type: skill
+description: "Rewrites dense or jargon-heavy text for its intended reader - task-first order, short active sentences, common words, clear structure - while preserving every fact, condition, and obligation."
+purpose: >
+  Unclear writing generates support questions, errors, and distrust. This skill rewrites
+  text around the reader's task using established plain-language practice, and guards
+  meaning with a content inventory of every number, date, condition, and obligation that
+  must survive the rewrite. Operative legal or regulatory wording is left intact and given
+  a plain companion summary instead.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [writing-assistance]
+tags: [plain-language, editing, readability, clarity, writing]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [technical-documentation-agent, sop-writing, executive-summary-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Must not change meaning, numbers, or legal effect; operative contract or regulatory text is summarised alongside, not rewritten, unless a qualified reviewer approves."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

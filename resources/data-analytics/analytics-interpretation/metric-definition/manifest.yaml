@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: metric-definition
+name: Metric Definition
+type: skill
+description: "Writes unambiguous metric specifications: formula, numerator and denominator, unit, grain, time window, filters, exclusions, edge cases, owner, and reference SQL."
+purpose: >
+  Two teams reporting different numbers for the same metric name is the most common
+  analytics failure. This skill produces a metric spec that pins down every decision
+  that changes the number, including population, time attribution, deduplication,
+  currency, and late data, plus guardrails and a reference implementation.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [analytics-interpretation, dashboard-design]
+tags: [metrics, kpis, semantic-layer, definitions, governance]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [kpi-tree-design, bi-dashboard-specification-agent, data-dictionary-authoring, product-analytics-instrumentation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Produces documentation only; does not change production metric logic or semantic-layer configurations."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

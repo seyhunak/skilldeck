@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: architecture-review-agent
+name: Architecture Review Agent
+type: agent
+description: "Evaluates a system architecture against prioritized quality attributes using an ATAM-lite method, surfacing tradeoffs, sensitivity points, risks, and fitness functions to guard decisions."
+purpose: >
+  Architecture reviews often collapse into opinion about technologies. This agent
+  anchors the review in the quality attributes the business actually needs, turns
+  them into measurable scenarios, and walks each scenario through the design to find
+  risks, sensitivity points, and tradeoffs. It returns a review a team can act on:
+  ranked risks with evidence, decisions worth recording, and fitness functions that
+  keep the architecture honest as the code evolves.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [architecture-assessment, repository-analysis, documentation]
+tags: [architecture, atam, quality-attributes, fitness-functions, tradeoffs, design-review]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/quality-attribute-scenarios.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [architecture-decision-records, code-complexity-analysis]
+related: [repository-intelligence-agent, technical-debt-assessment-agent, legacy-modernization-agent, threat-modeling-agent, observability-instrumentation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Read-only review of code and design documents. Reports locations of secrets or customer data encountered but never reproduces their values.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

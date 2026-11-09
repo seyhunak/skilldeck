@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: executive-research-memo-prompt
+name: Executive Research Memo
+type: prompt
+description: "Turns research findings into a two-page executive memo: answer first, key evidence with confidence, implications, options, risks, and the decision requested."
+purpose: >
+  Good research often dies in a forty-page appendix. This prompt converts findings into
+  a memo an executive can act on in five minutes: bottom line up front, the few facts
+  that drive it with stated confidence, what it means, the options, and exactly what
+  decision or input is needed.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [market-research, due-diligence]
+tags: [executive-memo, research-communication, bluf, decision-support, writing]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [decision-memo-writing, executive-summary-prompt, market-intelligence-agent, due-diligence-research-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Uses only the findings provided; instructs the model to preserve uncertainty and caveats rather than overstate conclusions."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

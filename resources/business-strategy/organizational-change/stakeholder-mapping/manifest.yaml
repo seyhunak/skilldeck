@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: stakeholder-mapping
+name: Stakeholder Mapping
+type: skill
+description: Identifies stakeholders for an initiative, positions them on power/interest and current-versus-needed support, and turns the map into an engagement strategy with owners, messages, and cadence.
+purpose: >
+  Initiatives stall when an influential stakeholder is discovered late or engaged with
+  the wrong message. This skill produces a structured stakeholder register and
+  power/interest grid, adds a current-versus-desired commitment assessment, and derives
+  a practical engagement plan, so effort goes to the people whose support the
+  initiative actually depends on.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [organizational-change, executive-communication]
+tags: [stakeholder-analysis, power-interest-grid, engagement-plan, influence, change-management]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [change-management-planning-agent, raci-matrix-design, partnership-evaluation-agent, operating-model-analyst-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Stakeholder assessments describe professional positions and interests; keep them private to the project team and never record personal or protected characteristics.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: hybrid-search-tuning
+name: Hybrid Search Tuning
+type: skill
+description: "Tunes hybrid lexical plus vector retrieval: BM25 configuration, fusion with reciprocal rank fusion or weighted scores, candidate depth, cross-encoder reranking, and weight sweeps measured on a labeled query set."
+purpose: >
+  Pure vector search misses exact identifiers and rare terms, while pure BM25 misses
+  paraphrase. Hybrid retrieval fixes both only when fusion, candidate depth, and
+  reranking are tuned on real queries. This skill gives a measured procedure for
+  choosing a fusion method and parameters, adding reranking where it pays off, and
+  checking latency, so hybrid search improves recall without guesswork.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [rag-development]
+tags: [hybrid-search, bm25, rrf, reranking, rag, retrieval]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: [retrieval-quality-metrics]
+related: [chunking-strategy-design, vector-database-evaluation-agent, embedding-strategy-agent, rag-evaluation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Operates on the user's own index and query logs; recommends anonymizing logged queries before labeling. No network access required."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

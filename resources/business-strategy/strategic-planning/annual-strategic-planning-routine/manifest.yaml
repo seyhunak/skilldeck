@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: annual-strategic-planning-routine
+name: Annual Strategic Planning Routine
+type: routine
+description: A human-led annual planning cycle - strategy refresh from evidence, diagnosis and choices, scenario stress test, priorities and resource allocation, targets and OKRs, budget alignment, and communication - with gates for leadership approval.
+purpose: >
+  Annual planning frequently collapses into a budgeting exercise that rolls last
+  year's plan forward. This routine sequences the cycle so that strategy comes before
+  numbers: a fact base and diagnosis refresh, explicit strategic choices tested against
+  scenarios, a short list of funded priorities, then targets, OKRs, and budgets that
+  follow from those choices, with clear decision gates and owners.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [strategic-planning, executive-communication]
+tags: [annual-planning, strategy-cycle, resource-allocation, planning-calendar, budgeting, okr]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: [scenario-planning, industry-structure-analysis, kpi-tree-design]
+related: [strategic-planning-agent, okr-design-agent, quarterly-business-review-routine, strategy-options-evaluation-prompt, stakeholder-mapping]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Human-supervised planning guidance; assistants may prepare analyses and drafts, but strategic choices, budgets, and headcount plans are approved only by leadership and, where required, the board.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

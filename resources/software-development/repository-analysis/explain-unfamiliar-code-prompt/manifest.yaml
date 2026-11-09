@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: explain-unfamiliar-code-prompt
+name: Explain Unfamiliar Code
+type: prompt
+description: "Explains a pasted code excerpt in layers: one-line summary, walkthrough, data and control flow, non-obvious behaviour, risks, and open questions, calibrated to the reader's experience."
+purpose: >
+  Reading someone else's code is slow when explanations either stay at the surface or
+  drown the reader in line-by-line narration. This prompt forces a layered explanation
+  that starts with intent, then mechanics, then the subtle parts (side effects, error
+  paths, concurrency, idioms), and separates what the code shows from what the model is
+  guessing about its surroundings.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [repository-analysis, documentation]
+tags: [code-comprehension, onboarding, code-reading, explanation]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [repository-intelligence-agent, new-codebase-onboarding-routine, stack-trace-analysis, code-complexity-analysis, git-history-forensics]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Pasted code may contain secrets or proprietary logic; redact credentials and internal hostnames before sharing it with a hosted model."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

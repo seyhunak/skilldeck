@@ -1,0 +1,261 @@
+# id | type | domain | use-case dir | Name — focus (what makes it distinct)
+## software-development (group SD-A: agents; group SD-B: skills/prompts/routines)
+repository-intelligence-agent|agent|software-development|repository-analysis|Repository Intelligence Agent — DONE (exemplar)
+architecture-review-agent|agent|software-development|architecture-assessment|Architecture Review Agent — evaluate architecture against quality attributes (ATAM-lite), tradeoffs, fitness functions
+database-performance-agent|agent|software-development|database-optimization|Database Performance Analysis Agent — slow queries, EXPLAIN plans, indexing, locking, connection pools
+api-design-review-agent|agent|software-development|api-development|API Design Review Agent — REST/GraphQL/gRPC contract review: naming, versioning, pagination, errors, idempotency
+code-refactoring-agent|agent|software-development|refactoring|Code Refactoring Agent — behaviour-preserving refactors with characterization tests, small safe steps
+test-strategy-agent|agent|software-development|test-generation|Test Strategy Agent — risk-based test plan, test pyramid, what to automate, coverage gaps
+pull-request-review-agent|agent|software-development|code-review|Pull Request Review Agent — diff review: correctness, security, tests, severity-ranked comments
+technical-debt-assessment-agent|agent|software-development|architecture-assessment|Technical Debt Assessment Agent — catalogue, quantify (interest/principal), prioritize debt register
+cicd-troubleshooting-agent|agent|software-development|devops|CI/CD Troubleshooting Agent — failing pipelines, log triage, caching, flaky infra, runner issues
+legacy-modernization-agent|agent|software-development|refactoring|Legacy Code Modernization Agent — strangler fig plan, seams, incremental migration roadmap
+production-incident-debugger-agent|agent|software-development|debugging|Production Incident Debugger — hypothesis-driven live incident diagnosis from logs/metrics/traces
+dependency-upgrade-agent|agent|software-development|dependency-management|Dependency Upgrade Agent — plan major version upgrades, changelog breaking changes, codemods, rollout
+performance-profiling-agent|agent|software-development|performance|Performance Profiling Agent — CPU/memory profiling interpretation, flame graphs, latency budgets
+frontend-accessibility-review-agent|agent|software-development|code-review|Frontend Accessibility Review Agent — code-level WCAG 2.2 review of components (ARIA, focus, semantics)
+database-migration-planner-agent|agent|software-development|database-optimization|Database Migration Planner — zero-downtime schema migrations, expand/contract, backfills, rollback
+infrastructure-as-code-review-agent|agent|software-development|devops|Infrastructure as Code Review Agent — Terraform/CloudFormation/K8s manifests: drift, blast radius, security, cost
+observability-instrumentation-agent|agent|software-development|devops|Observability Instrumentation Agent — design logs/metrics/traces, SLIs/SLOs, OpenTelemetry plan
+concurrency-bug-analysis-agent|agent|software-development|debugging|Concurrency Bug Analysis Agent — races, deadlocks, async ordering, actor isolation issues
+git-history-forensics|skill|software-development|repository-analysis|Git History Forensics — churn hotspots, ownership, change coupling via git log commands
+structured-code-review|skill|software-development|code-review|Structured Code Review — checklist-driven review with severity levels and comment wording
+unit-test-design|skill|software-development|test-generation|Unit Test Design — equivalence classes, boundaries, test doubles, AAA structure
+sql-query-optimization|skill|software-development|database-optimization|SQL Query Optimization — read EXPLAIN, rewrite queries, sargability, N+1
+openapi-spec-authoring|skill|software-development|api-development|OpenAPI Spec Authoring — write/lint OpenAPI 3.1 specs, schemas, examples, error models
+error-handling-review|skill|software-development|code-review|Error Handling Review — exceptions, retries, timeouts, error propagation, user-facing errors
+dockerfile-hardening|skill|software-development|devops|Dockerfile Hardening — multi-stage, non-root, pinned bases, minimal images, layer caching
+commit-message-writing|skill|software-development|documentation|Commit Message Writing — Conventional Commits, why-not-what, splitting commits
+stack-trace-analysis|skill|software-development|debugging|Stack Trace Analysis — read traces across languages, find root frame, symbolication
+flaky-test-diagnosis|skill|software-development|test-generation|Flaky Test Diagnosis — classify flakiness causes (timing, order, shared state), quarantine
+changelog-and-release-notes|skill|software-development|release-management|Changelog and Release Notes — Keep a Changelog, semver bumps, user-facing notes
+architecture-decision-records|skill|software-development|architecture-assessment|Architecture Decision Records — write ADRs (MADR), options, consequences, status lifecycle
+code-complexity-analysis|skill|software-development|architecture-assessment|Code Complexity Analysis — cyclomatic/cognitive complexity, coupling metrics, interpretation
+regex-construction-and-testing|skill|software-development|debugging|Regex Construction and Testing — build, explain, test regexes, catastrophic backtracking
+graphql-schema-review|skill|software-development|api-development|GraphQL Schema Review — nullability, pagination (connections), N+1/dataloader, deprecation
+database-index-design|skill|software-development|database-optimization|Database Index Design — composite index ordering, covering, partial indexes, write cost
+readme-authoring|skill|software-development|documentation|README Authoring — structure, quickstart that works, badges, troubleshooting
+feature-flag-rollout-planning|skill|software-development|release-management|Feature Flag Rollout Planning — flag types, staged rollout, kill switch, flag cleanup
+explain-unfamiliar-code-prompt|prompt|software-development|repository-analysis|Explain Unfamiliar Code — layered explanation of a code excerpt
+write-tests-for-function-prompt|prompt|software-development|test-generation|Write Tests for a Function — generate thorough tests in a given framework
+debug-error-message-prompt|prompt|software-development|debugging|Debug an Error Message — triage error + context into ranked hypotheses and checks
+code-review-feedback-prompt|prompt|software-development|code-review|Code Review Feedback — turn review notes into kind, specific, actionable comments
+technical-design-doc-prompt|prompt|software-development|documentation|Technical Design Doc — draft a design doc (context, goals, non-goals, alternatives)
+pull-request-review-routine|routine|software-development|code-review|Pull Request Review Routine — reviewer workflow from context to approval
+release-readiness-routine|routine|software-development|release-management|Release Readiness Routine — go/no-go checklist before shipping
+incident-postmortem-routine|routine|software-development|debugging|Incident Postmortem Routine — blameless postmortem from timeline to action items
+new-codebase-onboarding-routine|routine|software-development|repository-analysis|New Codebase Onboarding Routine — first-week plan for a developer on a new repo
+## ai-machine-learning (group AI-A: agents; AI-B: skills/prompts/routines)
+rag-evaluation-agent|agent|ai-machine-learning|rag-development|RAG Evaluation Agent — evaluate retrieval & generation (recall@k, faithfulness), failure taxonomy
+ai-architecture-assessment-agent|agent|ai-machine-learning|ai-architecture|AI Architecture Assessment Agent — review an LLM system design: components, risks, scaling, cost
+llm-evaluation-agent|agent|ai-machine-learning|llm-evaluation|LLM Evaluation Agent — design and run eval suites, metrics, judge calibration, reporting
+agent-workflow-designer-agent|agent|ai-machine-learning|agent-development|Agent Workflow Designer — choose workflow vs agent patterns, design steps, tools, handoffs
+prompt-injection-assessment-agent|agent|ai-machine-learning|ai-safety|Prompt Injection Assessment Agent — assess LLM app for direct/indirect injection, data exfil paths
+model-selection-analyst-agent|agent|ai-machine-learning|model-selection|Model Selection Analyst — compare models on task evals, latency, cost, context, licensing
+ai-observability-analyst-agent|agent|ai-machine-learning|llm-ops|AI Observability Analyst — analyze traces/logs of LLM app, define quality/cost/latency monitors
+embedding-strategy-agent|agent|ai-machine-learning|rag-development|Embedding Strategy Agent — choose embedding models, dimensions, multilingual, re-embedding plan
+ai-cost-optimization-agent|agent|ai-machine-learning|llm-ops|AI Cost Optimization Agent — token spend analysis, caching, routing, batching, model tiering
+vector-database-evaluation-agent|agent|ai-machine-learning|rag-development|Vector Database Evaluation Agent — compare vector stores on recall/latency/filters/ops
+fine-tuning-readiness-agent|agent|ai-machine-learning|ml-engineering|Fine-Tuning Readiness Agent — decide prompt vs RAG vs fine-tune, data requirements, eval plan
+ml-experiment-review-agent|agent|ai-machine-learning|ml-engineering|ML Experiment Review Agent — review experiment design, leakage, baselines, statistical validity
+mcp-server-design-agent|agent|ai-machine-learning|agent-development|MCP Server Design Agent — design Model Context Protocol servers: tools, resources, auth, errors
+ai-guardrails-design-agent|agent|ai-machine-learning|ai-safety|AI Guardrails Design Agent — input/output policies, moderation layers, escalation, testing
+chunking-strategy-design|skill|ai-machine-learning|rag-development|Chunking Strategy Design — chunk size/overlap, structure-aware splitting, metadata
+retrieval-quality-metrics|skill|ai-machine-learning|rag-development|Retrieval Quality Metrics — compute/interpret recall@k, MRR, nDCG, labeled query sets
+llm-judge-rubric-design|skill|ai-machine-learning|llm-evaluation|LLM Judge Rubric Design — rubrics, pairwise vs pointwise, calibration vs humans, bias
+golden-dataset-construction|skill|ai-machine-learning|llm-evaluation|Golden Dataset Construction — build eval sets: coverage, edge cases, labeling, versioning
+prompt-optimization|skill|ai-machine-learning|prompt-engineering|Prompt Optimization — systematic prompt iteration against evals, ablations
+tool-schema-design|skill|ai-machine-learning|agent-development|Tool Schema Design — design function/tool definitions LLMs use reliably
+structured-output-extraction|skill|ai-machine-learning|prompt-engineering|Structured Output Extraction — JSON schema outputs, validation, repair, enums
+hallucination-detection|skill|ai-machine-learning|llm-evaluation|Hallucination Detection — claim extraction and source verification of outputs
+token-budget-estimation|skill|ai-machine-learning|llm-ops|Token Budget Estimation — estimate tokens/cost/latency per request and per month
+agent-trace-debugging|skill|ai-machine-learning|agent-development|Agent Trace Debugging — read agent transcripts, locate failure step, classify loop/tool errors
+jailbreak-red-teaming|skill|ai-machine-learning|ai-safety|Jailbreak Red Teaming — structured adversarial test plan for an LLM app (authorized testing)
+model-card-writing|skill|ai-machine-learning|ml-engineering|Model Card Writing — document intended use, data, metrics, limitations
+data-labeling-guidelines|skill|ai-machine-learning|ml-engineering|Data Labeling Guidelines — write annotation guidelines, IAA measurement, adjudication
+hybrid-search-tuning|skill|ai-machine-learning|rag-development|Hybrid Search Tuning — BM25 + vector fusion (RRF), reranking, weight tuning
+context-window-management|skill|ai-machine-learning|prompt-engineering|Context Window Management — prioritize, compress, summarize context; long-conversation memory
+system-prompt-architect-prompt|prompt|ai-machine-learning|prompt-engineering|System Prompt Architect — draft a production system prompt from requirements
+few-shot-example-generator-prompt|prompt|ai-machine-learning|prompt-engineering|Few-Shot Example Generator — create diverse, labeled few-shot examples
+rag-answer-grounding-prompt|prompt|ai-machine-learning|rag-development|RAG Answer Grounding — answer strictly from retrieved passages with citations
+eval-test-case-generator-prompt|prompt|ai-machine-learning|llm-evaluation|Eval Test Case Generator — generate eval cases incl. adversarial/edge
+llm-output-critique-prompt|prompt|ai-machine-learning|llm-evaluation|LLM Output Critique — critique an output against a rubric with scores
+llm-feature-launch-routine|routine|ai-machine-learning|llm-ops|LLM Feature Launch Routine — from eval baseline to staged rollout of an LLM feature
+rag-pipeline-evaluation-routine|routine|ai-machine-learning|rag-development|RAG Pipeline Evaluation Routine — periodic RAG quality review
+model-upgrade-regression-routine|routine|ai-machine-learning|model-selection|Model Upgrade Regression Routine — swapping model versions safely
+## research-intelligence
+competitor-research-agent|agent|research-intelligence|competitor-analysis|Competitor Research Agent — profile competitors: product, pricing, positioning, moves, evidence-graded
+market-intelligence-agent|agent|research-intelligence|market-research|Market Intelligence Agent — market structure, segments, drivers, sizing, signals
+technical-research-agent|agent|research-intelligence|technical-research|Technical Research Agent — deep-dive a technical question, compare approaches, cite primary sources
+technology-radar-agent|agent|research-intelligence|technical-research|Technology Radar Agent — assess technologies into adopt/trial/assess/hold rings with rationale
+due-diligence-research-agent|agent|research-intelligence|due-diligence|Due Diligence Research Agent — company DD: corporate, financial signals, legal, reputation, red flags
+literature-review-agent|agent|research-intelligence|academic-research|Literature Review Agent — systematic review of papers: search protocol, screening, synthesis
+patent-landscape-agent|agent|research-intelligence|technical-research|Patent Landscape Agent — map patent activity in a field (not legal advice)
+customer-voice-research-agent|agent|research-intelligence|market-research|Customer Voice Research Agent — mine reviews/forums/tickets for needs, pains, themes
+regulatory-horizon-scanning-agent|agent|research-intelligence|policy-research|Regulatory Horizon Scanning Agent — track upcoming regulation affecting a sector
+fact-checking-agent|agent|research-intelligence|web-research|Fact-Checking Agent — verify claims against primary sources, rate claims
+source-credibility-assessment|skill|research-intelligence|web-research|Source Credibility Assessment — evaluate sources (SIFT/CRAAP), bias, provenance
+search-query-formulation|skill|research-intelligence|web-research|Search Query Formulation — boolean operators, site:, filetype:, iterative refinement
+research-synthesis-matrix|skill|research-intelligence|academic-research|Research Synthesis Matrix — source-by-theme matrix to synthesize findings
+market-sizing|skill|research-intelligence|market-research|Market Sizing — TAM/SAM/SOM top-down and bottom-up with assumptions
+competitive-feature-matrix|skill|research-intelligence|competitor-analysis|Competitive Feature Matrix — build comparable capability grids with evidence
+citation-management|skill|research-intelligence|academic-research|Citation Management — consistent citations, quote vs paraphrase, link rot
+expert-interview-guide|skill|research-intelligence|due-diligence|Expert Interview Guide — design expert-network interview guides, avoid leading questions
+trend-signal-detection|skill|research-intelligence|market-research|Trend Signal Detection — weak signals, hype vs adoption indicators
+evidence-based-swot|skill|research-intelligence|competitor-analysis|Evidence-Based SWOT — SWOT where every item cites evidence, TOWS actions
+company-profile-research|skill|research-intelligence|due-diligence|Company Profile Research — build a company profile from public sources
+deep-research-brief-prompt|prompt|research-intelligence|web-research|Deep Research Brief — scope a research question into a plan
+competitor-battlecard-prompt|prompt|research-intelligence|competitor-analysis|Competitor Battlecard — sales battlecard from research notes
+research-paper-summary-prompt|prompt|research-intelligence|academic-research|Research Paper Summary — structured critical summary of a paper
+executive-research-memo-prompt|prompt|research-intelligence|market-research|Executive Research Memo — turn findings into an exec memo
+weekly-competitive-intelligence-routine|routine|research-intelligence|competitor-analysis|Weekly Competitive Intelligence Routine
+vendor-evaluation-research-routine|routine|research-intelligence|due-diligence|Vendor Evaluation Research Routine — shortlist to recommendation
+## business-strategy
+business-case-development-agent|agent|business-strategy|business-case-development|Business Case Development Agent — options, costs, benefits, NPV/payback, risks
+strategic-planning-agent|agent|business-strategy|strategic-planning|Strategic Planning Agent — diagnosis, guiding policy, coherent actions (Rumelt kernel)
+operating-model-analyst-agent|agent|business-strategy|business-analysis|Operating Model Analyst — capabilities, org, processes, governance, gaps
+process-improvement-agent|agent|business-strategy|process-improvement|Process Improvement Agent — Lean/Six Sigma DMAIC on a process
+okr-design-agent|agent|business-strategy|strategic-planning|OKR Design Agent — draft and critique OKRs, alignment, measurability
+pricing-strategy-agent|agent|business-strategy|pricing|Pricing Strategy Agent — value metrics, packaging, price testing
+partnership-evaluation-agent|agent|business-strategy|business-analysis|Partnership Evaluation Agent — evaluate partner/alliance fit, terms, risks
+change-management-planning-agent|agent|business-strategy|organizational-change|Change Management Planning Agent — ADKAR-based change plan, stakeholders, comms
+board-update-drafting-agent|agent|business-strategy|executive-communication|Board Update Drafting Agent — board/investor update from metrics and notes
+value-stream-mapping|skill|business-strategy|process-improvement|Value Stream Mapping — current/future state, lead time, waste
+stakeholder-mapping|skill|business-strategy|organizational-change|Stakeholder Mapping — power/interest, engagement strategy
+scenario-planning|skill|business-strategy|strategic-planning|Scenario Planning — 2x2 critical uncertainties, signposts
+unit-economics-analysis|skill|business-strategy|business-analysis|Unit Economics Analysis — CAC, LTV, contribution margin, payback
+raci-matrix-design|skill|business-strategy|organizational-change|RACI Matrix Design — clear accountabilities, avoid anti-patterns
+decision-memo-writing|skill|business-strategy|executive-communication|Decision Memo Writing — options, recommendation, reversibility
+risk-register-construction|skill|business-strategy|business-analysis|Risk Register Construction — likelihood/impact, owners, mitigations
+kpi-tree-design|skill|business-strategy|strategic-planning|KPI Tree Design — decompose north-star metric into drivers
+industry-structure-analysis|skill|business-strategy|strategic-planning|Industry Structure Analysis — Five Forces with evidence
+executive-summary-prompt|prompt|business-strategy|executive-communication|Executive Summary — condense a long doc into a decision-ready summary
+strategy-options-evaluation-prompt|prompt|business-strategy|strategic-planning|Strategy Options Evaluation — weighted comparison of options
+business-model-canvas-prompt|prompt|business-strategy|business-analysis|Business Model Canvas — generate and critique a canvas
+quarterly-business-review-routine|routine|business-strategy|executive-communication|Quarterly Business Review Routine
+annual-strategic-planning-routine|routine|business-strategy|strategic-planning|Annual Strategic Planning Routine
+## product-design
+prd-generation-agent|agent|product-design|prd-generation|PRD Generation Agent — problem, users, requirements, metrics, scope
+product-discovery-agent|agent|product-design|product-discovery|Product Discovery Agent — assumptions mapping, experiments, evidence
+ux-research-synthesis-agent|agent|product-design|user-research|UX Research Synthesis Agent — affinity mapping of interview data into insights
+product-roadmap-analyst-agent|agent|product-design|product-roadmapping|Product Roadmap Analyst — outcome-based roadmap critique and construction
+usability-heuristic-review-agent|agent|product-design|ux-review|Usability Heuristic Review Agent — Nielsen heuristics evaluation of screens/flows
+feature-prioritization-agent|agent|product-design|product-roadmapping|Feature Prioritization Agent — weigh backlog with frameworks and tradeoffs
+onboarding-flow-design-agent|agent|product-design|ux-review|Onboarding Flow Design Agent — activation-focused onboarding design
+design-system-audit-agent|agent|product-design|design-systems|Design System Audit Agent — tokens, components, consistency, adoption
+product-analytics-instrumentation-agent|agent|product-design|product-analytics|Product Analytics Instrumentation Agent — event taxonomy & tracking plan
+jobs-to-be-done-analysis|skill|product-design|product-discovery|Jobs-to-be-Done Analysis — job statements, forces of progress
+user-story-writing|skill|product-design|prd-generation|User Story Writing — INVEST stories, splitting
+acceptance-criteria-gherkin|skill|product-design|prd-generation|Acceptance Criteria in Gherkin — Given/When/Then scenarios
+rice-prioritization|skill|product-design|product-roadmapping|RICE Prioritization — reach, impact, confidence, effort scoring
+persona-development|skill|product-design|user-research|Persona Development — evidence-based personas, not stereotypes
+journey-mapping|skill|product-design|user-research|Journey Mapping — stages, actions, emotions, opportunities
+ux-copy-review|skill|product-design|ux-review|UX Copy Review — microcopy clarity, tone, error messages
+accessibility-design-review|skill|product-design|ux-review|Accessibility Design Review — design-stage WCAG review: contrast, targets, states
+opportunity-solution-tree|skill|product-design|product-discovery|Opportunity Solution Tree — outcome → opportunities → solutions → experiments
+user-interview-script-prompt|prompt|product-design|user-research|User Interview Script — non-leading interview script
+feature-spec-prompt|prompt|product-design|prd-generation|Feature Spec — one-page feature spec
+release-announcement-prompt|prompt|product-design|product-roadmapping|Release Announcement — customer-facing release notes
+product-discovery-sprint-routine|routine|product-design|product-discovery|Product Discovery Sprint Routine — two-week discovery cycle
+feature-launch-routine|routine|product-design|product-roadmapping|Feature Launch Routine — cross-functional launch checklist
+## marketing-growth
+seo-audit-agent|agent|marketing-growth|seo-auditing|SEO Audit Agent — technical, on-page, content, links; prioritized fixes
+content-strategy-agent|agent|marketing-growth|content-strategy|Content Strategy Agent — pillars, clusters, editorial calendar, measurement
+conversion-optimization-agent|agent|marketing-growth|growth-analysis|Conversion Optimization Agent — funnel analysis, hypotheses, test backlog
+campaign-performance-analyst-agent|agent|marketing-growth|campaign-planning|Campaign Performance Analyst — analyze campaign results across channels
+brand-voice-guardian-agent|agent|marketing-growth|copywriting|Brand Voice Guardian — check/edit copy against a voice guide
+email-lifecycle-agent|agent|marketing-growth|lifecycle-marketing|Email Lifecycle Agent — onboarding/retention/winback flows and copy
+paid-search-optimization-agent|agent|marketing-growth|paid-acquisition|Paid Search Optimization Agent — account structure, queries, bids, ad copy
+social-media-strategy-agent|agent|marketing-growth|content-strategy|Social Media Strategy Agent — channel strategy, content mix, cadence
+product-marketing-positioning-agent|agent|marketing-growth|positioning|Product Marketing Positioning Agent — April Dunford-style positioning
+keyword-research|skill|marketing-growth|seo-auditing|Keyword Research — intent, clustering, difficulty, prioritization
+on-page-seo-optimization|skill|marketing-growth|seo-auditing|On-Page SEO Optimization — titles, headings, internal links, schema
+ab-test-design|skill|marketing-growth|growth-analysis|A/B Test Design — hypothesis, sample size, guardrails (marketing tests)
+landing-page-copywriting|skill|marketing-growth|copywriting|Landing Page Copywriting — structure, headline formulas, proof
+customer-segmentation|skill|marketing-growth|growth-analysis|Customer Segmentation — RFM, needs-based, behavioral
+marketing-attribution-analysis|skill|marketing-growth|campaign-planning|Marketing Attribution Analysis — models, incrementality caveats
+content-brief-creation|skill|marketing-growth|content-strategy|Content Brief Creation — SEO-informed writer briefs
+messaging-framework|skill|marketing-growth|positioning|Messaging Framework — messaging house, proof points
+technical-seo-crawl-analysis|skill|marketing-growth|seo-auditing|Technical SEO Crawl Analysis — interpret crawl exports
+blog-post-outline-prompt|prompt|marketing-growth|content-strategy|Blog Post Outline — search-intent-aligned outline
+ad-copy-variations-prompt|prompt|marketing-growth|paid-acquisition|Ad Copy Variations — platform-compliant ad variations
+value-proposition-prompt|prompt|marketing-growth|positioning|Value Proposition — value prop canvas → statements
+monthly-seo-health-check-routine|routine|marketing-growth|seo-auditing|Monthly SEO Health Check Routine
+campaign-launch-routine|routine|marketing-growth|campaign-planning|Campaign Launch Routine
+## finance-banking
+financial-statement-analysis-agent|agent|finance-banking|financial-statement-analysis|Financial Statement Analysis Agent — three statements, quality of earnings, red flags
+credit-risk-analysis-agent|agent|finance-banking|credit-risk-analysis|Credit Risk Analysis Agent — 5 Cs, ratios, cash flow coverage, risk rating memo
+banking-operations-analyst-agent|agent|finance-banking|banking-operations|Banking Operations Analyst — payments ops, exceptions, SLAs, controls
+financial-reconciliation-agent|agent|finance-banking|accounting-operations|Financial Reconciliation Agent — match ledgers/statements, break investigation
+fraud-pattern-investigation-agent|agent|finance-banking|fraud-analysis|Fraud Pattern Investigation Agent — transaction pattern analysis, typologies
+budget-variance-analysis-agent|agent|finance-banking|fpa|Budget Variance Analysis Agent — price/volume/mix variance, commentary
+cash-flow-forecasting-agent|agent|finance-banking|fpa|Cash Flow Forecasting Agent — 13-week cash flow, drivers, scenarios
+aml-alert-review-agent|agent|finance-banking|banking-operations|AML Alert Review Agent — structure AML alert investigation narratives (analyst support)
+financial-ratio-analysis|skill|finance-banking|financial-statement-analysis|Financial Ratio Analysis — liquidity, leverage, profitability, efficiency
+dcf-valuation|skill|finance-banking|financial-modelling|DCF Valuation — FCF build, WACC, terminal value, sensitivity
+three-statement-model-review|skill|finance-banking|financial-modelling|Three-Statement Model Review — integrity checks of a financial model
+loan-covenant-analysis|skill|finance-banking|credit-risk-analysis|Loan Covenant Analysis — covenant definitions, headroom, tests
+kyc-document-review|skill|finance-banking|banking-operations|KYC Document Review — checklist for customer due diligence documents
+working-capital-analysis|skill|finance-banking|financial-statement-analysis|Working Capital Analysis — DSO/DPO/DIO, cash conversion cycle
+earnings-call-analysis|skill|finance-banking|financial-statement-analysis|Earnings Call Analysis — guidance changes, tone, Q&A signals
+journal-entry-review|skill|finance-banking|accounting-operations|Journal Entry Review — JE testing, unusual entries, controls
+financial-results-commentary-prompt|prompt|finance-banking|fpa|Financial Results Commentary — management commentary from numbers
+investment-memo-prompt|prompt|finance-banking|financial-modelling|Investment Memo — structured investment memo (not advice)
+month-end-close-routine|routine|finance-banking|accounting-operations|Month-End Close Routine
+credit-application-review-routine|routine|finance-banking|credit-risk-analysis|Credit Application Review Routine
+## security-compliance
+application-security-audit-agent|agent|security-compliance|security-review|Application Security Audit Agent — code/app audit vs OWASP ASVS
+threat-modeling-agent|agent|security-compliance|threat-modeling|Threat Modeling Agent — DFDs, trust boundaries, STRIDE, mitigations
+security-architecture-review-agent|agent|security-compliance|security-review|Security Architecture Review Agent — zero trust, segmentation, IAM design
+compliance-gap-analysis-agent|agent|security-compliance|compliance-assessment|Compliance Gap Analysis Agent — controls vs SOC 2/ISO 27001, evidence gaps
+incident-response-coordinator-agent|agent|security-compliance|incident-response|Incident Response Coordinator — NIST 800-61 phases, comms, evidence
+cloud-security-posture-agent|agent|security-compliance|cloud-security|Cloud Security Posture Agent — review AWS/Azure/GCP configs vs CIS
+privacy-impact-assessment-agent|agent|security-compliance|privacy-review|Privacy Impact Assessment Agent — DPIA under GDPR, data flows, risks
+vendor-security-assessment-agent|agent|security-compliance|compliance-assessment|Vendor Security Assessment Agent — third-party risk review
+stride-threat-enumeration|skill|security-compliance|threat-modeling|STRIDE Threat Enumeration — per-element STRIDE tables
+owasp-top-10-review|skill|security-compliance|security-review|OWASP Top 10 Review — check code against OWASP Top 10 2021/2025
+secrets-exposure-review|skill|security-compliance|security-review|Secrets Exposure Review — find and remediate exposed secrets (manual + tooling guidance)
+dependency-vulnerability-triage|skill|security-compliance|security-review|Dependency Vulnerability Triage — CVSS/EPSS/reachability prioritization
+security-policy-writing|skill|security-compliance|compliance-assessment|Security Policy Writing — policies, standards, procedures
+access-review|skill|security-compliance|identity-access|Access Review — least privilege, orphaned accounts, SoD
+security-log-analysis|skill|security-compliance|incident-response|Security Log Analysis — auth logs, anomalies, IOCs
+data-classification|skill|security-compliance|privacy-review|Data Classification — classification scheme, handling rules
+security-finding-writeup-prompt|prompt|security-compliance|security-review|Security Finding Write-Up — clear vuln report with severity & remediation
+security-questionnaire-response-prompt|prompt|security-compliance|compliance-assessment|Security Questionnaire Response — answer vendor questionnaires from evidence
+quarterly-access-review-routine|routine|security-compliance|identity-access|Quarterly Access Review Routine
+## data-analytics
+sql-analysis-agent|agent|data-analytics|sql-analysis|SQL Analysis Agent — answer business questions with SQL against a schema, validate results
+data-quality-investigation-agent|agent|data-analytics|data-quality|Data Quality Investigation Agent — root-cause data issues, DQ dimensions
+bi-dashboard-specification-agent|agent|data-analytics|dashboard-design|BI Dashboard Specification Agent — spec dashboards: audience, metrics, layout
+analytics-pipeline-review-agent|agent|data-analytics|data-modeling|Analytics Pipeline Review Agent — review ELT pipelines, tests, freshness, lineage
+metric-anomaly-investigation-agent|agent|data-analytics|analytics-interpretation|Metric Anomaly Investigation Agent — why did metric X move? decomposition
+data-model-design-agent|agent|data-analytics|data-modeling|Data Model Design Agent — dimensional models, grain, SCDs
+experiment-analysis-agent|agent|data-analytics|experimentation|Experiment Analysis Agent — analyze A/B results, SRM, CUPED, decision
+cohort-retention-analysis-agent|agent|data-analytics|analytics-interpretation|Cohort Retention Analysis Agent — cohort curves, retention drivers
+sql-query-review|skill|data-analytics|sql-analysis|SQL Query Review — correctness review of analytical SQL (joins fanout, nulls)
+data-profiling|skill|data-analytics|data-quality|Data Profiling — profile a dataset's distributions, nulls, keys
+chart-selection|skill|data-analytics|data-visualization|Chart Selection — choose the right chart for the question
+statistical-significance-testing|skill|data-analytics|experimentation|Statistical Significance Testing — choose & interpret tests, CIs
+dbt-model-review|skill|data-analytics|data-modeling|dbt Model Review — dbt project structure, tests, materializations
+data-dictionary-authoring|skill|data-analytics|data-quality|Data Dictionary Authoring — column docs, definitions, owners
+metric-definition|skill|data-analytics|analytics-interpretation|Metric Definition — unambiguous metric specs
+time-series-forecast-review|skill|data-analytics|analytics-interpretation|Time Series Forecast Review — seasonality, backtesting, error metrics
+sql-from-question-prompt|prompt|data-analytics|sql-analysis|SQL From Question — natural language to SQL with assumptions
+insight-narrative-prompt|prompt|data-analytics|analytics-interpretation|Insight Narrative — turn analysis output into a narrative
+weekly-metrics-review-routine|routine|data-analytics|analytics-interpretation|Weekly Metrics Review Routine
+## productivity-knowledge
+knowledge-base-curator-agent|agent|productivity-knowledge|knowledge-management|Knowledge Base Curator — audit/restructure a knowledge base, dedupe, gaps
+meeting-intelligence-agent|agent|productivity-knowledge|meeting-synthesis|Meeting Intelligence Agent — transcript → decisions, actions, risks
+technical-documentation-agent|agent|productivity-knowledge|writing-assistance|Technical Documentation Agent — Diátaxis-based docs authoring
+email-triage-agent|agent|productivity-knowledge|personal-productivity|Email Triage Agent — classify, prioritize, draft replies (no sending)
+personal-planning-agent|agent|productivity-knowledge|personal-productivity|Personal Planning Agent — weekly priorities, time-blocking
+long-document-analysis-agent|agent|productivity-knowledge|document-intelligence|Long Document Analysis Agent — analyze contracts/reports/long PDFs with citations
+learning-plan-agent|agent|productivity-knowledge|learning|Learning Plan Agent — skill gap → structured learning plan, spaced practice
+meeting-notes-structuring|skill|productivity-knowledge|meeting-synthesis|Meeting Notes Structuring — consistent notes template
+action-item-extraction|skill|productivity-knowledge|meeting-synthesis|Action Item Extraction — owner, due date, definition of done
+plain-language-rewriting|skill|productivity-knowledge|writing-assistance|Plain Language Rewriting — clarity, readability
+atomic-note-writing|skill|productivity-knowledge|knowledge-management|Atomic Note Writing — Zettelkasten-style notes and links
+decision-log-maintenance|skill|productivity-knowledge|knowledge-management|Decision Log Maintenance — record decisions, context, revisit dates
+sop-writing|skill|productivity-knowledge|document-intelligence|SOP Writing — standard operating procedures
+weekly-review-prompt|prompt|productivity-knowledge|personal-productivity|Weekly Review — reflective weekly review prompt
+weekly-planning-routine|routine|productivity-knowledge|personal-productivity|Weekly Planning Routine

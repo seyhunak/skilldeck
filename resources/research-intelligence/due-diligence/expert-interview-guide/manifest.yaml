@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: expert-interview-guide
+name: Expert Interview Guide
+type: skill
+description: "Designs expert-network interview guides: hypotheses to test, funnel-structured open questions, neutral wording, quantification probes, and compliance guardrails against confidential information."
+purpose: >
+  Expert calls are expensive and often wasted on leading questions that confirm what the
+  buyer already believes. This skill produces a hypothesis-driven guide with neutral,
+  sequenced questions, probes that turn opinions into numbers, and explicit compliance
+  language so the interview stays clear of confidential and material non-public
+  information.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [due-diligence, market-research]
+tags: [expert-interviews, interview-design, due-diligence, primary-research, questionnaire-design]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [due-diligence-research-agent, user-interview-script-prompt, vendor-evaluation-research-routine, market-intelligence-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Guides must instruct interviewers not to request confidential, proprietary, or material non-public information, and interview notes containing personal data must be stored per the user's policy."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

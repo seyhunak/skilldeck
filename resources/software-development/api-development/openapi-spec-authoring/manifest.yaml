@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: openapi-spec-authoring
+name: OpenAPI Spec Authoring
+type: skill
+description: "Writes and lints OpenAPI 3.1 specs with reusable JSON Schema components, realistic examples, security schemes, and an RFC 9457 problem-details error model."
+purpose: >
+  Client generators, mock servers, gateways, and humans all depend on the API contract.
+  This skill produces OpenAPI 3.1 documents that validate and lint cleanly, describe
+  errors as carefully as successes, generate sensible SDK method names, and flag
+  breaking changes against the published version.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [api-development, documentation]
+tags: [openapi, api-design, rest, json-schema, documentation]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [api-design-review-agent, graphql-schema-review, readme-authoring, changelog-and-release-notes]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Never puts real credentials or customer data in examples; behaviour inferred rather than observed is marked as an assumption."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

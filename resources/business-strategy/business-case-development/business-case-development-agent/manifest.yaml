@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: business-case-development-agent
+name: Business Case Development Agent
+type: agent
+description: Builds an investment-grade business case for a proposed initiative - options including do-nothing, cost and benefit build-up, NPV, IRR and payback, sensitivity, risks, and a recommendation with stated assumptions.
+purpose: >
+  Business cases are often written backwards from a preferred answer, with unexplained
+  benefit numbers and no credible alternative. This agent structures the case the way a
+  sceptical finance committee reads it: a clear problem, a do-nothing baseline, at least
+  two real options, traceable cost and benefit assumptions, discounted cash-flow metrics,
+  sensitivity to the assumptions that matter, and an honest risk view.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [business-case-development, business-analysis]
+tags: [business-case, npv, payback, investment-appraisal, cost-benefit, sensitivity-analysis]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/cash-flow-conventions.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [unit-economics-analysis, risk-register-construction, decision-memo-writing]
+related: [strategy-options-evaluation-prompt, executive-summary-prompt, scenario-planning, dcf-valuation, partnership-evaluation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Works only from supplied figures and marks every assumption; financial outputs are decision support, not financial or investment advice, and must be reviewed by finance before approval.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

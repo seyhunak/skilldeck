@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: data-labeling-guidelines
+name: Data Labeling Guidelines
+type: skill
+description: "Writes annotation guidelines with label definitions, decision rules, boundary examples, and an escalation path, then measures inter-annotator agreement and runs adjudication to improve the guidelines."
+purpose: >
+  Label noise from unclear guidelines caps model and eval quality, and teams often
+  discover it only after thousands of items are labeled. This skill produces guidelines
+  that resolve the hard cases explicitly, runs a pilot to measure agreement with Cohen's
+  or Fleiss' kappa or Krippendorff's alpha, and uses disagreement analysis to revise
+  rules before scaling up.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [ml-engineering, llm-evaluation]
+tags: [data-labeling, annotation, inter-annotator-agreement, datasets, ml-engineering]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [golden-dataset-construction, llm-judge-rubric-design, model-card-writing, ml-experiment-review-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Labeling data may contain personal or sensitive content; guidelines must include handling rules and annotator wellbeing provisions for disturbing material. Does not set annotator pay or employment terms."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

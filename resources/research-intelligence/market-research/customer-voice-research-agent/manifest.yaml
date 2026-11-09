@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: customer-voice-research-agent
+name: Customer Voice Research Agent
+type: agent
+description: "Mines reviews, forums, support tickets, and survey verbatims for customer needs, pains, and themes, with frequency, intensity, and representative quotes per theme."
+purpose: >
+  Customer feedback is scattered across app stores, review sites, community forums, and
+  ticket queues, and teams tend to remember the loudest anecdote. This agent samples
+  feedback deliberately, codes it into a transparent theme framework, quantifies
+  frequency and intensity, flags sampling bias, and links every theme to traceable
+  verbatims.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [market-research, competitor-analysis]
+tags: [voice-of-customer, review-mining, thematic-analysis, customer-research, feedback-analysis]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [research-synthesis-matrix, source-credibility-assessment]
+related: [ux-research-synthesis-agent, jobs-to-be-done-analysis, competitor-research-agent, market-intelligence-agent, persona-development]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: true
+  notes: "Redacts names, emails, account ids, and other personal data from quotes. Reads only public pages or user-supplied exports, respects site terms and robots rules, and never contacts reviewers or posts replies."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

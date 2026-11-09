@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: weekly-metrics-review-routine
+name: Weekly Metrics Review Routine
+type: routine
+description: A weekly review of a team's core metrics that checks data freshness first, compares against expected ranges, triages notable movements, and records owners and actions in a running log.
+purpose: >
+  Weekly metric reviews tend to drift into reading every number aloud and debating
+  noise. This routine keeps the review short and useful: verify the data is complete,
+  compare each metric with a seasonally fair baseline and an expected range, spend
+  discussion time only on movements outside that range, assign an owner to each open
+  question, and keep a log so recurring issues and past explanations are visible.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [analytics-interpretation, dashboard-design, data-quality]
+tags: [metrics-review, kpis, weekly-business-review, reporting, analytics]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: []
+related: [metric-anomaly-investigation-agent, metric-definition, insight-narrative-prompt, data-quality-investigation-agent, bi-dashboard-specification-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Works on aggregated business metrics; keep customer-level data out of the review notes. Sharing the summary outside the team requires the review owner's approval.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

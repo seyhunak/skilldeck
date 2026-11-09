@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: search-query-formulation
+name: Search Query Formulation
+type: skill
+description: "Builds and iteratively refines search queries with Boolean logic, phrase search, site:, filetype:, date limits, and database-specific syntax. Use when a search returns noise or misses."
+purpose: >
+  Most research failures start with a single vague query. This skill turns a question
+  into concept blocks, synonym sets, and engine-appropriate syntax, then refines through
+  logged iterations so searches are precise, reproducible, and transparent about what
+  was and was not covered.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [web-research, academic-research]
+tags: [search, boolean-search, search-operators, information-retrieval, query-design]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [technical-research-agent, literature-review-agent, patent-landscape-agent, source-credibility-assessment]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Run queries only on engines and databases the user can lawfully access; do not use operators to locate exposed credentials, private documents, or personal data."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

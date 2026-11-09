@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: rag-pipeline-evaluation-routine
+name: RAG Pipeline Evaluation Routine
+type: routine
+description: A periodic review of a live RAG system that separates retrieval from generation quality, checks corpus freshness and coverage gaps, and turns findings into a prioritized fix list.
+purpose: >
+  RAG quality decays without any code change: documents go stale, new topics appear
+  in user questions, and index or embedding changes shift recall. This routine gives
+  a team a repeatable monthly or quarterly review that measures retrieval and answer
+  faithfulness separately on a maintained query set plus fresh production samples,
+  attributes each failure to a pipeline stage, and tracks results across cycles.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [rag-development, llm-evaluation, llm-ops]
+tags: [rag, retrieval, evaluation, faithfulness, recall, review-cadence]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: []
+related: [rag-evaluation-agent, retrieval-quality-metrics, hallucination-detection, chunking-strategy-design, hybrid-search-tuning, rag-answer-grounding-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Production queries and retrieved documents may contain personal or confidential data; sample under your data policy and respect document access controls. Index and corpus changes need owner approval.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

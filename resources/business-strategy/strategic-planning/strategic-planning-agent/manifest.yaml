@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: strategic-planning-agent
+name: Strategic Planning Agent
+type: agent
+description: Develops or critiques a strategy using Rumelt's kernel - an evidence-based diagnosis of the critical challenge, a guiding policy that directs effort, and coherent, resourced actions - and flags bad-strategy symptoms such as goals posing as strategy.
+purpose: >
+  Most strategy documents are lists of ambitions, values, and initiatives with no
+  diagnosis of what is actually in the way. This agent applies Richard Rumelt's kernel
+  of good strategy to turn situational evidence into a focused diagnosis, a guiding
+  policy that makes clear choices, and a short set of mutually reinforcing actions,
+  and it audits existing strategies for fluff, goal-confusion, and incoherence.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [strategic-planning, business-analysis]
+tags: [strategy, rumelt, diagnosis, guiding-policy, strategic-choices, competitive-advantage]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/bad-strategy-diagnostics.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [industry-structure-analysis, scenario-planning, kpi-tree-design]
+related: [annual-strategic-planning-routine, okr-design-agent, strategy-options-evaluation-prompt, evidence-based-swot, market-intelligence-agent]
+featured: true
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Works from supplied material and labels inferences; strategy recommendations are proposals for leadership judgement and are never presented as validated forecasts.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

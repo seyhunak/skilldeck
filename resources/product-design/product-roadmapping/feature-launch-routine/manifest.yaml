@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: feature-launch-routine
+name: Feature Launch Routine
+type: routine
+description: "A cross-functional, human-supervised launch checklist from readiness review to post-launch review: tiering, go/no-go criteria, staged rollout, enablement, communications, monitoring, and rollback."
+purpose: >
+  Launches fail at the seams between teams: support learns about the feature from
+  customers, metrics were never instrumented, or nobody owns the rollback decision. This
+  routine sizes the launch by tier, assigns owners, gates release on explicit go/no-go
+  criteria, coordinates enablement and communications, and closes with a measured post-
+  launch review.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [product-roadmapping, product-analytics]
+tags: [launch, go-to-market, release-management, rollout, cross-functional]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: []
+related: [release-announcement-prompt, feature-flag-rollout-planning, product-analytics-instrumentation-agent, release-readiness-routine, campaign-launch-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Guidance only; it does not deploy, toggle flags, or publish announcements. Go/no-go, external communications, and rollback decisions require the named human owners."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

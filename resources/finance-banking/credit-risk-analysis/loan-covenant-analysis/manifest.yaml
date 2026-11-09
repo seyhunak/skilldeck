@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: loan-covenant-analysis
+name: Loan Covenant Analysis
+type: skill
+description: "Extracts financial covenants and defined terms from a facility agreement, recomputes compliance on contractual definitions, measures headroom and EBITDA cushion, projects step-downs, and flags definition risks."
+purpose: >
+  Covenant compliance depends on the agreement's definitions, add-back caps, and test
+  mechanics rather than textbook ratios. This skill walks from reported figures to
+  covenant figures clause by clause, measures headroom and break points, and surfaces
+  definition risks for lenders, borrowers, and counsel.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [credit-risk-analysis, financial-modelling]
+tags: [covenants, leverage, loan-agreements, headroom, credit-risk]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [credit-risk-analysis-agent, credit-application-review-routine, financial-ratio-analysis, cash-flow-forecasting-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not legal, credit, or accounting advice; compliance certificates, waivers, and disputed definitions need sign-off by qualified finance staff and legal counsel. Ambiguous clauses are shown both ways and submitted certificates are never altered."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

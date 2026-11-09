@@ -1,0 +1,29 @@
+name: Bug report
+description: Something in the Skilldeck app or catalog tooling is broken.
+labels: [bug]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [macOS app, Install / export, Catalog updates, Validation / build scripts, Resource content]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Steps to reproduce, what you expected, and what you saw instead.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: App version, catalog version (Settings → About), and macOS version.
+      placeholder: "App 1.0.0 · Catalog 1.0.0 · macOS 15.2"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or validator output
+      render: text

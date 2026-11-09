@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: meeting-notes-structuring
+name: Meeting Notes Structuring
+type: skill
+description: "Structures any meeting write-up into a consistent layout with outcomes first: decisions, action items, open questions, then per-topic notes and parking lot."
+purpose: >
+  Meeting notes are read by people who were absent and by attendees weeks later, and both
+  need outcomes before discussion. This skill applies one consistent layout with precise
+  decision wording, a fixed action-item format with owner, due date, and definition of
+  done, and explicit gaps where nothing was agreed, so notes across a team become
+  comparable and searchable.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [meeting-synthesis]
+tags: [meetings, note-taking, templates, minutes]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [action-item-extraction, decision-log-maintenance, meeting-intelligence-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Never invents decisions, owners, or dates. Not a substitute for statutory or board minutes, which follow their own format and approval process."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

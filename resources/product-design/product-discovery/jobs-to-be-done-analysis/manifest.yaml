@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: jobs-to-be-done-analysis
+name: Jobs-to-be-Done Analysis
+type: skill
+description: "Analyzes customer research through the Jobs-to-be-Done lens: writes solution-free job statements, maps the job and its desired outcomes, and charts the four forces of progress behind switching."
+purpose: >
+  Feature requests describe solutions; jobs describe the progress people are trying to
+  make. This skill gives any agent a disciplined way to extract functional, emotional,
+  and social jobs from interviews or switch stories, write them in a consistent
+  solution-agnostic format, chart push, pull, anxiety, and habit forces, and turn the
+  result into opportunities a team can design for.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [product-discovery, user-research]
+tags: [jobs-to-be-done, jtbd, forces-of-progress, customer-research, discovery]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [persona-development, opportunity-solution-tree, product-discovery-agent, user-interview-script-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Works only from research material supplied. Never invents customer statements; jobs inferred without direct evidence are labeled as hypotheses."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

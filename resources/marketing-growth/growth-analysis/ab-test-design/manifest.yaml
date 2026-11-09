@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: ab-test-design
+name: A/B Test Design
+type: skill
+description: "Designs marketing A/B tests: hypothesis, primary and guardrail metrics, minimum detectable effect, sample size and duration, randomization unit, and stopping rules. Use before launching any test."
+purpose: >
+  Most failed marketing tests were doomed at design time: underpowered, peeked at, or
+  measured on the wrong metric. This skill gives an agent a pre-registration procedure
+  that forces a falsifiable hypothesis, a single decision metric with guardrails, a power
+  calculation, and explicit stopping and decision rules before any traffic is spent.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [growth-analysis, lifecycle-marketing]
+tags: [ab-testing, experimentation, sample-size, statistics, cro]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [statistical-significance-testing, experiment-analysis-agent, conversion-optimization-agent, landing-page-copywriting]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Design only; does not launch tests. Sample-size figures are approximations under stated assumptions and should be checked with the team's experimentation tool."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

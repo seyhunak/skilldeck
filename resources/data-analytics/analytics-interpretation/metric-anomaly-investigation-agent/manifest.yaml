@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: metric-anomaly-investigation-agent
+name: Metric Anomaly Investigation Agent
+type: agent
+description: "Explains why a metric moved: validates the change is real, decomposes it by drivers and segments, tests hypotheses, and returns a ranked explanation with quantified contributions."
+purpose: >
+  When a KPI jumps or drops, the first explanation offered is usually the wrong one.
+  This agent first rules out data and definition artifacts, compares against
+  seasonality and expected ranges, decomposes the metric arithmetically into
+  components and segments, separates mix effects from rate effects, and returns a
+  ranked, quantified explanation with confidence levels and next steps.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [analytics-interpretation, data-quality]
+tags: [anomaly-detection, root-cause-analysis, kpis, metric-decomposition, analytics]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/decomposition-methods.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [metric-definition, time-series-forecast-review, sql-query-review]
+related: [data-quality-investigation-agent, cohort-retention-analysis-agent, insight-narrative-prompt, weekly-metrics-review-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Read-only analysis with aggregate queries. Does not alert, message, or post findings to channels; reports are returned to the requester for review."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

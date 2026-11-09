@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: prd-generation-agent
+name: PRD Generation Agent
+type: agent
+description: "Turns a problem statement, research notes, and constraints into a reviewable PRD: problem, target users, goals and success metrics, requirements, scope boundaries, risks, and open questions."
+purpose: >
+  Most PRDs fail because they start with a solution, skip measurable success criteria,
+  or leave scope implicit until engineering asks. This agent drafts a PRD that is
+  anchored in an evidenced problem, states who it is for, defines how success will be
+  measured, separates must-haves from later work, and lists every assumption and open
+  question so reviewers can challenge the document before build starts.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [prd-generation, product-discovery]
+tags: [prd, product-requirements, product-management, scope, success-metrics]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/prd-quality-rubric.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [user-story-writing, acceptance-criteria-gherkin]
+related: [feature-spec-prompt, product-discovery-agent, technical-design-doc-prompt, product-analytics-instrumentation-agent, metric-definition]
+featured: true
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Drafts documents only. Does not invent customer quotes, data, or commitments; unsupported claims are marked as assumptions. Customer research pasted in may contain personal data and should be anonymized."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

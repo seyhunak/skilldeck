@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: kyc-document-review
+name: KYC Document Review
+type: skill
+description: "Checks a customer due diligence file against a KYC checklist: identity and address evidence, entity documents, beneficial ownership chains, source of funds, screening evidence, and risk-rating rationale, producing a gap list."
+purpose: >
+  Common KYC failures are mundane and preventable: expired IDs, ownership chains that stop
+  early, missing EDD for high-risk ratings. This skill checks files systematically against
+  the institution's policy, computes indirect ownership, and produces a severity-ranked
+  gap list for a human KYC analyst, without approving customers.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [banking-operations]
+tags: [kyc, customer-due-diligence, beneficial-ownership, aml, onboarding]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [aml-alert-review-agent, banking-operations-analyst-agent, data-classification, privacy-impact-assessment-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not legal or regulatory advice; onboarding, retention, exit, and risk-rating decisions require authorized KYC/compliance sign-off. No customer contact or tipping-off, identifiers masked, no document authenticity verdicts, no external uploads."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

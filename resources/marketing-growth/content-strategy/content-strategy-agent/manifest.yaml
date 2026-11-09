@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: content-strategy-agent
+name: Content Strategy Agent
+type: agent
+description: "Builds a content strategy from audience, business goals, and search demand: pillars, topic clusters, a prioritized editorial calendar, and a measurement plan tied to funnel stages."
+purpose: >
+  Teams publish content without a model of why each piece exists. This agent connects
+  business goals and audience jobs to content pillars and topic clusters, audits what
+  already exists, sizes the gaps, and produces an editorial calendar with owners, formats,
+  and success metrics so every planned piece has a reason, a target reader, and a way to
+  judge whether it worked.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [content-strategy, seo-auditing]
+tags: [content-strategy, topic-clusters, editorial-calendar, content-audit, content-marketing]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [keyword-research, content-brief-creation]
+related: [seo-audit-agent, social-media-strategy-agent, blog-post-outline-prompt, customer-segmentation]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Planning only. Does not publish content or schedule posts. Traffic and demand figures come from user-supplied tools and are labelled as estimates."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

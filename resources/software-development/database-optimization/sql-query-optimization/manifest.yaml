@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: sql-query-optimization
+name: SQL Query Optimization
+type: skill
+description: "Reads EXPLAIN/EXPLAIN ANALYZE plans, fixes non-sargable predicates, misestimates, deep OFFSET pagination, and N+1 patterns, and verifies rewrites by measurement."
+purpose: >
+  Slow queries are usually caused by a few recognisable plan problems. This skill works
+  from the actual execution plan to a root cause, an equivalent rewrite, and a measured
+  before/after comparison, while keeping EXPLAIN ANALYZE on write statements inside
+  rolled-back transactions on non-production copies.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [database-optimization, performance]
+tags: [sql, query-optimization, explain-plans, postgresql, mysql, performance]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [database-index-design, database-performance-agent, performance-profiling-agent, database-migration-planner-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Plans and sample rows may contain production data; redact values. Never runs EXPLAIN ANALYZE on writes outside a rolled-back transaction."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

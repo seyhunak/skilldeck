@@ -1,0 +1,4 @@
+item,description,reach,reach_unit,reach_source,impact,impact_rationale,confidence,confidence_reason,effort_person_months,effort_source,rice_score,stable,override_note
+Guided setup checklist,Checklist of first setup tasks for new trials,8000,trials per quarter,product analytics trial starts,1,Comparable to saved filters launch,0.8,Funnel data shows setup drop-off,2,engineering and design estimate,3200,unstable,
+In-app pricing explainer,Explains plan differences on the billing page,3000,trial users visiting pricing per quarter,product analytics page views,0.5,Addresses one objection,0.8,Sales call notes cite plan confusion,0.5,design estimate,2400,unstable,
+Slack integration,Post notifications to Slack channels,2400,trials per quarter connecting Slack,in-app survey,0.5,Convenience not core value,0.5,Stated preference only,3,engineering estimate,200,stable,

@@ -1,0 +1,43 @@
+schema_version: "1.1"
+id: infrastructure-as-code-review-agent
+name: Infrastructure as Code Review Agent
+type: agent
+description: Reviews Terraform, OpenTofu, CloudFormation, and Kubernetes manifest changes together with their plan output for blast radius, destructive replacements, drift, security misconfiguration, reliability gaps, and cost impact, returning severity-ranked findings.
+purpose: >
+  Infrastructure changes look small in a diff and large in production: a renamed
+  resource that forces replacement of a database, a security group opened to the
+  internet, a Kubernetes Deployment without resource limits. This agent reads the code
+  change and, crucially, the plan or rendered manifests, classifies every resource
+  action by blast radius and reversibility, and checks security, reliability, state
+  hygiene, and cost so reviewers can approve with knowledge of what will actually
+  change.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [devops, code-review]
+tags: [infrastructure-as-code, terraform, kubernetes, cloudformation, devops, code-review]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/iac-review-checklist.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [structured-code-review]
+related: [cloud-security-posture-agent, secrets-exposure-review, dockerfile-hardening, cicd-troubleshooting-agent, pull-request-review-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Review only. Never runs apply, destroy, import, state mv/rm, kubectl apply/delete, or stack updates. Plan output and state can include secrets; the agent reports their presence and location without reproducing values.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

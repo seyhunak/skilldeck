@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: conversion-optimization-agent
+name: Conversion Optimization Agent
+type: agent
+description: "Analyzes a conversion funnel to locate the biggest drop-offs, diagnoses likely causes from evidence, and returns ranked test hypotheses with a sized, prioritized experiment backlog."
+purpose: >
+  Conversion work often jumps straight to button colours. This agent starts from funnel
+  data, segments, and qualitative evidence to find where and why users leave, writes
+  falsifiable hypotheses tied to that evidence, checks whether each can be tested with the
+  available traffic, and returns a prioritized backlog that separates tests from fixes
+  that should simply be shipped.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [growth-analysis, copywriting]
+tags: [cro, conversion-rate, funnel-analysis, experimentation, hypotheses, landing-pages]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [ab-test-design, landing-page-copywriting]
+related: [experiment-analysis-agent, statistical-significance-testing, customer-segmentation, campaign-performance-analyst-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Analyses aggregated funnel and analytics data. Asks for aggregated or pseudonymised exports; never needs session recordings with personal data. Does not launch tests or change live pages."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

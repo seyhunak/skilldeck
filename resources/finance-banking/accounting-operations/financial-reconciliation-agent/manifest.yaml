@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: financial-reconciliation-agent
+name: Financial Reconciliation Agent
+type: agent
+description: "Reconciles bank, PSP, subledger, and intercompany records to the ledger using staged matching rules, classifies and ages breaks, investigates root causes, and drafts unposted adjustments for accountant approval."
+purpose: >
+  Unreconciled differences hide errors and sometimes fraud, and plugs make them worse.
+  This agent proves balances, matches in transparent passes from strict to loose,
+  classifies every break with an age and a cause hypothesis, and prepares a reviewer-ready
+  workpaper with proposed, never posted, adjustments.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [accounting-operations]
+tags: [reconciliation, general-ledger, bank-reconciliation, month-end, accounting]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [journal-entry-review]
+related: [month-end-close-routine, banking-operations-analyst-agent, fraud-pattern-investigation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Draft workpapers only, not accounting or audit advice; adjustments and write-offs require preparer and reviewer sign-off by qualified finance staff. Never posts journals or touches bank portals; account numbers are masked."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

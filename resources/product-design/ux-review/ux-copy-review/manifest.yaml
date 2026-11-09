@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: ux-copy-review
+name: UX Copy Review
+type: skill
+description: "Reviews interface microcopy (buttons, labels, empty states, errors, confirmations, notifications) for clarity, consistency, tone, and actionability, returning line-by-line rewrites with the rule each fix applies."
+purpose: >
+  Interface text carries much of the usability of a product, but it is usually written
+  last and reviewed by nobody. This skill gives an agent a concrete rubric for
+  microcopy: specific verbs on buttons, errors that explain what happened and how to fix
+  it, consistent terminology, appropriate tone for the moment, and length that fits the
+  component.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [ux-review]
+tags: [ux-writing, microcopy, content-design, error-messages, tone]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [usability-heuristic-review-agent, accessibility-design-review, plain-language-rewriting, brand-voice-guardian-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Suggests copy only. Legal, regulatory, or consent wording is flagged for owner review rather than rewritten freely."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

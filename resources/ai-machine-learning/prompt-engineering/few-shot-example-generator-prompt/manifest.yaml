@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: few-shot-example-generator-prompt
+name: Few-Shot Example Generator
+type: prompt
+description: Generates a small, deliberately diverse set of labeled few-shot examples for a classification or generation task, with a coverage matrix and label-balance check.
+purpose: >
+  Few-shot examples steer a model more strongly than most instructions, so a lopsided
+  or repetitive set quietly biases outputs toward one label, length, or phrasing.
+  This prompt produces examples planned against explicit diversity axes, balanced
+  across labels, including hard near-boundary cases, and annotated with why each
+  example earns its slot, so they can be reviewed before being placed in a prompt.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [prompt-engineering, llm-evaluation]
+tags: [few-shot, in-context-learning, examples, prompt-design, labeling]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [system-prompt-architect-prompt, prompt-optimization, data-labeling-guidelines, golden-dataset-construction, eval-test-case-generator-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Produces synthetic examples only. Do not seed it with real personal data; synthetic labels must be reviewed by a domain expert before use.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

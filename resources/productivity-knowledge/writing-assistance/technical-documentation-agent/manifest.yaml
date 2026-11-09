@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: technical-documentation-agent
+name: Technical Documentation Agent
+type: agent
+description: "Plans and drafts technical docs with the Diataxis framework - tutorials, how-to guides, reference, explanation - verifying commands, parameters, and defaults against source material and flagging unverified claims."
+purpose: >
+  Documentation usually fails because pages mix purposes and because examples drift from
+  the code. This agent classifies reader needs into Diataxis quadrants, builds a docs plan
+  prioritised around first success and top tasks, extracts a cited fact sheet from code
+  and specs, and drafts Markdown pages that follow each quadrant's conventions. Every
+  technical claim carries a verification status so subject-matter experts review only what
+  needs review.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [writing-assistance, document-intelligence]
+tags: [technical-writing, diataxis, documentation, api-docs, developer-experience]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/diataxis-page-patterns.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [plain-language-rewriting]
+related: [readme-authoring, sop-writing, architecture-decision-records, technical-design-doc-prompt, knowledge-base-curator-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Drafts only; does not publish or commit. Uses fictional placeholders in samples and never embeds real credentials, internal hostnames, or customer data."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

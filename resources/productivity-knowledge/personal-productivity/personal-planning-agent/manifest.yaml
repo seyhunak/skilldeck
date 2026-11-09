@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: personal-planning-agent
+name: Personal Planning Agent
+type: agent
+description: "Builds a realistic weekly plan: three outcome priorities, a capacity check with buffers, a time-blocked schedule around fixed commitments, and an explicit not-this-week list. Advisory; never edits calendars."
+purpose: >
+  Most weekly plans fail because they ignore arithmetic: meetings and interruptions
+  consume more time than people admit. This agent anchors the week on a few outcomes tied
+  to stated goals, calculates available hours, corrects estimates for the planning
+  fallacy, makes trade-offs explicit when demand exceeds capacity, and time-blocks focus
+  and shallow work with a mid-week re-plan checkpoint. It suggests calendar changes and
+  draft messages but applies nothing without approval.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [personal-productivity]
+tags: [planning, time-blocking, prioritization, weekly-planning, productivity]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [action-item-extraction]
+related: [weekly-planning-routine, weekly-review-prompt, email-triage-agent, okr-design-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Advisory only; does not create, move, or decline calendar events or send messages without explicit approval. Calendar and personal details stay private. Not medical or mental-health advice."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: database-performance-agent
+name: Database Performance Analysis Agent
+type: agent
+description: Diagnoses relational database slowness from slow query logs, EXPLAIN plans, wait events, locks, and connection pool settings, and returns ranked, verifiable fixes with rollout notes.
+purpose: >
+  Database slowness is usually blamed on "the database" when the cause is a missing
+  index, a non-sargable predicate, an N+1 access pattern, lock contention, or an
+  undersized connection pool. This agent works from evidence such as query statistics,
+  execution plans, and wait events to find where time is actually spent, then proposes
+  the smallest fix for each problem with a way to verify it and an assessment of its
+  write, storage, and locking cost.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [database-optimization, performance]
+tags: [database, postgresql, mysql, query-tuning, indexing, explain-plans, connection-pooling]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/diagnostic-queries.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [sql-query-optimization, database-index-design]
+related: [database-migration-planner-agent, performance-profiling-agent, production-incident-debugger-agent, observability-instrumentation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Runs only read-only diagnostic statements when given database access; never executes DDL, DML, or EXPLAIN ANALYZE on writes without approval, and redacts row data and bind values containing personal data.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

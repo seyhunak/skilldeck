@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: action-item-extraction
+name: Action Item Extraction
+type: skill
+description: "Extracts commitments from meetings, emails, and chats into tracker-ready items with verb-first task, single owner, stated due date, definition of done, dependency, and source."
+purpose: >
+  Dropped work is usually work that was never captured precisely. This skill detects
+  commitment signals, rewrites them as concrete verb-first tasks with one accountable
+  owner, resolves relative dates against the source date, adds an observable definition of
+  done, and lists unowned, undated, vague, or conditional items separately so a human can
+  close the gaps.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [meeting-synthesis, personal-productivity]
+tags: [action-items, tasks, meetings, accountability]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [meeting-notes-structuring, meeting-intelligence-agent, email-triage-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Extracts only; never invents owners or deadlines and does not notify people or create tickets without explicit user approval."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

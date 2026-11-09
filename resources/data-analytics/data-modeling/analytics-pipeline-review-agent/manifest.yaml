@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: analytics-pipeline-review-agent
+name: Analytics Pipeline Review Agent
+type: agent
+description: "Reviews an ELT/analytics pipeline (dbt, SQL transformations, orchestration) for correctness, test coverage, freshness, lineage, cost, and failure handling; returns prioritized findings."
+purpose: >
+  Analytics pipelines accumulate silent risk: untested joins, missing freshness
+  checks, incremental models that drop late data, and lineage nobody can explain. This
+  agent performs a structured read-only review of the transformation code and
+  orchestration, scores coverage of tests and freshness SLAs, traces critical lineage,
+  and returns severity-ranked findings with concrete fixes.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [data-modeling, data-quality]
+tags: [elt, dbt, data-pipelines, lineage, data-testing, code-review]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [dbt-model-review, sql-query-review]
+related: [data-model-design-agent, data-quality-investigation-agent, data-profiling, data-dictionary-authoring]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Read-only code review. Does not run pipelines, trigger orchestration jobs, or execute full refreshes; warehouse queries are limited to metadata and sampling with user consent."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: landing-page-copywriting
+name: Landing Page Copywriting
+type: skill
+description: "Writes and restructures landing page copy: section structure by awareness level, headline formulas, benefit-led body, proof placement, objection handling, and CTA. Use for new pages or rewrites."
+purpose: >
+  Landing pages fail when they lead with features, bury proof, or ask for commitment
+  before earning it. This skill gives an agent a structure keyed to visitor awareness and
+  traffic source, headline formulas to generate options, rules for placing evidence where
+  doubt arises, and a review pass that removes unsupported claims.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [copywriting, positioning]
+tags: [copywriting, landing-pages, headlines, conversion-copy, social-proof]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [messaging-framework, ab-test-design, value-proposition-prompt, brand-voice-guardian-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Never invents testimonials, customer counts, ratings, or results. Proof elements are placeholders marked for the user to fill with verified evidence."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

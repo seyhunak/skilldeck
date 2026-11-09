@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: agent-trace-debugging
+name: Agent Trace Debugging
+type: skill
+description: "Reads agent transcripts and traces to find the first divergent step, classify the failure (planning, tool selection, arguments, observation handling, loop, context loss), and propose a targeted fix and regression case."
+purpose: >
+  Agent failures surface far from their cause: the bad final answer is usually the
+  consequence of a wrong tool argument or a misread observation many steps earlier. This
+  skill gives a disciplined way to annotate a trace, locate the first point of
+  divergence, classify the root cause with a fixed taxonomy, and turn the finding into a
+  specific change and a test that prevents recurrence.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [agent-development, llm-ops]
+tags: [agents, debugging, traces, tool-use, observability]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [tool-schema-design, context-window-management, ai-observability-analyst-agent, agent-workflow-designer-agent, golden-dataset-construction]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Traces may contain user data, credentials in tool arguments, or internal URLs; redact before sharing and never reproduce secret values in the analysis. Analysis is read-only and does not re-execute tool calls with side effects."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

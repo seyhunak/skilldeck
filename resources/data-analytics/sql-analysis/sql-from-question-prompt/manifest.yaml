@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: sql-from-question-prompt
+name: SQL From Question
+type: prompt
+description: Translates a business question into a dialect-specific analytical SQL query against a supplied schema, stating grain, metric definitions, and assumptions, with sanity-check queries.
+purpose: >
+  Natural-language-to-SQL usually fails not on syntax but on meaning: which table is
+  the source of truth, what counts as an active user, whether a join fans out, how
+  nulls and time zones are handled. This prompt makes those choices explicit before
+  writing the query, refuses to guess column names that are not in the schema, and
+  returns verification queries so the analyst can trust the number before sharing it.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [sql-analysis, analytics-interpretation]
+tags: [sql, text-to-sql, analytics, data-analysis, queries]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [sql-analysis-agent, sql-query-review, metric-definition, data-profiling, insight-narrative-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Generates read-only SELECT queries only. Share schemas, not row data; run generated SQL with read-only credentials and review it before running against production.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

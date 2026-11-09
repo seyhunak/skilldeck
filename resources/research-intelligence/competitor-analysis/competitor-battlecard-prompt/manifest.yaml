@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: competitor-battlecard-prompt
+name: Competitor Battlecard
+type: prompt
+description: "Turns competitor research notes into a one-page sales battlecard: positioning, where we win and lose, landmines, objection handling, and proof points, each traceable to notes."
+purpose: >
+  Sales teams need a short, honest card they can use mid-call, not a forty-slide
+  competitive deck. This prompt compresses research notes into a battlecard that is
+  specific, fair to the competitor, traceable to evidence, and explicit about where the
+  competitor is genuinely stronger.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [competitor-analysis]
+tags: [battlecard, sales-enablement, competitive-intelligence, objection-handling, positioning]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [competitor-research-agent, competitive-feature-matrix, weekly-competitive-intelligence-routine, product-marketing-positioning-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Uses only the notes provided. Instructs the model not to invent competitor weaknesses, pricing, or customer names, and to avoid disparaging or legally risky claims."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

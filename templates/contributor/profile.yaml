@@ -1,0 +1,11 @@
+# Copy to contributors/<your-github-username>/profile.yaml (optional).
+# Your resources are attributed from author.github in each manifest; this file only adds detail.
+schema_version: "1.0"
+github: octocat                    # must equal the directory name
+display_name: The Octocat
+bio: >
+  One or two sentences about your work.
+website: https://example.com
+social_links:
+  - {label: Mastodon, url: "https://mastodon.social/@octocat"}
+featured_resource_ids: []          # ids of resources you authored

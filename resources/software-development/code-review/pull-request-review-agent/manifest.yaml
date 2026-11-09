@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: pull-request-review-agent
+name: Pull Request Review Agent
+type: agent
+description: Reviews a pull request diff in context for correctness, security, data safety, tests, and maintainability, returning severity-ranked, line-anchored comments and a merge recommendation.
+purpose: >
+  Human reviewers skim large diffs and spend their attention on style while
+  correctness and security defects slip through. This agent reads the change with
+  its surrounding code, reconstructs what the author intended, and hunts for the
+  defects that matter most: logic errors, broken edge cases, unsafe data handling,
+  missing tests, and risky migrations. It returns a small number of precise,
+  evidence-backed comments ranked by severity, ready for a human reviewer to post.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [code-review, test-generation]
+tags: [code-review, pull-requests, security, correctness, diff-review]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/review-hotspots.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [structured-code-review, error-handling-review]
+related: [owasp-top-10-review, code-review-feedback-prompt, pull-request-review-routine, api-design-review-agent, frontend-accessibility-review-agent, test-strategy-agent]
+featured: true
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Read-only. Drafts review comments for a human to post; never approves, merges, pushes, or posts comments itself, and never repeats secret values found in a diff.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

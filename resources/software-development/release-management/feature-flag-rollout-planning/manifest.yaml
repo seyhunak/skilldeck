@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: feature-flag-rollout-planning
+name: Feature Flag Rollout Planning
+type: skill
+description: "Plans a feature flag's lifecycle: flag type, sticky targeting, staged percentage rollout with guardrail metrics and stop criteria, a rehearsed kill switch, and scheduled removal."
+purpose: >
+  Flags decouple deploy from release only when rollouts have stages, metrics, owners,
+  and an end date. This skill produces an auditable plan covering flag type and
+  fallback, bucketing, stage entry and exit criteria, kill-switch steps, cohort
+  observability, and cleanup so flags do not become permanent configuration.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [release-management, devops]
+tags: [feature-flags, progressive-delivery, release-management, rollout]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [release-readiness-routine, changelog-and-release-notes, database-migration-planner-agent, observability-instrumentation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Produces plans and commands only; never changes flag states in any environment without explicit human instruction."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

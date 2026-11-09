@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: weekly-review-prompt
+name: Weekly Review
+type: prompt
+description: "A reflective weekly review prompt that turns your notes, calendar and task list into wins, misses, lessons, open loops, energy patterns and a short set of carry-forward commitments."
+purpose: >
+  Weekly reviews decay into either a task dump or vague journaling. This prompt guides a
+  structured reflection: what happened versus what was planned, why the gaps occurred,
+  which open loops need a decision, what drained or restored energy, and three to five
+  commitments to carry into next week, written in your own words rather than generic
+  advice.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [personal-productivity, knowledge-management]
+tags: [weekly-review, reflection, productivity, gtd]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [weekly-planning-routine, personal-planning-agent, decision-log-maintenance, action-item-extraction]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Personal notes and calendars can be sensitive; remove other people's private details before pasting. It is a reflection aid, not mental-health or medical advice."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

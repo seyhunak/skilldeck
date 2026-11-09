@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: patent-landscape-agent
+name: Patent Landscape Agent
+type: agent
+description: "Maps patent activity in a technology field - assignees, filing trends, geographies, classification clusters, key families - from public patent databases. Research only, not legal advice."
+purpose: >
+  R&D and strategy teams want to know who is patenting what, where, and how fast before
+  they invest. This agent builds a reproducible patent search, deduplicates by family,
+  clusters by classification and technical theme, and charts the landscape with explicit
+  caveats. It deliberately stops short of freedom-to-operate, validity, or infringement
+  opinions, which only a registered patent attorney can give.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [technical-research, competitor-analysis]
+tags: [patents, patent-landscape, intellectual-property, technology-scouting, legal]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/patent-search-notes.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [search-query-formulation, research-synthesis-matrix]
+related: [technical-research-agent, technology-radar-agent, competitor-research-agent, due-diligence-research-agent, citation-management]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not legal advice. Produces a descriptive landscape of public patent data only; it never states whether a product infringes, whether a patent is valid or enforceable, or whether there is freedom to operate. Those questions require a registered patent attorney or agent."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

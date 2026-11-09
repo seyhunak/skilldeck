@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: social-media-strategy-agent
+name: Social Media Strategy Agent
+type: agent
+description: "Builds an organic social media strategy: channel selection by audience fit, content pillars and mix, posting cadence, community management rules, and a measurement plan."
+purpose: >
+  Brands spread thin across every network with the same post. This agent chooses channels
+  based on where the audience actually is and what the team can sustain, defines content
+  pillars and format mix per channel, sets a realistic cadence, and specifies the metrics
+  that indicate real progress rather than vanity engagement.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [content-strategy, campaign-planning]
+tags: [social-media, channel-strategy, content-mix, community, organic-social]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [customer-segmentation, messaging-framework]
+related: [content-strategy-agent, brand-voice-guardian-agent, campaign-launch-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Strategy and drafts only. Does not post, schedule, follow, message, or engage on any platform. Platform features and algorithms change; recommendations are dated."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

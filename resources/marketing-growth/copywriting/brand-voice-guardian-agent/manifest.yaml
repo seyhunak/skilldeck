@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: brand-voice-guardian-agent
+name: Brand Voice Guardian
+type: agent
+description: "Checks marketing and product copy against a brand voice guide, scores each piece on defined voice attributes, and returns line-level edits with the rule each edit enforces."
+purpose: >
+  Voice guides sit unread while copy drifts across writers, agencies, and AI drafts. This
+  agent turns a voice guide into testable rules, reviews copy line by line against them,
+  distinguishes hard violations from judgement calls, and returns tracked edits that keep
+  the writer's meaning, so editors get consistent, explainable feedback instead of taste-
+  based rewrites.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [copywriting, positioning]
+tags: [brand-voice, copy-editing, tone-of-voice, style-guide, copywriting]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [messaging-framework]
+related: [landing-page-copywriting, ux-copy-review, plain-language-rewriting, product-marketing-positioning-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Edits are suggestions returned to the user. Does not publish copy or alter claims; flags factual, legal, or regulated claims for human review rather than rewriting them."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

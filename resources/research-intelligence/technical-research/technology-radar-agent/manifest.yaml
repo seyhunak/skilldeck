@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: technology-radar-agent
+name: Technology Radar Agent
+type: agent
+description: "Assesses a set of technologies into adopt, trial, assess, and hold rings for a specific organization, with evidence, rationale, and movement since the last edition."
+purpose: >
+  Teams need a shared, defensible stance on which tools, platforms, and techniques to
+  bet on. This agent runs a radar-style assessment scoped to the organization's context:
+  it gathers maturity and adoption evidence for each blip, applies explicit ring
+  criteria, writes the rationale a reviewer can challenge, and records what would move
+  the blip next time.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [technical-research]
+tags: [technology-radar, technology-assessment, adoption, architecture, tech-strategy]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [trend-signal-detection, source-credibility-assessment]
+related: [technical-research-agent, architecture-decision-records, dependency-upgrade-agent, vendor-evaluation-research-routine, ai-architecture-assessment-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Read-only research. Ring placements are recommendations for human architects to ratify; the agent does not change dependencies, standards, or policy documents."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

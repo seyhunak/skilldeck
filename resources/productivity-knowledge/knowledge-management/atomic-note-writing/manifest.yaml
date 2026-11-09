@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: atomic-note-writing
+name: Atomic Note Writing
+type: skill
+description: "Writes Zettelkasten-style permanent notes: one idea per note, claim-style title, own words, cited source, and contextual links, plus structure notes for growing clusters."
+purpose: >
+  Collected highlights rarely become usable knowledge. This skill turns source material
+  into atomic, standalone notes that are reformulated in the writer's own words, keep
+  provenance separate from interpretation, and link to existing notes with a stated
+  relationship, so a personal or team knowledge base grows into a navigable network rather
+  than a pile.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [knowledge-management, learning]
+tags: [zettelkasten, note-taking, obsidian, knowledge-management, pkm]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [knowledge-base-curator-agent, learning-plan-agent, research-synthesis-matrix, citation-management]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Does not fabricate source details or quotes, keeps quotations short, and proposes rather than silently creates new linked notes."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

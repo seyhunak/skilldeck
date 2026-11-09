@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: research-synthesis-matrix
+name: Research Synthesis Matrix
+type: skill
+description: "Builds a source-by-theme matrix that records what each source says on each theme, then synthesises agreement, conflict, and gaps. Use when combining five or more sources."
+purpose: >
+  Summaries written source by source read like annotated bibliographies and hide where
+  the evidence agrees or conflicts. The matrix forces cross-source comparison: each cell
+  records a finding with its locator and strength, so the synthesis can state consensus,
+  disagreement, and gaps honestly.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [academic-research, market-research]
+tags: [synthesis, literature-matrix, thematic-analysis, evidence-synthesis, research-methods]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [literature-review-agent, citation-management, customer-voice-research-agent, research-paper-summary-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Works only on sources the user provides or has already gathered; never fills a matrix cell from memory without a locator."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

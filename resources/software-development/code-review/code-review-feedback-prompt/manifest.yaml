@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: code-review-feedback-prompt
+name: Code Review Feedback
+type: prompt
+description: "Turns rough reviewer notes on a diff into kind, specific, actionable review comments labelled by severity, each with reasoning and a concrete suggestion."
+purpose: >
+  Terse or vague review comments create friction and slow merges. This prompt rewrites a
+  reviewer's raw notes into comments that name the location, explain the concern and its
+  impact, propose a fix, and state whether it blocks the merge, using a consistent label
+  scheme so authors can triage quickly. It changes the wording, never the technical
+  substance.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [code-review]
+tags: [code-review, feedback, communication, pull-requests]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [structured-code-review, pull-request-review-routine, pull-request-review-agent, error-handling-review]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Rewrites the reviewer's own judgements only; it must not invent new findings or soften a blocking security concern into a suggestion."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

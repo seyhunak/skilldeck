@@ -1,0 +1,34 @@
+# Launch gate consumed by scripts/check_launch_catalog.py.
+# Only approved, complete packages count. Do not lower these numbers to pass a build.
+minimum_total: 250
+minimum_by_type:
+  agent: 100
+  skill: 100
+  prompt: 30
+  routine: 20
+minimum_collections: 12
+# Exact launch distribution: domain -> type -> minimum count.
+domain_distribution:
+  software-development:     {agent: 18, skill: 18, prompt: 5, routine: 4}
+  ai-machine-learning:      {agent: 14, skill: 15, prompt: 5, routine: 3}
+  research-intelligence:    {agent: 10, skill: 10, prompt: 4, routine: 2}
+  business-strategy:        {agent: 9,  skill: 9,  prompt: 3, routine: 2}
+  product-design:           {agent: 9,  skill: 9,  prompt: 3, routine: 2}
+  marketing-growth:         {agent: 9,  skill: 9,  prompt: 3, routine: 2}
+  finance-banking:          {agent: 8,  skill: 8,  prompt: 2, routine: 2}
+  security-compliance:      {agent: 8,  skill: 8,  prompt: 2, routine: 1}
+  data-analytics:           {agent: 8,  skill: 8,  prompt: 2, routine: 1}
+  productivity-knowledge:   {agent: 7,  skill: 6,  prompt: 1, routine: 1}
+required_collections:
+  - complete-software-development-toolkit
+  - ai-engineering-toolkit
+  - rag-development-toolkit
+  - ai-agent-development-toolkit
+  - research-intelligence-toolkit
+  - product-development-toolkit
+  - business-strategy-toolkit
+  - marketing-seo-toolkit
+  - financial-analysis-toolkit
+  - security-compliance-toolkit
+  - data-analytics-toolkit
+  - personal-productivity-toolkit

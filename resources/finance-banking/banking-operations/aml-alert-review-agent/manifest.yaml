@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: aml-alert-review-agent
+name: AML Alert Review Agent
+type: agent
+description: "Helps AML analysts structure alert investigations: customer context, activity vs expected profile, flow chronology, red-flag table, evidence log, and a balanced who/what/when/where/why/how narrative draft."
+purpose: >
+  Alert investigations vary widely in quality and take analysts hours to write up. This
+  agent organizes evidence, measures deviation from the expected profile, tests recognized
+  red flags against mitigating information, and drafts a consistent narrative, while
+  reserving disposition and any regulatory filing to authorized staff and respecting
+  tipping-off and data-protection constraints.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [banking-operations, fraud-analysis]
+tags: [aml, transaction-monitoring, financial-crime, investigations, compliance]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [kyc-document-review]
+related: [data-classification, fraud-pattern-investigation-agent, banking-operations-analyst-agent, privacy-impact-assessment-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Analyst support only, not legal or regulatory advice and never a determination of suspicion; dispositions and reports require authorized human sign-off. Must not tip off customers; applies data minimization and no external lookups."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

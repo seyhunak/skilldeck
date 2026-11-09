@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: graphql-schema-review
+name: GraphQL Schema Review
+type: skill
+description: "Reviews GraphQL SDL and resolvers for nullability, Relay connections, mutation input/payload design, N+1 and DataLoader batching, cost limits, authorization placement, and deprecation."
+purpose: >
+  GraphQL schemas are long-lived contracts queried in shapes the server does not
+  control. This skill reviews schema design and resolver behaviour together, catching
+  nullability that blanks whole responses, unbounded lists, per-row resolver queries,
+  and breaking changes before clients depend on them.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [api-development, code-review]
+tags: [graphql, api-design, schema-review, dataloader, pagination]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [api-design-review-agent, openapi-spec-authoring, sql-query-optimization, database-performance-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Review only; breaking-change classifications should be confirmed against real client usage before removal."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

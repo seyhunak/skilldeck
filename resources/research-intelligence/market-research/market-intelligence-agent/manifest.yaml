@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: market-intelligence-agent
+name: Market Intelligence Agent
+type: agent
+description: "Maps a market's structure, segments, demand drivers, size estimates, and leading signals from cited sources, and states the confidence behind every number."
+purpose: >
+  Market questions such as 'is this space growing, who buys, and how big is it really'
+  tend to get answered with one analyst headline figure. This agent decomposes the
+  market into segments and value chain, triangulates size from independent methods,
+  separates drivers from noise, and tells the reader which numbers are solid and which
+  are assumptions.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [market-research, competitor-analysis]
+tags: [market-research, market-structure, segmentation, market-sizing, industry-analysis]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [market-sizing, trend-signal-detection, source-credibility-assessment]
+related: [competitor-research-agent, customer-voice-research-agent, executive-research-memo-prompt, industry-structure-analysis, customer-segmentation]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Read-only web research. Never presents vendor or analyst headline figures as fact without attribution, and never fabricates market numbers; unsupported values are labelled as assumptions."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

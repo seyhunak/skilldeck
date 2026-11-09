@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: data-model-design-agent
+name: Data Model Design Agent
+type: agent
+description: "Designs analytical data models: business process, declared grain, fact and dimension tables, conformed dimensions, slowly changing dimension strategy, keys, and tests."
+purpose: >
+  Most analytics pain traces back to an undeclared grain or a dimension that silently
+  overwrites history. This agent applies dimensional modeling discipline to a business
+  process: it declares the grain, identifies facts and dimensions, chooses SCD types
+  per attribute, designs keys and conformed dimensions, and returns a model
+  specification with DDL-style sketches and the tests that keep it honest.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [data-modeling, sql-analysis]
+tags: [data-modeling, dimensional-modeling, kimball, scd, warehouse]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [dbt-model-review, data-dictionary-authoring]
+related: [analytics-pipeline-review-agent, metric-definition, sql-analysis-agent, data-profiling]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Design output only; does not create, alter, or drop warehouse objects. Flags personal-data columns that need masking or restricted access in the proposed model."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

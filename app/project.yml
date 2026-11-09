@@ -1,0 +1,60 @@
+name: Skilldeck
+options:
+  bundleIdPrefix: io.github.seyhunak
+  deploymentTarget:
+    macOS: "15.0"
+  createIntermediateGroups: true
+packages:
+  SkilldeckCore:
+    path: .
+settings:
+  base:
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGN_STYLE: Manual
+targets:
+  Skilldeck:
+    type: application
+    platform: macOS
+    sources:
+      - path: Skilldeck
+    dependencies:
+      - package: SkilldeckCore
+    info:
+      path: Skilldeck/Info.plist
+      properties:
+        CFBundleDisplayName: Skilldeck
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSApplicationCategoryType: public.app-category.developer-tools
+        NSHumanReadableCopyright: "MIT License. Proudly powered by Claude."
+        LSMinimumSystemVersion: "15.0"
+        CFBundleURLTypes:
+          - CFBundleURLName: io.github.seyhunak.skilldeck
+            CFBundleURLSchemes: [skilldeck]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.seyhunak.skilldeck
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ENABLE_HARDENED_RUNTIME: YES
+        # Not sandboxed: installing into ~/.claude and ~/.codex requires access outside the container.
+        ENABLE_APP_SANDBOX: NO
+        GENERATE_INFOPLIST_FILE: NO
+    preBuildScripts:
+      - name: Check bundled catalog
+        script: |
+          if [ ! -f "${SRCROOT}/Skilldeck/Resources/catalog-bundle.json" ]; then
+            echo "error: Skilldeck/Resources/catalog-bundle.json is missing. Run: python3 scripts/build_catalog.py && cp dist/catalog-bundle.json app/Skilldeck/Resources/"
+            exit 1
+          fi
+        basedOnDependencyAnalysis: false
+schemes:
+  Skilldeck:
+    build:
+      targets:
+        Skilldeck: all
+    test:
+      targets: []

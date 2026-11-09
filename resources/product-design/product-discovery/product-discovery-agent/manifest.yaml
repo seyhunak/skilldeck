@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: product-discovery-agent
+name: Product Discovery Agent
+type: agent
+description: "Maps the assumptions behind a product idea, ranks them by importance and evidence, and designs the smallest experiments that would de-risk the riskiest ones, returning an assumption map and test plan."
+purpose: >
+  Teams often build the first idea they agree on and learn too late that customers do
+  not want it, cannot use it, or that it cannot be delivered profitably. This agent
+  makes the hidden assumptions explicit across desirability, viability, feasibility, and
+  usability, ranks them, and pairs the riskiest with cheap, falsifiable experiments with
+  pre-committed success thresholds, so discovery produces evidence rather than opinions.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [product-discovery, user-research]
+tags: [product-discovery, assumption-mapping, experiments, lean, evidence]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [opportunity-solution-tree, jobs-to-be-done-analysis]
+related: [product-discovery-sprint-routine, user-interview-script-prompt, ux-research-synthesis-agent, ab-test-design]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Planning only. Does not contact customers, launch tests, or spend budget; experiments involving real users, payments, or fake-door tests require human approval and honest disclosure to participants."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: unit-economics-analysis
+name: Unit Economics Analysis
+type: skill
+description: Calculates and interprets unit economics - CAC, contribution margin, churn-based LTV, LTV:CAC, and CAC payback - by segment and channel, with consistent definitions and warnings about common calculation errors.
+purpose: >
+  Unit economics decide whether growth creates or destroys value, yet the numbers are
+  often computed inconsistently: revenue instead of margin in LTV, blended CAC that
+  hides expensive channels, or churn rates from immature cohorts. This skill applies
+  explicit definitions and formulas, segments the results, and states the assumptions
+  that drive them so decisions about spend and pricing rest on sound arithmetic.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [business-analysis, pricing, business-case-development]
+tags: [unit-economics, cac, ltv, contribution-margin, payback, saas-metrics]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [pricing-strategy-agent, business-case-development-agent, cohort-retention-analysis-agent, kpi-tree-design, business-model-canvas-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Analytical calculations for internal decision support, not financial or investment advice; figures should be reconciled with finance before external use.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

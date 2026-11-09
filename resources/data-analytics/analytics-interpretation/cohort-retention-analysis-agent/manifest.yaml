@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: cohort-retention-analysis-agent
+name: Cohort Retention Analysis Agent
+type: agent
+description: "Builds and interprets cohort retention analyses: cohort definitions, retention curves and tables, curve shape, drivers by segment and behavior, and caveated recommendations."
+purpose: >
+  Retention is the metric most often computed inconsistently: different activity
+  definitions, unbounded versus bounded retention, and immature cohorts mixed into
+  averages. This agent fixes the definitions first, builds cohort tables with correct
+  censoring, reads curve shape (decay, flattening, smile), compares segments and early
+  behaviors, and returns findings that distinguish correlation from causation.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [analytics-interpretation, sql-analysis]
+tags: [retention, cohort-analysis, churn, product-analytics, sql]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [sql-query-review, metric-definition, chart-selection]
+related: [metric-anomaly-investigation-agent, experiment-analysis-agent, insight-narrative-prompt, statistical-significance-testing]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Read-only analysis on event or subscription data. Reports aggregated cohorts only and suppresses small cells that could identify individual users."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

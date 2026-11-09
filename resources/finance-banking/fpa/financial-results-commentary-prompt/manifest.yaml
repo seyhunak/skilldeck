@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: financial-results-commentary-prompt
+name: Financial Results Commentary
+type: prompt
+description: "Turns a results table and validated drivers into management commentary with a headline, line-by-line what/why/persistence explanations, outlook, and a checklist of items to confirm before distribution."
+purpose: >
+  Finance teams rewrite results commentary every month under deadline. This prompt
+  converts validated numbers and drivers into concise, consistent commentary for
+  executives, boards, or lenders, refuses to invent causes, and lists every placeholder
+  and computed figure for confirmation before release.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [fpa]
+tags: [management-reporting, commentary, fpa, board-reporting, variance-analysis]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [budget-variance-analysis-agent, earnings-call-analysis, board-update-drafting-agent, executive-summary-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Drafts commentary only, not investment or accounting advice; published or price-sensitive commentary needs approval by qualified finance and disclosure reviewers. The prompt forbids invented drivers and figures."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

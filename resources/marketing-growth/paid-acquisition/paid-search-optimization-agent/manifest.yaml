@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: paid-search-optimization-agent
+name: Paid Search Optimization Agent
+type: agent
+description: "Reviews a paid search account from exports: structure, search terms, match types, negatives, bidding, budgets, and ad copy, then returns prioritized, reversible optimization recommendations."
+purpose: >
+  Search accounts accumulate wasted spend in irrelevant queries, overlapping ad groups,
+  and bid strategies starved of conversion data. This agent reviews account exports like
+  an experienced paid search manager, quantifies waste and opportunity, and proposes
+  specific, reversible changes with expected impact and a test plan, leaving every change
+  to a human to apply.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [paid-acquisition, campaign-planning]
+tags: [paid-search, ppc, sem, search-ads, bidding, negative-keywords]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [keyword-research, marketing-attribution-analysis]
+related: [ad-copy-variations-prompt, landing-page-copywriting, campaign-performance-analyst-agent, conversion-optimization-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Read-only on exports. Never edits accounts, bids, or budgets. Platform rules and limits change; the agent tells users to confirm them in current platform documentation."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: chunking-strategy-design
+name: Chunking Strategy Design
+type: skill
+description: "Designs document chunking for RAG: unit of retrieval, size and overlap, structure-aware splitting, parent-child layouts, and chunk metadata, validated against retrieval metrics."
+purpose: >
+  Chunking decisions silently cap RAG quality: a fact split across two chunks or buried
+  in an oversized one cannot be retrieved well no matter how good the embedding model
+  is. This skill gives a repeatable way to choose split boundaries, sizes, overlap, and
+  metadata from the corpus structure and the query mix, then confirm the choice with a
+  measured retrieval comparison instead of defaults.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [rag-development]
+tags: [rag, chunking, retrieval, embeddings, document-processing]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [retrieval-quality-metrics, hybrid-search-tuning, embedding-strategy-agent, rag-evaluation-agent, rag-pipeline-evaluation-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Operates on documents the user supplies; may contain proprietary text. Does not send content anywhere; recommends redacting sensitive fields before indexing."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

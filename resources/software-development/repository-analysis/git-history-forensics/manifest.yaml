@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: git-history-forensics
+name: Git History Forensics
+type: skill
+description: "Mines git history with concrete git log commands to find churn hotspots, ownership and bus-factor risk, and change coupling between files."
+purpose: >
+  Static analysis shows how code is structured; version history shows where effort,
+  defects, and knowledge actually concentrate. This skill gives agents and engineers
+  ready-to-run git log, blame, and awk pipelines plus interpretation rules, so hotspot,
+  ownership, and coupling findings are reproducible and honest about their caveats.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [repository-analysis, architecture-assessment]
+tags: [git, code-analysis, hotspots, ownership, change-coupling]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [repository-intelligence-agent, technical-debt-assessment-agent, code-complexity-analysis, new-codebase-onboarding-routine]
+featured: true
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Read-only git commands only; never rewrites history or pushes. Reports ownership at component level and avoids judging individual engineers."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

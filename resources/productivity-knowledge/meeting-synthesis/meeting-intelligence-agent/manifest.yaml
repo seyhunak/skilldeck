@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: meeting-intelligence-agent
+name: Meeting Intelligence Agent
+type: agent
+description: "Turns meeting transcripts or notes into a cited brief of decisions, owned action items, risks, disagreements, and open questions, tracks carry-over across recurring meetings, and drafts follow-ups for review."
+purpose: >
+  Attendees routinely leave meetings with different beliefs about what was agreed. This
+  agent separates confirmed decisions from proposals, pins every commitment to a stated
+  owner and date with a transcript reference, surfaces risks and unresolved disagreements,
+  and reconciles recurring meetings against previous action lists. Follow-up messages are
+  returned as drafts; the agent never contacts anyone or fills in owners and deadlines
+  that were not stated.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [meeting-synthesis]
+tags: [meetings, transcripts, decisions, action-items, summarization]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [meeting-notes-structuring, action-item-extraction]
+related: [decision-log-maintenance, email-triage-agent, executive-summary-prompt, personal-planning-agent]
+featured: true
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Transcripts are treated as confidential. Follow-up messages are drafts only and are never sent; owners and dates are never invented."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

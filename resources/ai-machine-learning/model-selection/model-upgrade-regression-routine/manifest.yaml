@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: model-upgrade-regression-routine
+name: Model Upgrade Regression Routine
+type: routine
+description: A controlled procedure for swapping an LLM version in a launched feature, using paired evals, per-case diffs, prompt re-tuning, and a reversible rollout with the old model kept available.
+purpose: >
+  New model versions are not drop-in replacements: they change formatting habits,
+  refusal boundaries, tool-calling behavior, verbosity, token counts, and latency, and
+  aggregate eval scores can improve while specific critical cases regress. This
+  routine makes a model swap a paired comparison on the same inputs, inspects
+  per-case flips rather than averages, and keeps the previous model one switch away.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [model-selection, llm-evaluation, llm-ops]
+tags: [model-upgrade, regression-testing, evals, migration, llm-ops]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: []
+related: [model-selection-analyst-agent, llm-evaluation-agent, llm-feature-launch-routine, prompt-optimization, structured-output-extraction, ai-cost-optimization-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Eval sets built from production traffic may contain personal data; check provider data terms before sending it to a new model endpoint. Production switches need a named approver.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

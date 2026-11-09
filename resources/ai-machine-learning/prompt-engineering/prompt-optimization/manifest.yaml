@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: prompt-optimization
+name: Prompt Optimization
+type: skill
+description: "Systematically improves a prompt against an eval set: baseline, failure analysis, one-change-at-a-time variants, ablations, held-out confirmation, and a change log, avoiding overfitting to a few examples."
+purpose: >
+  Prompt edits made by feel often fix one example and break three others. This skill
+  treats a prompt as an artifact under test: establish a baseline on a fixed eval set,
+  cluster failures, make targeted changes, ablate sections to learn what actually
+  matters, and confirm on held-out data, so every shipped prompt change is backed by
+  measured improvement.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [prompt-engineering, llm-evaluation]
+tags: [prompt-engineering, optimization, evals, ablation, llm]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [golden-dataset-construction, llm-judge-rubric-design, system-prompt-architect-prompt, few-shot-example-generator-prompt, model-upgrade-regression-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Runs candidate prompts only through model access the user already has; does not exfiltrate eval data. Flags any prompt change that weakens existing safety instructions for human review."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

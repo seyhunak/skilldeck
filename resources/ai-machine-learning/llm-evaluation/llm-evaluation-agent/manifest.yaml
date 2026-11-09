@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: llm-evaluation-agent
+name: LLM Evaluation Agent
+type: agent
+description: "Designs and runs evaluation suites for LLM features: defines success criteria, builds or audits the test set, chooses metrics and graders, calibrates LLM judges against humans, and reports results with uncertainty."
+purpose: >
+  Teams ship prompt and model changes on the strength of a handful of spot checks. This agent turns a feature's
+  requirements into a repeatable evaluation: a versioned case set, code-based and model-based graders, judge calibration
+  against human labels, and a report that states effect sizes with confidence intervals, so a change is accepted or
+  rejected on evidence rather than impressions.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [llm-evaluation]
+tags: [llm-evaluation, evals, llm-as-judge, test-sets, metrics, calibration]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/grader-selection-guide.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [golden-dataset-construction, llm-judge-rubric-design]
+related: [eval-test-case-generator-prompt, llm-output-critique-prompt, hallucination-detection, rag-evaluation-agent, model-upgrade-regression-routine, statistical-significance-testing]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Works on test cases and outputs the user provides. Running a suite against a live model happens only with the user's explicit go-ahead and their credentials configured outside the conversation. Production logs used as cases must be de-identified first."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

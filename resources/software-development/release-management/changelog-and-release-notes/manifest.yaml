@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: changelog-and-release-notes
+name: Changelog and Release Notes
+type: skill
+description: "Builds Keep a Changelog entries from merged changes, decides the SemVer bump from breaking-change analysis, and writes user-facing release notes with upgrade steps."
+purpose: >
+  Changelogs written from raw commit subjects are noisy and often mislabel breaking
+  changes. This skill classifies changes against the project's public surface, picks the
+  version number with a stated justification, and produces both a precise CHANGELOG
+  entry and readable release notes for the intended audience.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [release-management, documentation]
+tags: [changelog, release-notes, semver, release-management]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [commit-message-writing, release-readiness-routine, dependency-upgrade-agent, feature-flag-rollout-planning]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Drafts only; never pushes tags, publishes releases, or posts announcements without explicit approval. Respects security disclosure policy."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: bi-dashboard-specification-agent
+name: BI Dashboard Specification Agent
+type: agent
+description: "Produces a build-ready BI dashboard specification: audience and decisions, metric definitions, layout, chart choices, filters, data sources, and acceptance criteria."
+purpose: >
+  Dashboards fail when they are built from a list of charts rather than a list of
+  decisions. This agent interviews the request for audience, decisions, and cadence,
+  pins every tile to a precise metric definition and data source, chooses charts
+  deliberately, lays out a reading order, and returns a specification a BI developer
+  can build and a stakeholder can sign off.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [dashboard-design, data-visualization]
+tags: [dashboards, bi, data-visualization, requirements, kpis]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [chart-selection, metric-definition]
+related: [kpi-tree-design, data-dictionary-authoring, weekly-metrics-review-routine, insight-narrative-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Produces a specification document only; does not connect to or modify BI tools. Flags tiles that would expose row-level personal data to broad audiences."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

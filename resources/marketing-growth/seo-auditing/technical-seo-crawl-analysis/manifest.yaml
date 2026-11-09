@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: technical-seo-crawl-analysis
+name: Technical SEO Crawl Analysis
+type: skill
+description: "Interprets site crawler exports (status codes, indexability, canonicals, redirects, duplicates, depth, sitemaps, hreflang) to find and size technical SEO problems. Use after running a crawl."
+purpose: >
+  Crawler exports list thousands of issues with no sense of scale or cause. This skill
+  teaches an agent to load the right export tabs, segment URLs by template, cross-check
+  indexability signals against each other, trace issues to their root template or rule,
+  and rank them by the number of important URLs affected.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [seo-auditing]
+tags: [technical-seo, crawl-analysis, indexability, canonicals, redirects, site-architecture]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [seo-audit-agent, on-page-seo-optimization, monthly-seo-health-check-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Analyses crawl exports supplied by the user. Does not run crawlers against third-party sites or change robots, sitemap, or server configuration."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

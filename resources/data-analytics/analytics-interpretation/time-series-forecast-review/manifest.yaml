@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: time-series-forecast-review
+name: Time Series Forecast Review
+type: skill
+description: "Reviews a time series forecast for seasonality handling, leakage, backtesting design, baselines, error metrics (MAE, MAPE, sMAPE, MASE), and prediction intervals."
+purpose: >
+  Forecasts get adopted because their charts look smooth, not because they beat a
+  naive baseline. This skill reviews a forecast the way a skeptical analyst would:
+  decomposition and seasonality, leakage, rolling-origin backtests, the right error
+  metrics for the data, interval calibration, and how the forecast will be used.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [analytics-interpretation, experimentation]
+tags: [forecasting, time-series, backtesting, model-review, seasonality]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [metric-anomaly-investigation-agent, cash-flow-forecasting-agent, statistical-significance-testing, ml-experiment-review-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Review guidance only; it does not produce financial or operational commitments, and forecasts used for planning need owner sign-off."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

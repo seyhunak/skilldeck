@@ -1,0 +1,37 @@
+schema_version: "1.1"
+id: your-routine-id
+name: Your Routine Name
+type: routine
+description: The repeatable workflow and its intended outcome (30-300 chars).
+purpose: >
+  Why this workflow is worth standardizing.
+version: 1.0.0
+author:
+  name: Your Name
+  github: octocat
+license: MIT
+domain: productivity-knowledge
+use_cases: [knowledge-management]
+tags: [workflow]
+created: "2026-01-01"
+updated: "2026-01-01"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: []
+related: []
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Human approval is required at consequential decision points.
+status: submitted
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial submission."]

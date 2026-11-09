@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: user-story-writing
+name: User Story Writing
+type: skill
+description: "Writes and refines user stories that pass the INVEST criteria and splits oversized epics into thin vertical slices using proven splitting patterns, with a definition of ready for each story."
+purpose: >
+  Stories that are too big, too technical, or missing their reason cause estimation
+  fights and half-finished sprints. This skill teaches an agent to write stories in a
+  consistent format, test them against INVEST, split them along workflow steps, business
+  rules, data variations, or interfaces rather than by technical layer, and hand them
+  off with acceptance criteria hooks.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [prd-generation, product-roadmapping]
+tags: [user-stories, invest, story-splitting, agile, backlog]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [acceptance-criteria-gherkin, prd-generation-agent, feature-spec-prompt, feature-prioritization-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Produces backlog text only and does not create or edit tickets in any tracker without the user's instruction."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

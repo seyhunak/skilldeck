@@ -1,0 +1,43 @@
+schema_version: "1.1"
+id: raci-matrix-design
+name: RACI Matrix Design
+type: skill
+description: Designs a RACI matrix that assigns exactly one Accountable owner per decision or deliverable, keeps Consulted lists lean, and detects anti-patterns such as multiple A's, missing R's, and roles overloaded with responsibility.
+purpose: >
+  Unclear accountability shows up as stalled decisions, duplicated work, and
+  finger-pointing. A RACI matrix fixes this only if it is built around meaningful
+  decisions and deliverables and checked for common failures. This skill structures the
+  activity list, assigns roles with explicit rules, and audits the result row by row
+  and column by column so the matrix clarifies ownership instead of documenting
+  confusion.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [organizational-change, business-analysis]
+tags: [raci, accountability, decision-rights, roles-responsibilities, governance]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [operating-model-analyst-agent, change-management-planning-agent, stakeholder-mapping, okr-design-agent, decision-memo-writing]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Assigns roles rather than named people where possible; final accountability assignments must be agreed by the managers concerned.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

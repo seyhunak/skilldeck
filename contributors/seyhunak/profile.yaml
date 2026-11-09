@@ -1,0 +1,10 @@
+schema_version: "1.0"
+github: seyhunak
+display_name: Seyhun Akyürek
+bio: >
+  Software engineer and maintainer of Skilldeck. Builds developer tools,
+  AI agent workflows, and open-source resources for practitioners.
+featured_resource_ids:
+  - repository-intelligence-agent
+  - rag-evaluation-agent
+  - competitor-research-agent

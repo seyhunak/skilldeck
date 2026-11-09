@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: stack-trace-analysis
+name: Stack Trace Analysis
+type: skill
+description: "Reads stack traces and crash reports across major languages, follows chained causes to the root, recognises common failure signatures, and symbolicates native or minified frames."
+purpose: >
+  Traces are precise but easy to misread: frame order differs by language, the real
+  cause hides in chained exceptions, and native or minified traces need symbols. This
+  skill locates the failing and originating frames and turns them into a falsifiable
+  hypothesis with a way to confirm it.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [debugging]
+tags: [debugging, stack-traces, crash-reports, symbolication, exceptions]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [debug-error-message-prompt, production-incident-debugger-agent, concurrency-bug-analysis-agent, error-handling-review]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Traces can contain user data, tokens, or internal paths; redact before quoting or sharing. Read-only analysis."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

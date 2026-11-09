@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: database-migration-planner-agent
+name: Database Migration Planner
+type: agent
+description: Plans zero-downtime relational schema changes using expand/contract phases, lock-aware DDL, batched backfills, dual-write or read-switch steps, and a rollback point for every phase, coordinated with application deploys.
+purpose: >
+  Schema changes are a leading cause of self-inflicted outages: a rewrite of a large
+  table, a lock queued behind a long transaction, or a column dropped while old code
+  still reads it. This agent turns a desired schema change into an ordered
+  expand/contract plan that keeps old and new application versions working at every
+  step, states the lock each statement takes, sizes backfills, and defines what to
+  verify and how to roll back before moving on.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [database-optimization, release-management]
+tags: [database, schema-migration, zero-downtime, postgresql, mysql, expand-contract]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/ddl-lock-notes.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [database-index-design]
+related: [database-performance-agent, sql-query-optimization, feature-flag-rollout-planning, release-readiness-routine, architecture-decision-records]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Produces plans and SQL for review only. Never connects to or executes statements against any database; destructive steps (drops, data rewrites) require explicit human approval, a verified backup, and a rehearsal on production-like data.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

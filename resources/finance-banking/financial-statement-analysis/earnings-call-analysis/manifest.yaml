@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: earnings-call-analysis
+name: Earnings Call Analysis
+type: skill
+description: "Extracts guidance changes, KPI disclosure shifts, tone and hedging changes, and Q&A themes from an earnings call transcript, cross-checks claims against reported numbers, and cites every point."
+purpose: >
+  Earnings calls reveal what management emphasizes and what analysts doubt, but
+  transcripts are long. This skill produces a cited brief of guidance changes, dropped or
+  new KPIs, claims versus numbers, tone shifts, and Q&A deflections so readers see what
+  changed since last quarter.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [financial-statement-analysis]
+tags: [earnings-calls, guidance, equity-research, transcripts, investment]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [financial-statement-analysis-agent, investment-memo-prompt, financial-results-commentary-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  professional_advice_disclaimer: true
+  notes: "Not investment advice or a trading recommendation; investment decisions require a qualified professional's judgement. Tone reads are interpretive, quotes stay brief, and analysis stops if mixed with material non-public information."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

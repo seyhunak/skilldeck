@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: rice-prioritization
+name: RICE Prioritization
+type: skill
+description: "Scores backlog items with RICE (Reach x Impact x Confidence / Effort) using consistent scales, documented evidence for each input, and a sensitivity check before presenting a ranked list."
+purpose: >
+  RICE is popular because it forces teams to state reach, impact, confidence, and effort
+  explicitly, but it is easy to game with optimistic guesses. This skill applies the
+  formula with calibrated scales, records the evidence behind each number, penalizes
+  guesswork through the confidence factor, and checks whether the ranking is stable
+  before anyone treats it as a decision.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [product-roadmapping]
+tags: [rice, prioritization, scoring, backlog, roadmap]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: [examples/rice-scoring-sheet.csv]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [feature-prioritization-agent, product-roadmap-analyst-agent, opportunity-solution-tree, unit-economics-analysis]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Scores are decision aids, not decisions. Input estimates are labeled with source and confidence."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

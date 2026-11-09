@@ -1,0 +1,235 @@
+# Curated collections. Each references canonical resource ids; packages are never duplicated.
+# `step` gives a recommended order of use where it matters.
+schema_version: "1.0"
+collections:
+  - id: complete-software-development-toolkit
+    title: Complete Software Development Toolkit
+    description: Everything a working software engineer needs to understand a codebase, review changes, test, debug, and ship safely.
+    audience: Software engineers, tech leads, and engineering managers.
+    use_cases: [repository-analysis, code-review, debugging, release-management]
+    symbol: hammer
+    accent: blue
+    featured: true
+    resources:
+      - {id: new-codebase-onboarding-routine, step: 1, note: Start here on a new project.}
+      - {id: repository-intelligence-agent, step: 2}
+      - {id: architecture-review-agent, step: 3}
+      - {id: pull-request-review-agent, step: 4}
+      - {id: structured-code-review, step: 5}
+      - {id: test-strategy-agent, step: 6}
+      - {id: unit-test-design, step: 7}
+      - {id: production-incident-debugger-agent, step: 8}
+      - {id: stack-trace-analysis, step: 9}
+      - {id: technical-debt-assessment-agent, step: 10}
+      - {id: release-readiness-routine, step: 11}
+      - {id: changelog-and-release-notes, step: 12}
+      - {id: technical-design-doc-prompt}
+      - {id: explain-unfamiliar-code-prompt}
+  - id: ai-engineering-toolkit
+    title: AI Engineering Toolkit
+    description: Design, evaluate, operate, and cost-optimize LLM-powered features with disciplined evaluation and observability.
+    audience: AI engineers, ML engineers, and platform teams shipping LLM features.
+    use_cases: [ai-architecture, llm-evaluation, llm-ops, prompt-engineering]
+    symbol: cpu
+    accent: purple
+    featured: true
+    resources:
+      - {id: ai-architecture-assessment-agent, step: 1}
+      - {id: model-selection-analyst-agent, step: 2}
+      - {id: system-prompt-architect-prompt, step: 3}
+      - {id: prompt-optimization, step: 4}
+      - {id: golden-dataset-construction, step: 5}
+      - {id: llm-evaluation-agent, step: 6}
+      - {id: llm-judge-rubric-design, step: 7}
+      - {id: ai-observability-analyst-agent, step: 8}
+      - {id: ai-cost-optimization-agent, step: 9}
+      - {id: token-budget-estimation, step: 10}
+      - {id: llm-feature-launch-routine, step: 11}
+      - {id: model-upgrade-regression-routine, step: 12}
+  - id: rag-development-toolkit
+    title: RAG Development Toolkit
+    description: Build retrieval-augmented generation that is grounded and measurable, from chunking and embeddings to evaluation.
+    audience: Engineers building search, Q&A, and knowledge assistants over private data.
+    use_cases: [rag-development, llm-evaluation]
+    symbol: doc.text.magnifyingglass
+    accent: indigo
+    featured: true
+    resources:
+      - {id: chunking-strategy-design, step: 1}
+      - {id: embedding-strategy-agent, step: 2}
+      - {id: vector-database-evaluation-agent, step: 3}
+      - {id: hybrid-search-tuning, step: 4}
+      - {id: rag-answer-grounding-prompt, step: 5}
+      - {id: retrieval-quality-metrics, step: 6}
+      - {id: rag-evaluation-agent, step: 7}
+      - {id: hallucination-detection, step: 8}
+      - {id: rag-pipeline-evaluation-routine, step: 9}
+      - {id: context-window-management}
+  - id: ai-agent-development-toolkit
+    title: AI Agent Development Toolkit
+    description: Design agent workflows, tools, and MCP servers, then debug and secure them before users depend on them.
+    audience: Developers building autonomous or semi-autonomous AI agents.
+    use_cases: [agent-development, ai-safety]
+    symbol: point.3.connected.trianglepath.dotted
+    accent: teal
+    featured: true
+    resources:
+      - {id: agent-workflow-designer-agent, step: 1}
+      - {id: tool-schema-design, step: 2}
+      - {id: mcp-server-design-agent, step: 3}
+      - {id: structured-output-extraction, step: 4}
+      - {id: agent-trace-debugging, step: 5}
+      - {id: prompt-injection-assessment-agent, step: 6}
+      - {id: ai-guardrails-design-agent, step: 7}
+      - {id: jailbreak-red-teaming, step: 8}
+      - {id: eval-test-case-generator-prompt, step: 9}
+  - id: research-intelligence-toolkit
+    title: Research & Intelligence Toolkit
+    description: Run rigorous desk research - scope a question, find and grade sources, synthesize evidence, and brief decision makers.
+    audience: Analysts, strategists, founders, and researchers.
+    use_cases: [web-research, competitor-analysis, market-research, technical-research]
+    symbol: binoculars
+    accent: cyan
+    resources:
+      - {id: deep-research-brief-prompt, step: 1}
+      - {id: search-query-formulation, step: 2}
+      - {id: source-credibility-assessment, step: 3}
+      - {id: technical-research-agent, step: 4}
+      - {id: competitor-research-agent, step: 5}
+      - {id: market-intelligence-agent, step: 6}
+      - {id: research-synthesis-matrix, step: 7}
+      - {id: fact-checking-agent, step: 8}
+      - {id: executive-research-memo-prompt, step: 9}
+      - {id: weekly-competitive-intelligence-routine}
+  - id: product-development-toolkit
+    title: Product Development Toolkit
+    description: Move from discovery to a shipped feature with evidence-based requirements, prioritization, and launch discipline.
+    audience: Product managers, designers, and founders.
+    use_cases: [product-discovery, prd-generation, product-roadmapping, user-research]
+    symbol: shippingbox
+    accent: orange
+    featured: true
+    resources:
+      - {id: product-discovery-sprint-routine, step: 1}
+      - {id: user-interview-script-prompt, step: 2}
+      - {id: ux-research-synthesis-agent, step: 3}
+      - {id: jobs-to-be-done-analysis, step: 4}
+      - {id: opportunity-solution-tree, step: 5}
+      - {id: prd-generation-agent, step: 6}
+      - {id: user-story-writing, step: 7}
+      - {id: acceptance-criteria-gherkin, step: 8}
+      - {id: feature-prioritization-agent, step: 9}
+      - {id: feature-launch-routine, step: 10}
+  - id: business-strategy-toolkit
+    title: Business Strategy Toolkit
+    description: Diagnose the business, choose a strategy, build the case, and communicate decisions to leadership and the board.
+    audience: Executives, strategy teams, consultants, and operators.
+    use_cases: [strategic-planning, business-case-development, business-analysis]
+    symbol: chart.line.uptrend.xyaxis
+    accent: green
+    resources:
+      - {id: industry-structure-analysis, step: 1}
+      - {id: strategic-planning-agent, step: 2}
+      - {id: scenario-planning, step: 3}
+      - {id: strategy-options-evaluation-prompt, step: 4}
+      - {id: business-case-development-agent, step: 5}
+      - {id: unit-economics-analysis, step: 6}
+      - {id: okr-design-agent, step: 7}
+      - {id: kpi-tree-design, step: 8}
+      - {id: decision-memo-writing, step: 9}
+      - {id: board-update-drafting-agent, step: 10}
+      - {id: annual-strategic-planning-routine}
+  - id: marketing-seo-toolkit
+    title: Marketing & SEO Toolkit
+    description: Audit and grow organic search, plan content, sharpen positioning, and launch and measure campaigns.
+    audience: Marketers, growth teams, and founders doing their own marketing.
+    use_cases: [seo-auditing, content-strategy, positioning, campaign-planning]
+    symbol: megaphone
+    accent: pink
+    resources:
+      - {id: seo-audit-agent, step: 1}
+      - {id: technical-seo-crawl-analysis, step: 2}
+      - {id: keyword-research, step: 3}
+      - {id: on-page-seo-optimization, step: 4}
+      - {id: content-strategy-agent, step: 5}
+      - {id: content-brief-creation, step: 6}
+      - {id: blog-post-outline-prompt, step: 7}
+      - {id: product-marketing-positioning-agent, step: 8}
+      - {id: campaign-launch-routine, step: 9}
+      - {id: campaign-performance-analyst-agent, step: 10}
+      - {id: monthly-seo-health-check-routine}
+  - id: financial-analysis-toolkit
+    title: Financial Analysis Toolkit
+    description: Analyze statements, model and value a business, assess credit, and run disciplined close and reconciliation processes.
+    audience: Financial analysts, FP&A teams, credit analysts, and finance operations.
+    use_cases: [financial-statement-analysis, financial-modelling, credit-risk-analysis, fpa]
+    symbol: dollarsign.circle
+    accent: mint
+    resources:
+      - {id: financial-statement-analysis-agent, step: 1}
+      - {id: financial-ratio-analysis, step: 2}
+      - {id: working-capital-analysis, step: 3}
+      - {id: three-statement-model-review, step: 4}
+      - {id: dcf-valuation, step: 5}
+      - {id: credit-risk-analysis-agent, step: 6}
+      - {id: loan-covenant-analysis, step: 7}
+      - {id: budget-variance-analysis-agent, step: 8}
+      - {id: cash-flow-forecasting-agent, step: 9}
+      - {id: month-end-close-routine, step: 10}
+      - {id: financial-reconciliation-agent}
+  - id: security-compliance-toolkit
+    title: Security & Compliance Toolkit
+    description: Threat model, review applications and cloud estates, respond to incidents, and prepare compliance evidence.
+    audience: Security engineers, AppSec teams, compliance leads, and engineering managers.
+    use_cases: [threat-modeling, security-review, compliance-assessment, incident-response]
+    symbol: lock.shield
+    accent: red
+    featured: true
+    resources:
+      - {id: threat-modeling-agent, step: 1}
+      - {id: stride-threat-enumeration, step: 2}
+      - {id: application-security-audit-agent, step: 3}
+      - {id: owasp-top-10-review, step: 4}
+      - {id: dependency-vulnerability-triage, step: 5}
+      - {id: cloud-security-posture-agent, step: 6}
+      - {id: security-finding-writeup-prompt, step: 7}
+      - {id: incident-response-coordinator-agent, step: 8}
+      - {id: compliance-gap-analysis-agent, step: 9}
+      - {id: quarterly-access-review-routine, step: 10}
+      - {id: privacy-impact-assessment-agent}
+  - id: data-analytics-toolkit
+    title: Data Analytics Toolkit
+    description: Model data, write and review SQL, investigate metric movements, analyze experiments, and present insights.
+    audience: Data analysts, analytics engineers, and data-literate product teams.
+    use_cases: [sql-analysis, data-quality, experimentation, analytics-interpretation]
+    symbol: chart.bar.xaxis
+    accent: yellow
+    resources:
+      - {id: data-model-design-agent, step: 1}
+      - {id: data-profiling, step: 2}
+      - {id: sql-analysis-agent, step: 3}
+      - {id: sql-query-review, step: 4}
+      - {id: metric-definition, step: 5}
+      - {id: metric-anomaly-investigation-agent, step: 6}
+      - {id: experiment-analysis-agent, step: 7}
+      - {id: statistical-significance-testing, step: 8}
+      - {id: chart-selection, step: 9}
+      - {id: insight-narrative-prompt, step: 10}
+      - {id: weekly-metrics-review-routine}
+  - id: personal-productivity-toolkit
+    title: Personal Productivity Toolkit
+    description: Plan your week, tame email and meetings, and build a knowledge base you can actually find things in.
+    audience: Knowledge workers, managers, and anyone drowning in meetings and documents.
+    use_cases: [personal-productivity, meeting-synthesis, knowledge-management]
+    symbol: checklist
+    accent: brown
+    resources:
+      - {id: weekly-planning-routine, step: 1}
+      - {id: personal-planning-agent, step: 2}
+      - {id: email-triage-agent, step: 3}
+      - {id: meeting-intelligence-agent, step: 4}
+      - {id: action-item-extraction, step: 5}
+      - {id: atomic-note-writing, step: 6}
+      - {id: knowledge-base-curator-agent, step: 7}
+      - {id: decision-log-maintenance, step: 8}
+      - {id: weekly-review-prompt, step: 9}

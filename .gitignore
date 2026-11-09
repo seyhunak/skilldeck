@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Catalog build output (published via GitHub Releases, rebuilt in CI)
+/dist/
+/validation-report.md
+
+# Swift / Xcode
+/app/.build/
+/app/build/
+/app/Skilldeck.xcodeproj/
+/app/.swiftpm/
+xcuserdata/
+DerivedData/
+*.xcresult

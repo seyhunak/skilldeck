@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: scenario-planning
+name: Scenario Planning
+type: skill
+description: Builds a 2x2 scenario set from the two most critical, most uncertain external drivers, writes distinct plausible futures, tests strategy robustness against each, and defines signposts that show which future is unfolding.
+purpose: >
+  Plans built on one forecast break when the world turns out differently. This skill
+  applies the intuitive-logics scenario method associated with Shell and Global
+  Business Network: separate predetermined trends from critical uncertainties, build
+  four contrasting futures, and use them to test strategies and set early-warning
+  signposts, rather than to predict which future will occur.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [strategic-planning, business-case-development]
+tags: [scenario-planning, uncertainty, foresight, signposts, strategy-robustness, 2x2-matrix]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [strategic-planning-agent, industry-structure-analysis, trend-signal-detection, business-case-development-agent, annual-strategic-planning-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Scenarios are plausible narratives for testing decisions, not forecasts; avoid presenting any scenario as a prediction or assigning unsupported probabilities.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

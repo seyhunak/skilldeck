@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: dbt-model-review
+name: dbt Model Review
+type: skill
+description: "Reviews dbt projects and models: layer structure, ref/source usage, materializations, incremental logic, tests, documentation, and configs. Use on dbt pull requests or project audits."
+purpose: >
+  dbt makes transformations easy to write and easy to get subtly wrong. This skill
+  provides a structured review of a dbt model or project covering
+  staging/intermediate/mart layering, correct use of ref and source, materialization
+  and incremental strategy choices, test coverage, and documentation, with findings
+  phrased as concrete changes.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [data-modeling, data-quality]
+tags: [dbt, code-review, elt, data-testing, sql]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [analytics-pipeline-review-agent, data-model-design-agent, sql-query-review, data-dictionary-authoring]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Read-only code review; does not run dbt commands that build or modify warehouse objects."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

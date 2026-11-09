@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: dcf-valuation
+name: DCF Valuation
+type: skill
+description: "Builds or reviews a DCF: unlevered FCF, CAPM-based WACC with re-levered beta, Gordon and exit-multiple terminal values with cross-checks, EV-to-equity bridge, and WACC/growth sensitivity tables."
+purpose: >
+  A DCF is a transparent statement of assumptions, not a precise answer. This skill
+  produces a valuation range with every input sourced or labelled, cross-checks terminal
+  value methods, catches common errors such as growth above WACC or double-counted leases,
+  and shows which assumptions move value most.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [financial-modelling]
+tags: [valuation, dcf, wacc, terminal-value, financial-modelling]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [three-statement-model-review, investment-memo-prompt, financial-ratio-analysis, working-capital-analysis]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  professional_advice_disclaimer: true
+  notes: "Not investment, fairness-opinion, or accounting advice; investment and transaction decisions need qualified human review and sign-off. Illustrative market inputs are never presented as live data and must be sourced and dated."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

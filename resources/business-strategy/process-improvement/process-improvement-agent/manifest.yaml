@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: process-improvement-agent
+name: Process Improvement Agent
+type: agent
+description: Runs a Lean / Six Sigma DMAIC analysis on one business process - charter, baseline metrics, process map, root-cause analysis, improvement design, and control plan - using data the user supplies.
+purpose: >
+  Process fixes often jump straight to a favourite solution without measuring the
+  baseline or confirming the cause, so improvements do not stick. This agent guides a
+  single process through Define, Measure, Analyze, Improve, and Control, choosing Lean
+  tools for flow and waste problems and Six Sigma tools for variation and defect
+  problems, and it ends with a control plan so gains are sustained.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [process-improvement, business-analysis]
+tags: [dmaic, lean, six-sigma, root-cause-analysis, process-capability, control-plan]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/dmaic-toolkit.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [value-stream-mapping]
+related: [operating-model-analyst-agent, raci-matrix-design, sop-writing, statistical-significance-testing, data-profiling]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Analyses supplied process data only; does not change systems or procedures. Improvements affecting safety, regulated activities, or staff roles need owner and compliance approval before piloting.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

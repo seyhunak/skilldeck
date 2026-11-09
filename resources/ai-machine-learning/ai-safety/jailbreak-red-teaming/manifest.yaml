@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: jailbreak-red-teaming
+name: Jailbreak Red Teaming
+type: skill
+description: "Plans and runs authorized adversarial testing of your own LLM application: scope and rules of engagement, threat model, attack-category coverage, safe test-case design, severity scoring, and remediation tracking."
+purpose: >
+  LLM applications ship with policies that are rarely tested against deliberate misuse.
+  This skill structures an authorized red-team exercise on an application the user owns
+  or is permitted to test: it defines scope and stop conditions, maps attack categories
+  to the app's real risks, designs test cases with benign canary objectives, scores
+  findings consistently, and feeds them into guardrail fixes and regression suites.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [ai-safety, llm-evaluation]
+tags: [red-teaming, ai-safety, jailbreak, adversarial-testing, guardrails]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [ai-guardrails-design-agent, prompt-injection-assessment-agent, golden-dataset-construction, llm-judge-rubric-design]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Authorized testing of the user's own application only, with written scope. Does not provide working jailbreak payloads for third-party systems or generate genuinely harmful content; uses canary objectives instead."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

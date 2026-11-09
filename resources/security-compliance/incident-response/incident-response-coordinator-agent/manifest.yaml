@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: incident-response-coordinator-agent
+name: "Incident Response Coordinator"
+type: agent
+description: "Coordinates a security incident through NIST SP 800-61 phases: triage and severity, containment options, evidence preservation, stakeholder communications, and a timeline, with every action gated on human approval."
+purpose: >
+  During a security incident responders lose time to unclear roles, undocumented
+  decisions, and evidence destroyed by hasty containment. This agent acts as the incident
+  coordinator's scribe and planner: it structures the response around the NIST SP 800-61
+  lifecycle, keeps a decision log and timeline, proposes containment with trade-offs, and
+  drafts communications for human review.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [incident-response]
+tags: [incident-response, nist-800-61, containment, forensics, crisis-communications]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [security-log-analysis, secrets-exposure-review]
+related: [incident-postmortem-routine, production-incident-debugger-agent, security-finding-writeup-prompt, access-review]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not legal or professional incident response advice. Breach notification, regulator or law enforcement contact, and every containment or eradication action require explicit approval from the incident commander and, where applicable, legal counsel. Proposes actions only; never executes them, never sends communications, and never prints credentials or secrets seen in evidence."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

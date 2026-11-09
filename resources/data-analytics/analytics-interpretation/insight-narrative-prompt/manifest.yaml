@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: insight-narrative-prompt
+name: Insight Narrative
+type: prompt
+description: Turns tables, query results, or analysis notes into a decision-oriented written narrative that leads with the answer, quantifies effects, separates evidence from interpretation, and states caveats.
+purpose: >
+  Analyses often die in the handoff: a correct chart with a caption that restates the
+  axis, or a long walk through every cut the analyst tried. This prompt converts
+  results into a short narrative structured around the decision the reader faces,
+  with every number traceable to the supplied data, causal language limited to what
+  the method supports, and explicit caveats and next steps.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [analytics-interpretation, data-visualization]
+tags: [data-storytelling, insights, reporting, analytics, communication]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [metric-anomaly-investigation-agent, chart-selection, statistical-significance-testing, weekly-metrics-review-routine, sql-from-question-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Uses only the numbers supplied and must not invent figures. Aggregate data before pasting; do not include customer-level personal data. The analyst owns final conclusions.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

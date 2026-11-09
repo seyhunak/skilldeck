@@ -1,0 +1,43 @@
+schema_version: "1.1"
+id: sop-writing
+name: SOP Writing
+type: skill
+description: "Writes standard operating procedures with purpose, scope, roles, prerequisites, imperative numbered steps, expected results, control points, exceptions, records, and document control."
+purpose: >
+  Processes that live in one person's head fail when that person is away. This skill
+  converts real practice into a controlled procedure that a trained person can follow
+  consistently and an auditor can check: defined trigger and end state, role-based
+  responsibilities, verifiable steps, marked control points and warnings, escalation
+  paths, records, and revision history, validated by a walkthrough with someone who did
+  not write it.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [document-intelligence, writing-assistance]
+tags: [sop, procedures, operations, process-documentation, compliance]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [technical-documentation-agent, plain-language-rewriting, security-policy-writing, knowledge-base-curator-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Drafts procedure content only; does not invent regulatory requirements, retention periods, or approval limits, and drafts are not valid until approved through the organisation's process."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

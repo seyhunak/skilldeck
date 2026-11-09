@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: flaky-test-diagnosis
+name: Flaky Test Diagnosis
+type: skill
+description: "Reproduces intermittent test failures under repetition, classifies the cause (timing, order, shared state, time, randomness, environment), fixes it, or quarantines with an owner."
+purpose: >
+  Rerunning until green hides real defects and erodes trust in CI. This skill reproduces
+  flakes with controlled repetition and ordering, assigns them to a cause family with
+  evidence, fixes the cause rather than adding sleeps, and verifies the fix with an
+  explicit residual-risk calculation.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [test-generation, devops]
+tags: [testing, flaky-tests, ci, test-reliability]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [cicd-troubleshooting-agent, unit-test-design, test-strategy-agent, concurrency-bug-analysis-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Does not delete or permanently skip tests without owner agreement; quarantine requires an owner, ticket, and expiry."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

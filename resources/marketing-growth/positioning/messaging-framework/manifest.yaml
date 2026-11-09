@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: messaging-framework
+name: Messaging Framework
+type: skill
+description: "Builds a messaging house from positioning: umbrella message, three supporting pillars, proof points per pillar, and audience-specific variants. Use when aligning teams on what to say."
+purpose: >
+  Without a shared messaging framework, every team describes the product differently. This
+  skill converts positioning into a messaging house with a single umbrella statement,
+  pillars that each map to a customer value, proof points rated by strength, and variants
+  per audience, so copywriters, sales, and product all draw from the same source.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [positioning, copywriting]
+tags: [messaging, messaging-house, positioning, proof-points, product-marketing]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [value-proposition-prompt, product-marketing-positioning-agent, landing-page-copywriting, brand-voice-guardian-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Proof points must be traceable to evidence the user supplies; unsupported claims are flagged rather than included."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

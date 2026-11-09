@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: dependency-upgrade-agent
+name: Dependency Upgrade Agent
+type: agent
+description: Plans a major-version upgrade of a framework, library, or runtime by inventorying usage, extracting breaking changes from changelogs and migration guides, mapping codemods, and producing a staged rollout with rollback points.
+purpose: >
+  Major upgrades stall because nobody knows how much code a breaking change touches,
+  transitive conflicts surface late, and big-bang merges are hard to review or revert.
+  This agent reads the repository and the upstream release notes the user supplies,
+  maps each breaking change to concrete call sites, separates mechanical codemod work
+  from changes needing judgement, and sequences the upgrade into small, verifiable,
+  reversible steps.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [dependency-management, release-management, refactoring]
+tags: [dependencies, upgrades, semver, migration, codemods, breaking-changes]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/upgrade-checklist.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [dependency-vulnerability-triage]
+related: [changelog-and-release-notes, flaky-test-diagnosis, feature-flag-rollout-planning, legacy-modernization-agent, test-strategy-agent, code-refactoring-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: Read-only planning by default; may read public changelogs and migration guides when browsing is permitted. Does not edit lockfiles, run package installs, run codemods, or open pull requests without explicit human approval.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

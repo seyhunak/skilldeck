@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: mcp-server-design-agent
+name: MCP Server Design Agent
+type: agent
+description: "Designs Model Context Protocol servers: chooses which capabilities become tools, resources, or prompts, writes tool contracts models can use reliably, and specifies transport, auth, error handling, and security controls."
+purpose: >
+  An MCP server is an API whose primary caller is a language model, so the usual REST habits - one endpoint per table,
+  terse names, opaque errors - produce servers models misuse. This agent designs servers around the tasks agents need to
+  accomplish, writes tool names, descriptions, and schemas for model comprehension, and builds in least privilege,
+  confirmation for destructive actions, and injection-aware handling of returned content.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [agent-development]
+tags: [mcp, model-context-protocol, tool-design, agents, api-design]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/mcp-design-checklist.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [tool-schema-design]
+related: [agent-workflow-designer-agent, prompt-injection-assessment-agent, api-design-review-agent, openapi-spec-authoring, error-handling-review]
+featured: true
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Produces designs and specifications only. Protocol details change between specification revisions, so designs name the revision assumed and the user verifies against the current specification and SDK documentation before implementation."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

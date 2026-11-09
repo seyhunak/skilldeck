@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: embedding-strategy-agent
+name: Embedding Strategy Agent
+type: agent
+description: "Chooses an embedding approach for a retrieval system: model shortlist, dimensions and quantization, multilingual and domain fit, query versus document handling, and a safe re-embedding and migration plan."
+purpose: >
+  The embedding model fixes the ceiling on retrieval quality and drives storage cost, latency, and lock-in, yet it is
+  often picked from a leaderboard and never revisited. This agent evaluates embedding options on the team's own corpus
+  and queries, sizes the storage and re-indexing cost from user-supplied figures, and plans versioned re-embedding so a
+  model change does not silently mix incompatible vectors in one index.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [rag-development, model-selection]
+tags: [embeddings, rag, vector-search, multilingual, re-indexing]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [retrieval-quality-metrics, chunking-strategy-design]
+related: [vector-database-evaluation-agent, rag-evaluation-agent, hybrid-search-tuning, model-selection-analyst-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: true
+  notes: "Does not quote embedding model prices, dimensions, or benchmark scores from memory; uses user-supplied figures or official documentation read with permission. Corpus samples may be confidential and are not sent to third-party embedding APIs without explicit approval."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: journey-mapping
+name: Journey Mapping
+type: skill
+description: "Builds a current-state customer journey map for one persona and scenario: stages, actions, touchpoints, thoughts, emotional curve, pain points, and prioritized opportunities, each grounded in research evidence."
+purpose: >
+  Journey maps are useful when they expose where an experience breaks across channels
+  and teams, and useless when they are decorative posters. This skill guides an agent to
+  scope one persona and scenario, build the map lane by lane from evidence, mark moments
+  of truth and drop-offs, and convert pain points into owned, prioritized opportunities.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [user-research, ux-review]
+tags: [journey-map, customer-experience, service-design, pain-points, ux-research]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [persona-development, ux-research-synthesis-agent, onboarding-flow-design-agent, value-stream-mapping]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Works from supplied research and data; unvalidated steps or emotions are marked as assumptions to test."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

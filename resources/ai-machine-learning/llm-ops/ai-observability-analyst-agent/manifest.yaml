@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: ai-observability-analyst-agent
+name: AI Observability Analyst
+type: agent
+description: "Analyzes traces and logs from an LLM application to find quality, latency, cost, and error patterns, and defines the monitors, dashboards, and alert thresholds the team should run in production."
+purpose: >
+  LLM applications fail quietly: answers degrade, retries multiply, a prompt change doubles tokens, or a tool starts
+  timing out, and nothing pages anyone. This agent reads the traces and logs a team already has, segments them to locate
+  the patterns that matter, and specifies a monitoring plan covering quality signals, latency percentiles, token and cost
+  burn, and error classes, with thresholds tied to the team's own baselines.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [llm-ops]
+tags: [llm-ops, observability, tracing, monitoring, alerting]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/llm-monitor-catalog.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [agent-trace-debugging, token-budget-estimation]
+related: [observability-instrumentation-agent, ai-cost-optimization-agent, llm-evaluation-agent, llm-feature-launch-routine, metric-anomaly-investigation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Read-only analysis of exported traces and logs. Prompts and completions frequently contain user personal data; quote minimal redacted excerpts, recommend redaction at capture, and never forward trace content to outside services."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

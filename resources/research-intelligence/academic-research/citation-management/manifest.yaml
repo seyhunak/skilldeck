@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: citation-management
+name: Citation Management
+type: skill
+description: "Keeps citations consistent and verifiable: style choice, quote versus paraphrase rules, pinpoint locators, DOIs, archived snapshots against link rot, and a citation audit. Use for any cited deliverable."
+purpose: >
+  A research deliverable is only as trustworthy as the reader's ability to check it.
+  This skill standardises how sources are captured, quoted, paraphrased, formatted, and
+  archived, and finishes with an audit that catches broken links, orphan references,
+  misattributed quotes, and citations that do not support the sentence they sit on.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [academic-research, web-research]
+tags: [citations, referencing, link-rot, quotation, research-integrity]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [research-synthesis-matrix, literature-review-agent, fact-checking-agent, source-credibility-assessment]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Never invents citation metadata such as DOIs, page numbers, or publication dates; missing fields are marked as missing."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

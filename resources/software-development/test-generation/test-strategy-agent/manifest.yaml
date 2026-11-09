@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: test-strategy-agent
+name: Test Strategy Agent
+type: agent
+description: Builds a risk-based test strategy for a system or feature - risk register, test pyramid targets, what to automate at which level, coverage gaps from the existing suite, and a prioritized backlog.
+purpose: >
+  Teams either test everything shallowly or pile up slow end-to-end tests that fail
+  for unrelated reasons. This agent starts from product and technical risk, maps the
+  existing suite to those risks, and decides which behaviours deserve unit,
+  integration, contract, end-to-end, or exploratory testing. The output is a strategy
+  a team can adopt incrementally: explicit risks, level-by-level targets, the gaps
+  that matter most, and what not to test.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [test-generation, code-review]
+tags: [testing, test-strategy, risk-based-testing, test-pyramid, coverage, quality-engineering]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/test-level-selection.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [unit-test-design, flaky-test-diagnosis]
+related: [write-tests-for-function-prompt, code-refactoring-agent, pull-request-review-agent, release-readiness-routine, cicd-troubleshooting-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Read-only analysis of code, tests, and CI configuration; runs coverage or test commands only with user approval and never against production systems or production data.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

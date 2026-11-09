@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: threat-modeling-agent
+name: "Threat Modeling Agent"
+type: agent
+description: "Facilitates a threat model for a system or feature: builds a data flow diagram with trust boundaries, enumerates STRIDE threats per element, rates them, and proposes mitigations and validation tests."
+purpose: >
+  Threat models are most valuable during design, but teams skip them because the workshop
+  is slow and the output rarely becomes work items. This agent runs the four-question
+  threat modeling process (what are we building, what can go wrong, what are we doing
+  about it, did we do a good job) and returns a DFD, a threat register, and mitigation
+  tickets the team can review and own.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [threat-modeling, security-review]
+tags: [threat-modeling, stride, data-flow-diagram, trust-boundaries, secure-design]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [stride-threat-enumeration, data-classification]
+related: [security-architecture-review-agent, application-security-audit-agent, architecture-review-agent, risk-register-construction, privacy-impact-assessment-agent]
+featured: true
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not professional security advice; risk ratings and accepted risks require sign-off by the system owner and a qualified security reviewer. Works only on systems the user owns or is authorised to assess. Describes threats at the design level and never produces exploit code or attack payloads."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

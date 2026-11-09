@@ -1,0 +1,37 @@
+schema_version: "1.1"
+id: strategy-options-evaluation-prompt
+name: Strategy Options Evaluation
+type: prompt
+description: Compares strategic options with a transparent weighted-criteria matrix, evidence for each score, must-have screens, sensitivity to weights, and an explicit view of what would change the ranking.
+purpose: >
+  Option debates often stall on opinion or hidden criteria. This prompt structures them as a multi-criteria evaluation: agreed criteria and weights, knock-out screens, evidence-backed scores, a sensitivity test showing whether the winner is robust to reasonable weight changes, and a clear statement of assumptions, so leaders discuss the drivers of the choice rather than the arithmetic.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [strategic-planning, business-case-development]
+tags: [options-analysis, weighted-scoring, multi-criteria-decision, strategy, sensitivity-analysis]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [strategic-planning-agent, decision-memo-writing, business-case-development-agent, scenario-planning]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Structures judgement from supplied information; scores are not facts and the prompt requires the model to label evidence strength and leave the decision to the accountable leaders.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

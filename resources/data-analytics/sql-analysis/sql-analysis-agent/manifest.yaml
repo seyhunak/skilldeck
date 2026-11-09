@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: sql-analysis-agent
+name: SQL Analysis Agent
+type: agent
+description: "Answers business questions by writing, running, and sanity-checking SQL against a documented schema, returning the query, the validated result, and every assumption made."
+purpose: >
+  Analysts and stakeholders lose trust when a number comes back from a query nobody
+  checked. This agent translates a business question into an explicit metric
+  definition, explores the schema, writes readable SQL, and then validates the result
+  with reconciliation, grain, and fan-out checks before reporting it with its
+  assumptions and caveats.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [sql-analysis, analytics-interpretation]
+tags: [sql, analytics, business-questions, query-validation, warehouse]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [sql-query-review, metric-definition]
+related: [sql-from-question-prompt, data-profiling, sql-query-optimization, data-quality-investigation-agent, insight-narrative-prompt]
+featured: true
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Read-only: runs SELECT queries only, never DDL/DML. Aggregates results and avoids printing raw rows containing personal data unless the user asks."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

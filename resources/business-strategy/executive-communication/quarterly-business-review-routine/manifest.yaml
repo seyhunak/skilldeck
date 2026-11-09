@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: quarterly-business-review-routine
+name: Quarterly Business Review Routine
+type: routine
+description: A repeatable, human-run quarterly business review - gather and reconcile metrics, analyse performance against plan and OKRs, prepare a pre-read, run a decision-focused review meeting, and track actions into the next quarter.
+purpose: >
+  Quarterly reviews often become long slide presentations that report activity but
+  produce few decisions. This routine standardises preparation, a reconciled metric
+  pack, variance and OKR analysis, a short pre-read circulated in advance, a meeting
+  agenda centred on decisions and re-prioritisation, and an action log reviewed at the
+  next cycle, so each quarter's review changes what the business does next.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [executive-communication, strategic-planning]
+tags: [qbr, quarterly-review, performance-management, okr-review, operating-cadence]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: [kpi-tree-design, decision-memo-writing]
+related: [board-update-drafting-agent, okr-design-agent, executive-summary-prompt, annual-strategic-planning-routine, budget-variance-analysis-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Human-supervised guidance; an assistant may draft analysis and materials, but figures must be confirmed by data owners and decisions are taken only by the leadership team.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

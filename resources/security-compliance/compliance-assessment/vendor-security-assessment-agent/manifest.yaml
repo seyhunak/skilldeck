@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: vendor-security-assessment-agent
+name: "Vendor Security Assessment Agent"
+type: agent
+description: "Assesses a third-party vendor's security posture from its questionnaire answers, SOC 2 or ISO evidence, and contract terms, tiers the vendor by risk, and returns a findings report with follow-up questions and conditions."
+purpose: >
+  Third-party risk reviews stall because questionnaires are long, evidence is
+  inconsistent, and reviewers cannot tell which gaps matter for this vendor's actual
+  access. This agent tiers the vendor by data and system access, reads the evidence
+  critically (scope, period, exceptions, carve-outs), and produces a proportionate risk
+  decision package for a human risk owner.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [compliance-assessment, privacy-review]
+tags: [third-party-risk, vendor-risk, soc-2-review, due-diligence, supply-chain]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [data-classification]
+related: [security-questionnaire-response-prompt, compliance-gap-analysis-agent, privacy-impact-assessment-agent, vendor-evaluation-research-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not legal or professional risk advice. The approve, approve-with-conditions, or reject decision belongs to the accountable risk owner, and contract terms need review by legal counsel. Vendor reports are often under NDA: do not share or quote them beyond the assessment, and never perform any testing against vendor systems."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

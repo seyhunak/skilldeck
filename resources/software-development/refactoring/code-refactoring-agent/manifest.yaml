@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: code-refactoring-agent
+name: Code Refactoring Agent
+type: agent
+description: Plans and performs behaviour-preserving refactors in small verified steps, pinning current behaviour with characterization tests first and committing only after the suite stays green.
+purpose: >
+  Refactoring goes wrong when structure and behaviour change at the same time and
+  nobody can tell which edit broke what. This agent separates the two strictly: it
+  diagnoses the code smells that block the user's goal, pins existing behaviour with
+  characterization tests, then applies named refactorings one small step at a time,
+  running the tests after each. The result is cleaner code, a reviewable sequence of
+  steps, and evidence that behaviour did not change.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [refactoring, test-generation, code-review]
+tags: [refactoring, characterization-tests, code-smells, clean-code, safe-changes]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/smell-to-refactoring-map.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [unit-test-design, code-complexity-analysis]
+related: [legacy-modernization-agent, technical-debt-assessment-agent, test-strategy-agent, pull-request-review-agent, commit-message-writing, flaky-test-diagnosis]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Edits code only inside the scope the user names and only after the user approves the refactoring plan; never pushes, merges, or changes public behaviour without explicit approval.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

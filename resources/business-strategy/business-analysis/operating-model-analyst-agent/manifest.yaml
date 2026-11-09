@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: operating-model-analyst-agent
+name: Operating Model Analyst
+type: agent
+description: Assesses how an organisation delivers its strategy across capabilities, organisation structure, processes, governance, technology, and locations, then maps current versus target state gaps and sequences the changes.
+purpose: >
+  Strategies fail in execution when the operating model - who does what, through which
+  processes, with which decision rights and systems - was never redesigned to match.
+  This agent builds a capability map, assesses each element of the operating model
+  against the strategy's design principles, and produces a gap analysis and transition
+  roadmap that leaders can debate, without pretending to settle people decisions.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [business-analysis, organizational-change, strategic-planning]
+tags: [operating-model, capability-map, org-design, governance, target-operating-model, gap-analysis]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [raci-matrix-design, value-stream-mapping]
+related: [process-improvement-agent, change-management-planning-agent, strategic-planning-agent, business-model-canvas-prompt, stakeholder-mapping]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Analyses structures and roles, never individuals; does not recommend specific redundancies or rate named employees. People decisions require HR and leadership review.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

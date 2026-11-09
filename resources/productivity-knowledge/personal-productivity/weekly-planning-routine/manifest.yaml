@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: weekly-planning-routine
+name: Weekly Planning Routine
+type: routine
+description: "A 45-60 minute weekly planning session: clear inboxes, review commitments and capacity, choose three outcomes, time-block deep work, and set a realistic plan with buffers."
+purpose: >
+  Plans fail when they ignore real capacity: meetings, interruptions and the work
+  already promised. This routine starts from the calendar and existing commitments,
+  computes available focus hours, selects a few outcomes that fit, schedules them as
+  protected blocks with buffers, and defines what to drop or renegotiate, so the week's
+  plan is one you can actually keep.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: productivity-knowledge
+use_cases: [personal-productivity]
+tags: [weekly-planning, time-blocking, prioritization, capacity-planning]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: []
+related: [weekly-review-prompt, personal-planning-agent, email-triage-agent, action-item-extraction]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Works with personal calendars and task lists. Assistants may propose blocks but must not create, move or decline calendar events or send messages without explicit approval."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

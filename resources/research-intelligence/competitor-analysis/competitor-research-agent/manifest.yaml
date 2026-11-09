@@ -1,0 +1,40 @@
+schema_version: "1.1"
+id: competitor-research-agent
+name: Competitor Research Agent
+type: agent
+description: "Profiles named competitors from public evidence - product, pricing, positioning, go-to-market, and recent moves - with every claim source-cited and graded for reliability."
+purpose: >
+  Competitive decks are usually stitched together from memory, sales anecdotes, and
+  stale screenshots. This agent builds a competitor dossier from dated, citable public
+  evidence, grades each claim for reliability, separates fact from inference, and
+  highlights the moves that change the decision in front of the team.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [competitor-analysis, market-research]
+tags: [competitive-intelligence, competitor-profiling, pricing-research, positioning, evidence-grading]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/evidence-grading.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [competitive-feature-matrix, source-credibility-assessment, evidence-based-swot]
+related: [competitor-battlecard-prompt, weekly-competitive-intelligence-routine, market-intelligence-agent, company-profile-research, product-marketing-positioning-agent]
+featured: true
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Uses only public or user-supplied information. Will not pose as a customer, use deceptive sign-ups, bypass paywalls or logins, or solicit confidential information from competitor employees."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

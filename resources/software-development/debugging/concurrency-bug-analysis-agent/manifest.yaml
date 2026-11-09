@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: concurrency-bug-analysis-agent
+name: Concurrency Bug Analysis Agent
+type: agent
+description: Analyses suspected data races, deadlocks, livelocks, async ordering bugs, and actor or thread isolation violations from code, thread dumps, and failure reports, and returns the interleaving that breaks, a fix, and a way to reproduce it deterministically.
+purpose: >
+  Concurrency bugs are intermittent, vanish under the debugger, and get "fixed" with
+  sleeps and retries that hide them. This agent reasons explicitly about shared state,
+  happens-before relationships, lock order, and await points, constructs the specific
+  interleaving that produces the observed failure, and proposes fixes that remove the
+  race rather than narrow its window, along with stress tests and tool settings that
+  make the bug reproducible.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [debugging]
+tags: [concurrency, race-conditions, deadlocks, async, multithreading, debugging]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/concurrency-patterns.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [stack-trace-analysis]
+related: [flaky-test-diagnosis, production-incident-debugger-agent, performance-profiling-agent, unit-test-design, database-performance-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Read-only analysis of code and dumps. Recommends stress tests and sanitizers for local or CI environments only; does not run load or chaos experiments against shared or production systems without explicit approval.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

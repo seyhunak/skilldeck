@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: banking-operations-analyst-agent
+name: Banking Operations Analyst
+type: agent
+description: "Diagnoses payments and banking operations: exception and repair rates, STP, queue aging, SLA and cut-off breaches, root causes, and control gaps, returning a quantified diagnostic and prioritized improvement plan."
+purpose: >
+  Payments operations teams fight exception queues and cut-off misses without a clear view
+  of root causes. This agent quantifies volumes, aging, and SLA performance from case
+  data, finds the few exception categories that drive most work, reviews control design,
+  and proposes KPIs and fixes for managers to validate.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [banking-operations, fraud-analysis]
+tags: [payments-operations, exceptions, sla, operational-controls, stp]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: []
+related: [kyc-document-review, journal-entry-review, aml-alert-review-agent, financial-reconciliation-agent, fraud-pattern-investigation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Analytical support only, not legal, regulatory, or audit advice; control changes need approval by accountable owners and compliance. Never touches live payments or customer records; account and card numbers are masked."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

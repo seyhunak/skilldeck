@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: error-handling-review
+name: Error Handling Review
+type: skill
+description: "Audits failure paths: swallowed exceptions, lost error context, missing timeouts, unsafe retries, cleanup on partial failure, and leaky user-facing errors."
+purpose: >
+  Many outages trace back to how code fails rather than how it succeeds. This skill
+  inventories every failure point, checks timeouts, retry safety, context preservation,
+  cleanup, and what users and operators see, and ranks findings by consequence with
+  corrected code for the worst ones.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [code-review, debugging]
+tags: [error-handling, resilience, retries, timeouts, code-review]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [structured-code-review, production-incident-debugger-agent, stack-trace-analysis, pull-request-review-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Review only; recommends but does not apply changes. Flags library-default assumptions it could not verify."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

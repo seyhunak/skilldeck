@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: write-tests-for-function-prompt
+name: Write Tests for a Function
+type: prompt
+description: "Generates a thorough, runnable test suite for one function in a named framework, derived from equivalence classes, boundaries, error paths and properties, with a coverage rationale."
+purpose: >
+  Asking a model to write tests usually yields happy-path assertions that restate the
+  implementation. This prompt makes the model first derive the function's contract,
+  enumerate partitions and boundaries, decide on test doubles, and only then write
+  idiomatic tests in the requested framework, flagging behaviour that looks like a bug
+  rather than encoding it.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [test-generation]
+tags: [unit-testing, test-design, boundary-testing, tdd]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [unit-test-design, test-strategy-agent, flaky-test-diagnosis, code-refactoring-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Generated tests must be run and reviewed by a developer; the prompt never claims tests pass. Redact secrets from pasted code and fixtures."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

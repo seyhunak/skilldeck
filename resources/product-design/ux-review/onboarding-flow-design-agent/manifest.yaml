@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: onboarding-flow-design-agent
+name: Onboarding Flow Design Agent
+type: agent
+description: "Designs or critiques a product onboarding flow around activation: defines the aha moment and activation metric, removes friction before first value, and returns a step-by-step flow with copy, instrumentation, and test ideas."
+purpose: >
+  Onboarding is where most signups are lost, yet it is often designed as a product tour
+  rather than a path to the first moment of value. This agent works backward from a
+  defined activation event, audits every step between signup and that event for
+  necessity and friction, designs a shorter path with progressive disclosure and empty-
+  state guidance, and specifies the metrics and experiments needed to prove the redesign
+  worked.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [ux-review, product-analytics]
+tags: [onboarding, activation, user-onboarding, time-to-value, plg]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [jobs-to-be-done-analysis, ux-copy-review]
+related: [product-analytics-instrumentation-agent, cohort-retention-analysis-agent, ab-test-design, usability-heuristic-review-agent, email-lifecycle-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Design recommendations only. Does not ship flows, send messages, or alter production; dark patterns such as forced continuity or hidden opt-outs are excluded by design."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

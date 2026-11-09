@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: financial-statement-analysis-agent
+name: Financial Statement Analysis Agent
+type: agent
+description: "Reads income statement, balance sheet, and cash flow together: ties them out, assesses quality of earnings and cash conversion, screens for accounting red flags, and returns a cited brief with follow-up questions."
+purpose: >
+  Decisions about lending to, investing in, or depending on a company often rest on a
+  quick skim of its accounts. This agent performs a disciplined three-statement read: tie-
+  outs first, then trends, accruals, working capital, financing, and a red-flag screen,
+  with every figure cited so a qualified reviewer can verify the brief before relying on
+  it.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [financial-statement-analysis, credit-risk-analysis]
+tags: [financial-statements, quality-of-earnings, red-flags, accounting-analysis, due-diligence]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [financial-ratio-analysis, working-capital-analysis]
+related: [earnings-call-analysis, credit-risk-analysis-agent, three-statement-model-review, journal-entry-review]
+featured: true
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Analytical support, not investment, credit, audit, or accounting advice; conclusions require sign-off by a qualified professional. Read-only, no fabricated figures, and non-public financials are kept confidential."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: api-design-review-agent
+name: API Design Review Agent
+type: agent
+description: Reviews REST, GraphQL, or gRPC API contracts for naming, resource modelling, versioning, pagination, error format, idempotency, and backward compatibility, returning severity-ranked findings with fixes.
+purpose: >
+  An API contract is far cheaper to fix before clients depend on it. This agent reviews
+  OpenAPI documents, GraphQL schemas, protobuf definitions, or handler code as a
+  consumer would experience them, checking consistency, evolvability, failure semantics,
+  and safety for retries. It returns findings ranked by how hard they will be to change
+  later, each with a concrete corrected contract fragment, and flags any breaking change
+  against a previous version.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [api-development, code-review]
+tags: [api-design, rest, graphql, grpc, openapi, versioning, idempotency]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/api-review-checklist.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [openapi-spec-authoring, graphql-schema-review]
+related: [error-handling-review, pull-request-review-agent, architecture-review-agent, application-security-audit-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Reviews contract files and code only; does not call live endpoints. Example payloads in findings use synthetic data, never real customer records.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

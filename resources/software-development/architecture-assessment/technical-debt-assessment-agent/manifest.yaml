@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: technical-debt-assessment-agent
+name: Technical Debt Assessment Agent
+type: agent
+description: Catalogues technical debt in a codebase, estimates principal (cost to fix) and interest (ongoing cost of not fixing) from evidence such as churn and incidents, and returns a prioritized debt register.
+purpose: >
+  "We have a lot of tech debt" is not a plan, and debt lists sorted by how much
+  engineers dislike the code rarely win budget. This agent finds debt with evidence,
+  separates principal from interest, uses change frequency and incident history to
+  estimate where interest is actually being paid, and classifies each item with the
+  technical debt quadrant. The result is a register ranked by return on paydown that
+  engineering leads can defend to product and finance stakeholders.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [architecture-assessment, refactoring, dependency-management]
+tags: [technical-debt, debt-register, prioritization, code-health, hotspots, engineering-management]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/debt-register-guide.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [code-complexity-analysis, git-history-forensics]
+related: [architecture-review-agent, code-refactoring-agent, legacy-modernization-agent, dependency-upgrade-agent, repository-intelligence-agent, architecture-decision-records]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Read-only analysis of code and history. Treats ownership data as team-level signals, not individual performance evidence, and never reproduces secrets found while scanning.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

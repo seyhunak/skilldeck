@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: security-finding-writeup-prompt
+name: "Security Finding Write-Up"
+type: prompt
+description: "Turns raw notes about a vulnerability into a clear finding report: title, CVSS v3.1 or v4.0 vector with rationale, affected assets, impact, reproduction at a safe level of detail, and remediation."
+purpose: >
+  A finding that developers cannot understand or reproduce does not get fixed, and an
+  inflated severity erodes trust in the security team. This prompt produces consistent,
+  evidence-backed write-ups with an explained severity and actionable remediation,
+  suitable for a ticket or an assessment report.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [security-review]
+tags: [vulnerability-report, cvss, security-findings, remediation]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [application-security-audit-agent, owasp-top-10-review, dependency-vulnerability-triage, cloud-security-posture-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not professional security advice; severity scores and disclosure decisions need review by a qualified security lead. Use only for systems the user owns or is authorised to test. Keep reproduction steps at the level needed to verify a fix, never include weaponised payloads, and mask any secrets or personal data."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

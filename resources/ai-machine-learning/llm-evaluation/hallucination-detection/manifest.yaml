@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: hallucination-detection
+name: Hallucination Detection
+type: skill
+description: "Detects unsupported content in LLM outputs by extracting atomic claims, matching each to source evidence, and labeling it supported, contradicted, or unverifiable, with aggregate faithfulness metrics."
+purpose: >
+  Fluent answers can contain fabricated numbers, citations, and entities that reviewers
+  miss. This skill breaks an output into checkable atomic claims, verifies each against
+  the provided sources or a trusted reference, and reports which claims fail and why,
+  giving both a per-answer audit and a faithfulness rate that can be tracked over time.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [llm-evaluation, rag-development]
+tags: [hallucination, faithfulness, fact-checking, rag, llm-evaluation]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [llm-judge-rubric-design, rag-evaluation-agent, rag-answer-grounding-prompt, llm-output-critique-prompt, retrieval-quality-metrics]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Verifies only against sources the user supplies or explicitly authorizes; never presents its own unsourced knowledge as verification. Not a substitute for expert review in medical, legal, or financial content."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

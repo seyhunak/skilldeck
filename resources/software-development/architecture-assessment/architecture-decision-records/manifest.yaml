@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: architecture-decision-records
+name: Architecture Decision Records
+type: skill
+description: "Writes MADR or Nygard-style ADRs with neutral context, decision drivers, real options with pros and cons, consequences, and a proposed-accepted-superseded lifecycle."
+purpose: >
+  The reasoning behind hard-to-reverse technical choices is lost when people move on.
+  This skill records one decision per ADR, presents alternatives fairly, states negative
+  consequences openly, and keeps history intact by superseding rather than editing
+  accepted decisions.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [architecture-assessment, documentation]
+tags: [adr, architecture, decision-making, documentation]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [architecture-review-agent, technical-design-doc-prompt, technical-debt-assessment-agent, legacy-modernization-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Drafted ADRs stay in Proposed status until human deciders accept them; benchmarks and vendor claims must be cited or marked as assumptions."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

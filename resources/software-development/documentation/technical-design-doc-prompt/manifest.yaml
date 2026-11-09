@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: technical-design-doc-prompt
+name: Technical Design Doc
+type: prompt
+description: "Drafts a technical design doc from a problem statement and constraints: context, goals, non-goals, proposed design, alternatives with trade-offs, risks, rollout and open questions."
+purpose: >
+  Design docs exist to surface disagreement before code is written, but drafts often
+  skip non-goals, present a single option, or hide uncertainty. This prompt produces a
+  reviewable first draft with explicit goals and non-goals, at least two genuine
+  alternatives, a trade-off table, rollout and rollback plan, and a list of open
+  questions, with every assumption marked for the author to confirm.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [documentation, architecture-assessment]
+tags: [design-docs, architecture, rfc, technical-writing]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [architecture-decision-records, architecture-review-agent, database-migration-planner-agent, feature-flag-rollout-planning]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Produces a draft for human authors and reviewers; it must not invent load figures, SLAs or team commitments, and marks every assumption."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

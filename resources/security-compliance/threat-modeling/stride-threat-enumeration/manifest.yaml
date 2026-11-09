@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: stride-threat-enumeration
+name: "STRIDE Threat Enumeration"
+type: skill
+description: "Enumerates STRIDE threats per DFD element (process, data store, data flow, external entity) into a consistent threat table with preconditions, impact, and candidate mitigations."
+purpose: >
+  STRIDE is easy to name and hard to apply consistently. This skill applies STRIDE-per-
+  element systematically so no element or category is skipped, records why a category does
+  not apply, and produces a table that downstream rating and mitigation work can consume.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [threat-modeling]
+tags: [stride, threat-modeling, dfd, secure-design]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [threat-modeling-agent, security-architecture-review-agent, owasp-top-10-review, data-classification]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not professional security advice; threat ratings and mitigation decisions need review by the system owner and a qualified security reviewer. Use only on systems the user owns or is authorised to assess. Threats are described at design level; never write exploit steps or payloads."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

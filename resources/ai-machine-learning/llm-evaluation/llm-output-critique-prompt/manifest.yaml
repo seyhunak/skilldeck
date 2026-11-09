@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: llm-output-critique-prompt
+name: LLM Output Critique
+type: prompt
+description: Scores one LLM output against a supplied rubric, citing evidence from the output for every score, separating hard-rule failures from quality issues, and proposing targeted fixes.
+purpose: >
+  Ad-hoc "is this good?" reviews of model outputs are inconsistent between reviewers
+  and between runs. This prompt is a pointwise judge template: it forces evidence
+  before scores, scores each rubric dimension independently on anchored levels,
+  treats hard-rule violations as gating failures rather than averaging them away,
+  and returns machine-readable results suitable for logging alongside human labels.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [llm-evaluation, prompt-engineering]
+tags: [llm-judge, rubric, critique, scoring, evals]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [llm-judge-rubric-design, llm-evaluation-agent, eval-test-case-generator-prompt, hallucination-detection, prompt-optimization]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Judge scores are estimates and must be calibrated against human labels before they gate releases. Avoid pasting real user data unless it is approved for model processing.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

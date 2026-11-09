@@ -1,0 +1,43 @@
+schema_version: "1.1"
+id: decision-memo-writing
+name: Decision Memo Writing
+type: skill
+description: Writes a decision memo that states the decision needed, real options with trade-offs, a clear recommendation, reversibility (one-way vs two-way door), risks, and dissenting views, so an approver can decide in one read.
+purpose: >
+  Decision documents often bury the ask, present one real option, or omit the
+  arguments against the recommendation. This skill produces a structured, narrative
+  memo that leads with the decision and deadline, compares genuine alternatives against
+  stated criteria, calibrates process to reversibility, and records dissent and
+  assumptions so the decision can later be reviewed on the quality of reasoning, not
+  only the outcome.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [executive-communication, business-case-development]
+tags: [decision-memo, executive-writing, options-analysis, reversibility, recommendation]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [executive-summary-prompt, strategy-options-evaluation-prompt, business-case-development-agent, board-update-drafting-agent, decision-log-maintenance]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Drafts a recommendation for an accountable human decision-maker; never presents the memo as the decision itself or omits known material counter-arguments.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

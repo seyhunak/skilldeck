@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: context-window-management
+name: Context Window Management
+type: skill
+description: "Manages what goes into an LLM context window: token budgets per section, priority ordering, truncation and compression, rolling summaries, and retrieval-based memory for long conversations and agent loops."
+purpose: >
+  Long conversations and agent loops degrade when context fills with stale tool output
+  and redundant history: instructions get lost, costs rise, and requests fail at the
+  limit. This skill allocates a budget per context section, defines eviction and
+  summarization rules that preserve decisions and constraints, and tests that
+  compression does not drop facts the task depends on.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [prompt-engineering, agent-development, llm-ops]
+tags: [context-window, memory, summarization, prompt-engineering, agents]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [token-budget-estimation, agent-trace-debugging, chunking-strategy-design, ai-cost-optimization-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Conversation memory may persist user data; recommends retention limits, user-visible memory controls, and excluding secrets from summaries."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

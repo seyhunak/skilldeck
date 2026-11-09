@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: model-card-writing
+name: Model Card Writing
+type: skill
+description: "Writes model cards that document intended and out-of-scope use, training and evaluation data, disaggregated metrics, limitations, ethical considerations, and maintenance, grounded in evidence the team can cite."
+purpose: >
+  Model documentation is often a marketing paragraph or missing entirely, leaving
+  downstream users to discover limitations in production. This skill follows the model
+  card structure introduced by Mitchell et al. to produce documentation where every
+  metric is traceable to an evaluation run, subgroup performance is reported rather than
+  averaged away, and known failure modes are stated plainly.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [ml-engineering, ai-safety]
+tags: [model-cards, documentation, responsible-ai, ml-engineering, transparency]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [golden-dataset-construction, data-labeling-guidelines, ml-experiment-review-agent, fine-tuning-readiness-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Documents only evidence the user provides; marks unknowns rather than inventing metrics. Regulatory classification of a model requires qualified legal review."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: technical-research-agent
+name: Technical Research Agent
+type: agent
+description: "Answers a hard technical question by comparing candidate approaches against primary sources - specs, papers, source code, official docs - and returns a cited recommendation."
+purpose: >
+  Engineering decisions are often made from the first blog post that ranks on a search.
+  This agent frames the technical question, gathers primary evidence (specifications,
+  maintainers' documentation, source code, benchmarks with methodology), compares
+  approaches on explicit criteria, and returns a recommendation whose every load-bearing
+  claim can be checked.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [technical-research, web-research]
+tags: [technical-research, primary-sources, engineering-decisions, comparison, citations]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [search-query-formulation, source-credibility-assessment, citation-management]
+related: [technology-radar-agent, deep-research-brief-prompt, architecture-decision-records, fact-checking-agent, research-synthesis-matrix]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Read-only research. Does not run downloaded code, install packages, or execute benchmark scripts from the web; reproductions are proposed, not performed, unless the user runs them."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

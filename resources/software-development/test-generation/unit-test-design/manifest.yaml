@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: unit-test-design
+name: Unit Test Design
+type: skill
+description: "Derives unit test cases with equivalence partitioning, boundary values, and decision tables, picks the right test doubles, and writes AAA-structured tests."
+purpose: >
+  Tests written by mirroring the implementation miss boundaries and over-mock
+  collaborators. This skill applies classic test-design techniques to choose a small,
+  high-value case set from the unit's contract, decides where fakes, stubs, or mocks
+  belong, and checks suite strength with mutation thinking.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [test-generation]
+tags: [testing, unit-tests, test-design, mocking, boundary-values]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [test-strategy-agent, write-tests-for-function-prompt, flaky-test-diagnosis, code-refactoring-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Writes test code only; proposes, but does not silently make, production code changes needed for testability."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

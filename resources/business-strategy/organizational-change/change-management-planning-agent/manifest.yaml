@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: change-management-planning-agent
+name: Change Management Planning Agent
+type: agent
+description: Builds an ADKAR-based change management plan for an approved change - impact assessment by group, stakeholder strategy, communications and training plans, resistance management, readiness measures, and reinforcement.
+purpose: >
+  Organisational changes often deliver the new system or structure on time while
+  adoption lags for months, because people were told what was changing but never
+  helped through awareness, desire, knowledge, ability, and reinforcement. This agent
+  turns an approved change into a people-side plan organised around Prosci's ADKAR
+  model, with impacts per group, sequenced communications, sponsor actions, and
+  measures that show whether adoption is actually happening.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [organizational-change, executive-communication]
+tags: [change-management, adkar, stakeholder-engagement, communications-plan, adoption, resistance]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [stakeholder-mapping, raci-matrix-design]
+related: [operating-model-analyst-agent, process-improvement-agent, executive-summary-prompt, sop-writing]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: Plans communications but never sends them; changes affecting employment terms, works councils, or unions require HR and legal review and any required consultation before announcement.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

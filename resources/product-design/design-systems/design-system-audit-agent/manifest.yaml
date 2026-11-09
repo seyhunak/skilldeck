@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: design-system-audit-agent
+name: Design System Audit Agent
+type: agent
+description: "Audits a design system and its product usage: token architecture, component coverage and API consistency, accessibility of states, documentation, governance, and adoption, returning a scored audit with a prioritized remediation plan."
+purpose: >
+  Design systems decay quietly: hard-coded values creep in, near-duplicate components
+  multiply, and teams stop trusting the library. This agent inventories tokens and
+  components, measures drift between the system and shipped product, checks component
+  state and accessibility coverage, reviews documentation and contribution governance,
+  and returns a maturity-scored audit with a sequenced plan to consolidate and raise
+  adoption.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [design-systems, ux-review]
+tags: [design-system, design-tokens, components, consistency, governance]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/audit-scorecard.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [accessibility-design-review]
+related: [usability-heuristic-review-agent, frontend-accessibility-review-agent, ux-copy-review, architecture-decision-records]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Read-only inspection of design files, token files, and code provided. Does not modify the library or publish changes; usage counts are reported with their measurement method."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

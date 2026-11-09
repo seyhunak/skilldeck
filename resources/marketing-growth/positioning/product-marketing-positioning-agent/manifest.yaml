@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: product-marketing-positioning-agent
+name: Product Marketing Positioning Agent
+type: agent
+description: "Develops product positioning using April Dunford's component method: competitive alternatives, unique attributes, value, target customers, and market category, with evidence and risks."
+purpose: >
+  Weak positioning makes every downstream asset vague. This agent runs a structured
+  positioning exercise from the customer's real alternatives outward, ties each claimed
+  attribute to evidence, identifies the customers who care most, chooses a market frame
+  that makes the value obvious, and returns a positioning canvas the team can test and
+  build messaging on.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [positioning, copywriting]
+tags: [positioning, product-marketing, competitive-alternatives, market-category, go-to-market]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [messaging-framework]
+related: [value-proposition-prompt, jobs-to-be-done-analysis, competitor-battlecard-prompt, competitive-feature-matrix, customer-voice-research-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Analysis and drafts only. Competitive claims must be supported by user-supplied evidence; the agent does not fabricate customer quotes, win rates, or competitor facts."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: compliance-gap-analysis-agent
+name: "Compliance Gap Analysis Agent"
+type: agent
+description: "Maps an organisation's existing controls and evidence against SOC 2 Trust Services Criteria or ISO/IEC 27001:2022 Annex A, and returns a gap register with evidence status, owners, and a remediation plan."
+purpose: >
+  Before a SOC 2 or ISO 27001 audit, teams need an honest view of which criteria or
+  controls are designed, operating, and evidenced, and which are missing. This agent
+  performs a structured readiness gap analysis from policies, system descriptions, and
+  evidence samples, separating design gaps from evidence gaps so the remediation plan
+  targets what an auditor will actually test.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [compliance-assessment]
+tags: [compliance, soc-2, iso-27001, gap-analysis, audit-readiness, controls]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [security-policy-writing, access-review]
+related: [vendor-security-assessment-agent, security-questionnaire-response-prompt, quarterly-access-review-routine, privacy-impact-assessment-agent, risk-register-construction]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not legal, audit, or professional compliance advice and not an attestation. Readiness findings must be confirmed by a qualified auditor or compliance lead; only a licensed CPA firm can issue a SOC 2 report and only an accredited certification body can certify ISO 27001. Evidence may contain personal data; quote minimally."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

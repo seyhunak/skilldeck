@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: budget-variance-analysis-agent
+name: Budget Variance Analysis Agent
+type: agent
+description: "Explains actual-vs-budget or forecast results with an EBITDA bridge, FX isolation, price/volume/mix and rate/efficiency decompositions, driver classification, and draft commentary with forecast implications."
+purpose: >
+  Variance commentary too often says costs were higher because costs were higher. This
+  agent decomposes variances mathematically, reconciles the bridge to reported totals,
+  classifies each driver as timing, one-off, or run-rate with evidence, and drafts
+  commentary and reforecast implications for FP&A to review.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [fpa]
+tags: [fpa, variance-analysis, budgeting, price-volume-mix, management-reporting]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: []
+related: [kpi-tree-design, financial-results-commentary-prompt, cash-flow-forecasting-agent, metric-anomaly-investigation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Analytical support, not accounting, investment, or business advice; commentary and reforecasts require finance sign-off. Read-only on budgets and ledgers; unpublished results are treated as confidential and potentially price-sensitive."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

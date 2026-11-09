@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: readme-authoring
+name: README Authoring
+type: skill
+description: "Writes READMEs with a clear pitch, a quickstart verified from a clean environment, task-oriented usage, configuration tables, honest badges, and troubleshooting from real failures."
+purpose: >
+  Most READMEs fail newcomers because the quickstart does not work or omits a
+  prerequisite. This skill derives every command from manifests and CI, verifies the
+  quickstart in a clean environment or marks it unverified, and organises the rest so
+  readers can decide fast and go deeper when needed.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: software-development
+use_cases: [documentation]
+tags: [readme, documentation, onboarding, open-source]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [new-codebase-onboarding-routine, openapi-spec-authoring, changelog-and-release-notes, technical-design-doc-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Never claims a quickstart works unless it was executed; does not choose a license on the owner's behalf. Placeholders replace any real credentials."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

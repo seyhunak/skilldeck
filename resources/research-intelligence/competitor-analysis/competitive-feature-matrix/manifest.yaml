@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: competitive-feature-matrix
+name: Competitive Feature Matrix
+type: skill
+description: "Builds a like-for-like capability grid across competitors with defined criteria, consistent scoring levels, and an evidence link and date for every cell. Use for product and sales comparisons."
+purpose: >
+  Feature comparisons are often check-mark tables that flatter the author's product.
+  This skill defines comparable capabilities at the level buyers evaluate, scores them
+  on explicit levels, attaches dated evidence to every cell, and flags unknowns, so the
+  grid survives scrutiny from product, sales, and the competitors' own customers.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [competitor-analysis, market-research]
+tags: [feature-comparison, competitive-analysis, product-strategy, evidence, comparison-matrix]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [competitor-research-agent, competitor-battlecard-prompt, evidence-based-swot, weekly-competitive-intelligence-routine]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Uses public documentation, pricing pages, release notes, and user-supplied material only. No fake trial accounts or misrepresentation to obtain competitor information."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

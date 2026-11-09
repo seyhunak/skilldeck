@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: product-roadmap-analyst-agent
+name: Product Roadmap Analyst
+type: agent
+description: "Critiques an existing roadmap or builds a new one around outcomes: links items to goals, exposes feature-factory patterns, capacity overcommitment and dependencies, and returns a Now/Next/Later roadmap with rationale."
+purpose: >
+  Roadmaps tend to drift into dated feature lists that promise certainty nobody has.
+  This agent evaluates or constructs a roadmap against business outcomes and product
+  strategy, tests it for capacity realism, dependency risk, and evidence behind each
+  bet, and returns an outcome-oriented Now/Next/Later view with explicit confidence
+  levels that leaders can discuss honestly with stakeholders.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [product-roadmapping, product-discovery]
+tags: [roadmap, product-strategy, outcomes, planning, now-next-later]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [opportunity-solution-tree, rice-prioritization]
+related: [feature-prioritization-agent, okr-design-agent, kpi-tree-design, strategic-planning-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Advisory analysis only. Does not change roadmap tools, tickets, or commitments; it flags capacity and date claims as estimates that the owning team must confirm."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

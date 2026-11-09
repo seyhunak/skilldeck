@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: literature-review-agent
+name: Literature Review Agent
+type: agent
+description: "Runs a systematic or scoping literature review: protocol, reproducible search strings, screening with logged reasons, quality appraisal, and a cited synthesis with a PRISMA-style flow."
+purpose: >
+  Ad hoc literature searches miss key papers and over-weight whatever was found first.
+  This agent follows a written protocol: research question in a structured frame,
+  reproducible database searches, dual-criteria screening with exclusion reasons, risk-
+  of-bias appraisal, and a synthesis matrix, so the review can be audited, updated, and
+  defended.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [academic-research]
+tags: [literature-review, systematic-review, academic-research, prisma, evidence-synthesis]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: [references/review-protocol.md]
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [research-synthesis-matrix, citation-management, search-query-formulation]
+related: [research-paper-summary-prompt, technical-research-agent, source-credibility-assessment, fact-checking-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: true
+  handles_sensitive_data: false
+  notes: "Read-only. Never invents papers, DOIs, authors, or results; every included study must be retrieved and verified. Does not bypass publisher paywalls; inaccessible full texts are logged as such."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

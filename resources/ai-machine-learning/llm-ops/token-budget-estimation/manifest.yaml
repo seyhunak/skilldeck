@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: token-budget-estimation
+name: Token Budget Estimation
+type: skill
+description: "Estimates tokens, cost, and latency per request and per month for an LLM feature, from prompt anatomy, traffic, caching, and retries, with sensitivity ranges and explicit pricing assumptions."
+purpose: >
+  LLM feature budgets are often set from a single back-of-envelope guess that ignores
+  system prompts, retrieved context, retries, and output length variance. This skill
+  builds a transparent per-request token model, scales it to traffic with
+  low/expected/high scenarios, applies prices the user verifies from the provider's
+  current price page, and shows which levers move cost most.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [llm-ops, ai-architecture]
+tags: [tokens, cost-estimation, llm-ops, capacity-planning, latency]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [context-window-management, ai-cost-optimization-agent, model-selection-analyst-agent, ai-observability-analyst-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Never asserts model prices as fact; all prices are user-supplied inputs to be checked against the provider's current pricing. Estimates are planning ranges, not quotes."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

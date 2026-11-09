@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: market-sizing
+name: Market Sizing
+type: skill
+description: "Estimates TAM, SAM, and SOM with both top-down and bottom-up methods, explicit assumptions, sensitivity ranges, and a triangulation check. Use for business cases and market entry."
+purpose: >
+  Market-size numbers are routinely inflated by stacking an analyst headline figure on a
+  vague percentage. This skill produces sizes a skeptical reviewer can audit: clearly
+  bounded definitions, independent top-down and bottom-up builds, sourced inputs, ranges
+  instead of point estimates, and a reconciliation of the gap between methods.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [market-research]
+tags: [market-sizing, tam-sam-som, market-research, estimation, business-case]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [market-intelligence-agent, unit-economics-analysis, industry-structure-analysis, executive-research-memo-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Outputs are estimates for planning, not forecasts or investment advice. Every input is labelled as sourced or assumed."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

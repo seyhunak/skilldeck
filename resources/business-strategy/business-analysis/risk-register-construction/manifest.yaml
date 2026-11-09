@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: risk-register-construction
+name: Risk Register Construction
+type: skill
+description: Builds a risk register with cause-event-consequence risk statements, defined likelihood and impact scales, inherent and residual ratings, named owners, response strategies, mitigations with dates, and review triggers.
+purpose: >
+  Risk registers are often lists of vague worries ("resourcing", "delays") with scores
+  nobody can reproduce. This skill writes risks as specific cause-event-consequence
+  statements, scores them on agreed scales, separates inherent from residual exposure,
+  assigns one owner and a concrete response per risk, and sets triggers for review, so
+  the register drives action instead of decorating a status report.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [business-analysis, business-case-development]
+tags: [risk-management, risk-register, likelihood-impact, mitigation, project-governance]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [business-case-development-agent, partnership-evaluation-agent, decision-memo-writing, scenario-planning]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Business risk structuring only; safety-critical, regulatory, and financial risk assessments require review by qualified specialists and the accountable risk owner.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: secrets-exposure-review
+name: "Secrets Exposure Review"
+type: skill
+description: "Finds hard-coded or leaked secrets in repositories, history, CI logs, and configs using manual patterns plus scanner guidance, then drives rotation-first remediation without ever printing a secret value."
+purpose: >
+  A leaked credential is an incident, not a code smell: removing it from the latest commit
+  does nothing if it remains valid and in history. This skill combines manual search
+  patterns with guidance for established scanners, classifies each exposure, and sequences
+  remediation as revoke and rotate, assess use, then clean history and prevent recurrence.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [security-review, incident-response]
+tags: [secrets-management, credential-leak, secret-scanning, rotation]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [application-security-audit-agent, incident-response-coordinator-agent, cloud-security-posture-agent, git-history-forensics, security-log-analysis]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not professional security advice; rotation, revocation, and history rewrites require approval from the credential owner. Scan only repositories and systems the user owns or is authorised to assess. Never print, copy, test, or use any discovered secret: report file, line, and credential type with the value masked."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: ux-research-synthesis-agent
+name: UX Research Synthesis Agent
+type: agent
+description: "Synthesizes interview transcripts and research notes through affinity mapping into themed, evidence-weighted insights with supporting quotes, contradictions, and implications for product decisions."
+purpose: >
+  Raw interview notes are rarely acted on because synthesis is slow and easily biased
+  toward what the team already believes. This agent atomizes observations, clusters them
+  bottom-up, counts how many participants support each theme, keeps disconfirming
+  evidence visible, and writes insights in a form a product team can act on, with every
+  claim traceable to a participant and quote.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [user-research, product-discovery]
+tags: [user-research, affinity-mapping, synthesis, interviews, insights]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [persona-development, journey-mapping]
+related: [user-interview-script-prompt, jobs-to-be-done-analysis, customer-voice-research-agent, research-synthesis-matrix]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Interview data often contains personal information. Uses participant codes instead of names, strips identifying details from quotes, and never fabricates quotes or participant counts."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

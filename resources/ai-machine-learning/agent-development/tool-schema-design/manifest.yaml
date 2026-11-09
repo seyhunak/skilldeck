@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: tool-schema-design
+name: Tool Schema Design
+type: skill
+description: "Designs function and tool definitions that LLMs call reliably: naming, granularity, descriptions, JSON Schema parameters, enums, error payloads, and side-effect and confirmation semantics."
+purpose: >
+  Most agent tool-calling failures trace back to ambiguous tool definitions: overlapping
+  tools, vague descriptions, free-text parameters that should be enums, and errors the
+  model cannot act on. This skill provides design rules and a review checklist for tool
+  sets, plus a way to test that a model picks the right tool with the right arguments
+  before the tools reach production.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [agent-development]
+tags: [agents, tool-use, function-calling, json-schema, api-design]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [structured-output-extraction, agent-trace-debugging, mcp-server-design-agent, agent-workflow-designer-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Design guidance only; does not execute tools. Requires that destructive or externally visible tools declare side effects and require explicit human confirmation."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

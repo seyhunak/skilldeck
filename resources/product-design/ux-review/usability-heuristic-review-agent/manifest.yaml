@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: usability-heuristic-review-agent
+name: Usability Heuristic Review Agent
+type: agent
+description: "Evaluates screens, prototypes, or flows against Nielsen's 10 usability heuristics and returns severity-rated findings tied to specific screens and elements, each with a concrete recommended fix."
+purpose: >
+  Heuristic evaluation is the fastest way to catch usability problems before user
+  testing, but ad-hoc reviews produce vague opinions. This agent walks a defined task
+  flow screen by screen, maps each issue to a named heuristic, rates severity on the 0-4
+  Nielsen scale using frequency, impact, and persistence, and produces a findings log
+  the design team can triage directly.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [ux-review, design-systems]
+tags: [usability, heuristic-evaluation, ux-review, nielsen, design-critique]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [ux-copy-review, accessibility-design-review]
+related: [onboarding-flow-design-agent, frontend-accessibility-review-agent, design-system-audit-agent, journey-mapping]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Read-only review of the material provided. A heuristic review is expert inspection, not a substitute for testing with real users; findings are flagged as predicted issues."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

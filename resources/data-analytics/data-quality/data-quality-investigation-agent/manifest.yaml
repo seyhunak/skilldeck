@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: data-quality-investigation-agent
+name: Data Quality Investigation Agent
+type: agent
+description: "Root-causes a reported data issue (wrong totals, duplicates, missing rows, stale tables) by tracing it through lineage and DQ dimensions, returning an evidence-backed incident report."
+purpose: >
+  When a dashboard number looks wrong, teams often patch the symptom downstream. This
+  agent frames the issue against standard data quality dimensions, reproduces it with
+  queries, walks the lineage upstream hop by hop until it finds the stage where good
+  data turns bad, and returns a root cause, blast radius, remediation options, and the
+  tests that would have caught it.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [data-quality, data-modeling]
+tags: [data-quality, root-cause-analysis, lineage, data-incidents, data-testing]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [data-profiling, sql-query-review]
+related: [analytics-pipeline-review-agent, metric-anomaly-investigation-agent, data-dictionary-authoring, dbt-model-review]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Read-only investigation: SELECT queries and file reads only. Never backfills, deletes, or rewrites data; remediation is proposed for a human to execute."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

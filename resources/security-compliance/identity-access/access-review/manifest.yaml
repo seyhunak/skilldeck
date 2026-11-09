@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: access-review
+name: "Access Review"
+type: skill
+description: "Performs a user access review: reconciles accounts against the HR roster, flags orphaned, dormant, privileged, and shared accounts, checks least privilege and segregation of duties conflicts, and records reviewer decisions."
+purpose: >
+  Access reviews are a core control in SOC 2, ISO 27001, and SOX environments, and they
+  routinely fail because reviewers rubber-stamp long lists. This skill reduces the list to
+  the exceptions that need judgement, applies explicit rules for orphaned and dormant
+  accounts and toxic permission combinations, and produces evidence an auditor can follow.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [identity-access, compliance-assessment]
+tags: [access-review, least-privilege, segregation-of-duties, iam, user-access]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [quarterly-access-review-routine, compliance-gap-analysis-agent, security-architecture-review-agent, security-log-analysis]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not legal or audit advice. Revocation and access changes require approval from the system owner or manager; the skill recommends and never removes access itself. Exports contain personal data: minimise fields, keep outputs internal, and never include passwords or credential material."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

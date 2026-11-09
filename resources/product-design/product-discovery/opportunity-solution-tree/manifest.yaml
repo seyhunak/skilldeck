@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: opportunity-solution-tree
+name: Opportunity Solution Tree
+type: skill
+description: "Builds an opportunity solution tree linking one measurable outcome to customer opportunities, multiple candidate solutions per opportunity, and assumption tests, then selects a target opportunity."
+purpose: >
+  Teams jump from a goal straight to a single favourite feature. An opportunity solution
+  tree keeps the outcome, the customer needs that could drive it, several competing
+  solutions, and the experiments that test them visible in one structure. This skill
+  guides an agent to build, prune, and use the tree to choose what to explore next.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [product-discovery, product-roadmapping]
+tags: [opportunity-solution-tree, continuous-discovery, outcomes, experiments, product-discovery]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [jobs-to-be-done-analysis, product-discovery-agent, ab-test-design, rice-prioritization]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Structures thinking from supplied evidence; opportunities without research support are labeled as hypotheses."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

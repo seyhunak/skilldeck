@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: acceptance-criteria-gherkin
+name: Acceptance Criteria in Gherkin
+type: skill
+description: "Writes testable acceptance criteria as Gherkin Given/When/Then scenarios, including scenario outlines, edge cases, and negative paths, written in declarative business language rather than UI scripts."
+purpose: >
+  Vague acceptance criteria are the most common cause of rework between product,
+  engineering, and QA. This skill makes an agent produce declarative, observable
+  Given/When/Then scenarios that cover happy paths, rule boundaries, and failure cases,
+  structured so they can be read by stakeholders and automated with Cucumber-style tools
+  without rewriting.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: product-design
+use_cases: [prd-generation]
+tags: [gherkin, acceptance-criteria, bdd, given-when-then, testing]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [user-story-writing, prd-generation-agent, test-strategy-agent, unit-test-design]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Produces specification text only; it does not run tests or modify test suites."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

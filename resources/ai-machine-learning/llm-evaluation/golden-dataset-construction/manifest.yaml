@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: golden-dataset-construction
+name: Golden Dataset Construction
+type: skill
+description: "Builds versioned evaluation datasets for LLM features: coverage matrix, sourcing from logs and synthesis, edge and adversarial cases, reference labeling, contamination checks, and dataset versioning."
+purpose: >
+  Evals are only as good as the cases they contain. Ad-hoc test sets over-represent easy
+  happy paths, leak into prompts, and silently change between runs. This skill gives a
+  structured method to define coverage, source and label cases, record provenance, split
+  dev from held-out sets, and version the dataset so results stay comparable over time.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [llm-evaluation]
+tags: [evals, datasets, llm-evaluation, test-cases, labeling]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [llm-judge-rubric-design, data-labeling-guidelines, eval-test-case-generator-prompt, llm-evaluation-agent, retrieval-quality-metrics]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Production logs used as eval cases may contain personal or confidential data; requires de-identification and consent review before inclusion. Never stores secrets in the dataset."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

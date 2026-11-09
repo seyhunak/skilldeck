@@ -1,0 +1,43 @@
+schema_version: "1.1"
+id: security-policy-writing
+name: "Security Policy Writing"
+type: skill
+description: "Writes and revises information security policies, standards, and procedures with a clear hierarchy, testable requirements, owners, exceptions, and mappings to SOC 2 or ISO 27001 controls."
+purpose: >
+  Policies fail audits and fail staff when they are aspirational, untestable, or copied
+  from templates that describe a different company. This skill separates policy (intent),
+  standard (measurable requirement), and procedure (steps), writes requirements with
+  shall-language and parameters, and keeps each document tied to what the organisation
+  actually does.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [compliance-assessment]
+tags: [security-policy, governance, iso-27001, soc-2, documentation]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [compliance-gap-analysis-agent, data-classification, access-review, sop-writing, security-questionnaire-response-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  professional_advice_disclaimer: true
+  notes: "Not legal or professional compliance advice. Policies must be reviewed by the policy owner, approved by management, and checked by legal counsel where they create employment or contractual obligations. Never describe controls the organisation does not operate."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

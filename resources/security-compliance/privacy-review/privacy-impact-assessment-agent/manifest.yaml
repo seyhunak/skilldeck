@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: privacy-impact-assessment-agent
+name: "Privacy Impact Assessment Agent"
+type: agent
+description: "Drafts a GDPR Article 35 data protection impact assessment: maps personal data flows, tests necessity and proportionality, scores risks to data subjects, and proposes measures for DPO review."
+purpose: >
+  Organisations must assess high-risk processing before it starts, but DPIAs are often
+  written after launch as box-ticking. This agent screens whether a DPIA is required,
+  builds the processing description and data flow map, evaluates lawful basis,
+  minimisation, retention, transfers, and data subject rights, and produces a draft DPIA
+  for the DPO and controller to review and decide.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [privacy-review, compliance-assessment]
+tags: [privacy, gdpr, dpia, data-protection, data-flows]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [data-classification]
+related: [threat-modeling-agent, compliance-gap-analysis-agent, vendor-security-assessment-agent, risk-register-construction, security-policy-writing]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not legal advice. The draft DPIA must be reviewed by the Data Protection Officer or qualified privacy counsel, and the controller makes the final decision, including whether prior consultation with a supervisory authority is required. Work from data inventories and descriptions rather than real personal records; never reproduce personal data in the output."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: month-end-close-routine
+name: Month-End Close Routine
+type: routine
+description: "A day-by-day month-end close workflow: cut-off, bank and balance sheet reconciliations, accruals, intercompany, journal review, flux analysis, reporting pack, sign-off, and retrospective."
+purpose: >
+  Close quality depends on doing the same checks in the same order every month with clear
+  ownership. This routine sequences the close from pre-close to retrospective, defines
+  escalation points for unreconciled differences and late items, and keeps posting and
+  sign-off with authorized people while AI drafts workpapers.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: finance-banking
+use_cases: [accounting-operations, fpa]
+tags: [month-end-close, accounting, reconciliation, financial-reporting, controls]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: routine.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [routine]}
+  - {platform: codex, level: copy_paste, resource_types: [routine]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [routine]}
+  - {platform: generic, level: generic_export, resource_types: [routine]}
+dependencies: []
+related: [financial-reconciliation-agent, journal-entry-review, budget-variance-analysis-agent, financial-results-commentary-prompt]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Human-supervised guidance, not accounting, audit, or tax advice; journals, reconciliations, estimates, and statement sign-off require qualified, authorized finance staff. No plugs, segregation of duties is required, and it never runs automatically."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

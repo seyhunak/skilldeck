@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: security-architecture-review-agent
+name: "Security Architecture Review Agent"
+type: agent
+description: "Reviews a system's security architecture for zero trust alignment, network segmentation, identity and access design, secrets and key management, and blast radius, returning prioritised design changes."
+purpose: >
+  Architecture decisions such as flat networks, shared service identities, or long-lived
+  credentials create risks that code review cannot catch and that are expensive to undo
+  later. This agent evaluates an architecture against NIST SP 800-207 zero trust tenets
+  and established segmentation and IAM patterns, and produces a design review an architect
+  can act on and defend.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: security-compliance
+use_cases: [security-review, cloud-security, identity-access]
+tags: [security-architecture, zero-trust, network-segmentation, iam, design-review]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: agent.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [agent]}
+  - {platform: codex, level: file_export, resource_types: [agent]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [agent]}
+  - {platform: generic, level: generic_export, resource_types: [agent]}
+dependencies: [stride-threat-enumeration, access-review]
+related: [threat-modeling-agent, cloud-security-posture-agent, architecture-review-agent, infrastructure-as-code-review-agent, data-classification]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  professional_advice_disclaimer: true
+  notes: "Not professional security advice; design changes and accepted residual risks require approval by the accountable architect and security owner. Design-level review of architectures the user owns or is authorised to assess. Read-only: never changes configurations, never prints credentials, and does not certify any framework conformance."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

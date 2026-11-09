@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: marketing-attribution-analysis
+name: Marketing Attribution Analysis
+type: skill
+description: "Compares attribution models (last-click, first-touch, position-based, data-driven) on campaign data, explains where they disagree, and states incrementality caveats. Use when allocating budget across channels."
+purpose: >
+  Attribution models assign credit; they do not measure causation. This skill helps an
+  agent compute and compare rule-based models on path data, interpret the differences,
+  triangulate with platform-reported and incrementality evidence, and present budget
+  implications with honest confidence levels.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: marketing-growth
+use_cases: [campaign-planning, paid-acquisition, growth-analysis]
+tags: [attribution, marketing-analytics, incrementality, multi-touch, budget-allocation]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [campaign-performance-analyst-agent, ab-test-design, metric-definition, statistical-significance-testing]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: true
+  notes: "Uses aggregated or pseudonymised path data. Never treats attribution output as proof of causal impact without an incrementality test."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: statistical-significance-testing
+name: Statistical Significance Testing
+type: skill
+description: "Chooses and interprets statistical tests and confidence intervals for comparisons (proportions, means, counts, ratios), including power, multiple comparisons, and common misreadings."
+purpose: >
+  Significance testing is applied mechanically and misread routinely. This skill helps
+  an agent pick a test that matches the metric type and unit of analysis, check
+  assumptions, compute or interpret intervals and effect sizes, account for multiple
+  comparisons and peeking, and state conclusions in language that does not overclaim.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: data-analytics
+use_cases: [experimentation, analytics-interpretation]
+tags: [statistics, hypothesis-testing, confidence-intervals, ab-testing, power-analysis]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [experiment-analysis-agent, ml-experiment-review-agent, time-series-forecast-review, cohort-retention-analysis-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Statistical guidance only. Conclusions depend on study design and data quality that the skill cannot verify on its own."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

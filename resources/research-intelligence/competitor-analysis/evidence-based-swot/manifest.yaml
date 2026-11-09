@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: evidence-based-swot
+name: Evidence-Based SWOT
+type: skill
+description: "Builds a SWOT in which every item cites evidence and is tested for the right quadrant, then derives TOWS strategic actions. Use when a SWOT must support a real decision."
+purpose: >
+  Most SWOTs are brainstormed lists of adjectives that cannot be acted on. This skill
+  demands evidence per item, applies tests that keep internal and external factors in
+  the right quadrants, ranks items by impact, and converts the grid into TOWS strategies
+  so the analysis ends in options rather than a picture.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: research-intelligence
+use_cases: [competitor-analysis, market-research]
+tags: [swot, tows, strategy, competitive-analysis, evidence]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [competitor-research-agent, competitive-feature-matrix, strategy-options-evaluation-prompt, industry-structure-analysis]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Items without evidence are labelled as hypotheses rather than dropped silently; the skill does not invent supporting data."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

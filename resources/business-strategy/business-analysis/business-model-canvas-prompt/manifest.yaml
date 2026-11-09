@@ -1,0 +1,41 @@
+schema_version: "1.1"
+id: business-model-canvas-prompt
+name: Business Model Canvas
+type: prompt
+description: Generates a Business Model Canvas across all nine building blocks from a business description, then critiques it for internal consistency, riskiest assumptions, and economic viability, with tests to validate the weakest blocks.
+purpose: >
+  A Business Model Canvas is easy to fill with generic phrases and hard to use as a
+  thinking tool. This prompt drafts the nine blocks specifically for one segment and
+  value proposition, separates evidence from assumptions, checks that the blocks fit
+  together and that revenue can cover the cost structure, and ranks the riskiest
+  assumptions with concrete validation tests.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: business-strategy
+use_cases: [business-analysis, strategic-planning]
+tags: [business-model-canvas, business-model, assumptions, startup-strategy, value-proposition]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: prompt.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [prompt]}
+  - {platform: codex, level: native_install, resource_types: [prompt]}
+  - {platform: claude-desktop, level: copy_paste, resource_types: [prompt]}
+  - {platform: generic, level: generic_export, resource_types: [prompt]}
+dependencies: []
+related: [unit-economics-analysis, value-proposition-prompt, operating-model-analyst-agent, pricing-strategy-agent, jobs-to-be-done-analysis]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Builds a hypothesis model from the user's description; market figures are never invented and assumptions must be validated with real customers before investment decisions.
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]

@@ -1,0 +1,108 @@
+# Compatibility registry. The single source of truth for which resource types
+# Skilldeck can install into which environment, and how.
+# Validation rejects manifests that claim a level higher than the registry allows.
+# Verified against public documentation on the date in `verified_on`.
+schema_version: "1.0"
+level_rank: [not_supported, unverified, copy_paste, generic_export, file_export, native_import, native_install]
+platforms:
+  - id: claude-code
+    name: Claude Code
+    verified_on: "2026-11-09"
+    documentation: https://docs.claude.com/en/docs/claude-code
+    targets:
+      - resource_type: skill
+        level: native_install
+        format: Agent Skills directory containing SKILL.md
+        user_path: "~/.claude/skills/{id}/"
+        project_path: ".claude/skills/{id}/"
+        method: copy_package
+      - resource_type: agent
+        level: native_install
+        format: Subagent Markdown file with YAML frontmatter (name, description)
+        user_path: "~/.claude/agents/{id}.md"
+        project_path: ".claude/agents/{id}.md"
+        support_path: "~/.claude/skilldeck/packages/{id}/"
+        method: agent_file
+        limitations: Supporting files are copied next to the package, not loaded automatically by Claude Code.
+      - resource_type: prompt
+        level: native_install
+        format: Custom slash command Markdown file
+        user_path: "~/.claude/commands/{id}.md"
+        project_path: ".claude/commands/{id}.md"
+        method: prompt_command
+        limitations: Placeholders such as {{INPUT}} are left for the user to fill; $ARGUMENTS is appended for free-form context.
+      - resource_type: routine
+        level: native_install
+        format: Custom slash command Markdown file containing the workflow
+        user_path: "~/.claude/commands/{id}.md"
+        project_path: ".claude/commands/{id}.md"
+        method: routine_command
+        limitations: Routines are guidance for a human-supervised session; they are not scheduled jobs.
+  - id: codex
+    name: OpenAI Codex
+    verified_on: "2026-11-09"
+    documentation: https://developers.openai.com/codex
+    targets:
+      - resource_type: skill
+        level: native_install
+        format: Agent Skills directory containing SKILL.md
+        user_path: "~/.codex/skills/{id}/"
+        project_path: ".codex/skills/{id}/"
+        method: copy_package
+      - resource_type: prompt
+        level: native_install
+        format: Custom prompt Markdown file
+        user_path: "~/.codex/prompts/{id}.md"
+        method: prompt_command
+        limitations: Codex custom prompts are user-level only and invoked as /prompts:{id}.
+      - resource_type: agent
+        level: file_export
+        format: AGENTS.md instructions section
+        project_path: "AGENTS.md"
+        method: export_only
+        limitations: Codex has no per-agent package format; Skilldeck exports agent instructions for you to merge into AGENTS.md.
+      - resource_type: routine
+        level: copy_paste
+        format: Markdown
+        method: export_only
+  - id: claude-desktop
+    name: Claude Desktop / claude.ai
+    verified_on: "2026-11-09"
+    documentation: https://support.claude.com/en/articles/12512180-using-skills-in-claude
+    targets:
+      - resource_type: skill
+        level: native_import
+        format: ZIP archive of the skill folder, uploaded in Settings > Capabilities
+        method: export_zip
+        limitations: Claude Desktop does not read a local skills directory; upload the exported ZIP.
+      - resource_type: prompt
+        level: copy_paste
+        format: Text
+        method: export_only
+      - resource_type: agent
+        level: copy_paste
+        format: Project instructions text
+        method: export_only
+      - resource_type: routine
+        level: copy_paste
+        format: Text
+        method: export_only
+  - id: agent-skills
+    name: Agent Skills compatible tools
+    verified_on: "2026-11-09"
+    documentation: https://agentskills.io
+    targets:
+      - resource_type: skill
+        level: file_export
+        format: Agent Skills directory containing SKILL.md
+        method: copy_package
+        limitations: Choose the skills directory your tool reads.
+  - id: generic
+    name: Generic filesystem export
+    verified_on: "2026-11-09"
+    documentation: https://github.com/seyhunak/skilldeck/blob/main/docs/COMPATIBILITY.md
+    targets:
+      - {resource_type: agent, level: generic_export, format: Package folder, method: copy_package}
+      - {resource_type: skill, level: generic_export, format: Package folder, method: copy_package}
+      - {resource_type: prompt, level: generic_export, format: Package folder, method: copy_package}
+      - {resource_type: routine, level: generic_export, format: Package folder, method: copy_package}

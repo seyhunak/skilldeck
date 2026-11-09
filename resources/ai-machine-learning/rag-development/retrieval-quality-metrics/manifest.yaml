@@ -1,0 +1,42 @@
+schema_version: "1.1"
+id: retrieval-quality-metrics
+name: Retrieval Quality Metrics
+type: skill
+description: "Computes and interprets recall@k, precision@k, MRR, nDCG, and hit rate over a labeled query set, with per-segment breakdowns and sound comparison between retriever variants."
+purpose: >
+  Teams tune retrievers by eyeballing a few queries, which hides regressions and
+  overfits to anecdotes. This skill defines how to build qrels, compute the standard
+  ranking metrics correctly (including edge cases such as zero relevant documents and
+  graded relevance), and decide whether a difference between two retrievers is real, so
+  retrieval changes are judged on evidence.
+version: 1.0.0
+author:
+  name: Seyhun Akyürek
+  github: seyhunak
+license: MIT
+domain: ai-machine-learning
+use_cases: [rag-development, llm-evaluation]
+tags: [rag, retrieval, evaluation, metrics, ndcg, information-retrieval]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []
+compatibility:
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: [chunking-strategy-design, hybrid-search-tuning, golden-dataset-construction, rag-evaluation-agent, vector-database-evaluation-agent]
+featured: false
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: "Works on query logs and relevance labels the user provides; query logs can contain personal data, so recommends anonymizing before labeling. No network access."
+status: approved
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial release."]
