@@ -1,6 +1,6 @@
 # Submit a resource to Skilldeck
 
-Anyone with a GitHub account can add an agent, skill, prompt, or routine. You open a pull request, CI checks it automatically, a maintainer reviews it, and **once it's merged, it's published.** Every Skilldeck app picks it up the next time it checks for updates: at launch, and every 6 hours by default.
+Anyone with a GitHub account can add an agent, skill, prompt, or routine. You open a pull request, CI checks it automatically, and a maintainer reviews and merges it. A maintainer then approves the catalog release, and every Skilldeck app picks it up the next time it checks for updates: at launch, and every 6 hours by default.
 
 ```text
  you: fork → add package → open PR
@@ -10,7 +10,9 @@ Anyone with a GitHub account can add an agent, skill, prompt, or routine. You op
                               ▼
               maintainer: review → merge
                               │
-              CI: release-catalog (automatic) → catalog-v1.N.0 on GitHub Releases
+              CI: release-catalog builds catalog-v1.N.0 (automatic)
+                              │
+              maintainer: approves the release → GitHub Releases + latest.json
                               │
               Skilldeck app: checks at launch + periodically → shows it under "New in the Catalog"
 ```
@@ -77,7 +79,7 @@ git add resources && git commit -m "Add sql-migration-review skill" && gh pr cre
 | `version` | `1.0.0` for new resources. Bump it whenever you change one. |
 | `license` | SPDX id. MIT is recommended and must be content you have the right to share. |
 | `compatibility` | Copy it from the template. Don't claim more than [the registry](COMPATIBILITY.md) allows; CI rejects it if you do. |
-| `status` | Leave as `submitted`. Merging publishes it. |
+| `status` | Leave as `submitted`. After merge it ships in the next maintainer-approved release. |
 | `content.files` | List every extra file (e.g. `references/checklist.md`). |
 
 Each type has required `##` sections and a minimum length. See [FORMAT.md](FORMAT.md) or open the template. The most common reasons a check fails:
@@ -102,7 +104,7 @@ Details are in the [review policy](REVIEW_POLICY.md).
 
 ## After merge
 
-- The **Release catalog** workflow publishes a new catalog version: a minor bump when resources are added, a patch bump when they're updated. The release notes list your resource.
+- The **Release catalog** workflow builds a new catalog version (a minor bump when resources are added, a patch bump when they're updated). A maintainer approves it, and then it's published with release notes listing your resource.
 - Apps check at launch and periodically, verify the download's SHA-256, and show your resource under **Discover → New in the Catalog**.
 - Your contributor page lists everything attributed to your GitHub login. To add a bio and featured resources, add `contributors/<your-login>/profile.yaml` from [the template](../templates/contributor/profile.yaml).
 

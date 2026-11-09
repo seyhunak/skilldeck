@@ -10,5 +10,5 @@ Ground rules:
 - Only submit work you can license (the catalog default is MIT).
 - No credentials, personal data, binaries, or scripts in packages.
 - Compatibility claims must be ones you've verified, and never above the [registry](../docs/COMPATIBILITY.md).
-- Leave `status: submitted`. Merging publishes the resource in the next automatic catalog release.
+- Leave `status: submitted`. After merge, the resource ships in the next catalog release a maintainer approves.
 - Be kind. Reviews focus on usefulness, accuracy, and safety ([review policy](../docs/REVIEW_POLICY.md)).
