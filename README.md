@@ -60,7 +60,7 @@ That's 250 resources across 10 domains: software development, AI & machine learn
 - **Export** a single package as a folder or zip, a Claude Desktop skill zip, an `AGENTS.md` section for Codex, or the complete catalog.
 - **Favorites, recents, and personal collections**, stored locally in JSON.
 - **Contributors**: profile pages with GitHub avatar, bio, and featured work, cached for 24h and resilient to rate limits.
-- **Catalog updates**: checks the rolling `catalog-latest` release, verifies SHA-256 for the bundle and every package, shows a diff of added, updated, and removed resources before applying, and lets you roll back to the previous version or the bundled catalog in one click.
+- **Catalog updates**: checks for new community resources at launch and periodically (every 6 hours by default) against the rolling `catalog-latest` release, installs them automatically (optional), highlights them under *New in the Catalog*, verifies SHA-256 for the bundle and every package, shows a diff of added, updated, and removed resources before applying, and lets you roll back to the previous version or the bundled catalog in one click.
 - **Deep links** such as `skilldeck://resource/threat-modeling-agent`, `skilldeck://collection/rag-development-toolkit`, and `skilldeck://search/postmortem`.
 
 ## Install the app
@@ -101,7 +101,9 @@ cp -R templates/skill resources/<domain>/<use-case>/<your-skill-id>
 python3 scripts/validate_catalog.py --only <your-skill-id>
 ```
 
-Then open a pull request. CI runs the same validator, and a maintainer reviews it for usefulness, accuracy, and safety. After it's merged, your resource ships in the next catalog release and reaches every app through the in-app updater. Read the [Contributor Guide](docs/CONTRIBUTOR_GUIDE.md) and the [package format](docs/FORMAT.md) first, and add yourself under `contributors/<github-login>/profile.yaml` to get a profile page.
+Then open a pull request. CI runs the same validator, and a maintainer reviews it for usefulness, accuracy, and safety. **Once it's merged, it's published.** A new catalog release is cut automatically, and every Skilldeck app picks it up at launch or on its next periodic check, listing it under *New in the Catalog*.
+
+👉 **Start with the [Submission guide](docs/SUBMISSION_GUIDE.md)**, which works entirely in the browser if you like. Then see the [Contributor guide](docs/CONTRIBUTOR_GUIDE.md) and the [package format](docs/FORMAT.md).
 
 ## Repository layout
 
@@ -123,7 +125,7 @@ docs/                                 architecture, format, compatibility, secur
 - [Architecture](docs/ARCHITECTURE.md): how the catalog pipeline and the app fit together
 - [Package format](docs/FORMAT.md): manifest v1.1 and the entrypoint format for each type
 - [Compatibility](docs/COMPATIBILITY.md): where each type installs, per platform
-- [Contributor guide](docs/CONTRIBUTOR_GUIDE.md) · [Review policy](docs/REVIEW_POLICY.md)
+- [Submission guide](docs/SUBMISSION_GUIDE.md) · [Contributor guide](docs/CONTRIBUTOR_GUIDE.md) · [Review policy](docs/REVIEW_POLICY.md)
 - [Security model](docs/SECURITY.md) · [Release process](docs/RELEASE_PROCESS.md) · [Development & testing](docs/DEVELOPMENT.md)
 - [Quality report](reports/quality-report.md): heuristic scores for every resource
 

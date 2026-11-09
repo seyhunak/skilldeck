@@ -188,8 +188,8 @@ class Validator:
                 self.err(where, "regulated-domain resources must set safety.professional_advice_disclaimer: true")
             if len((safety.get("notes") or "").strip()) < 40:
                 self.err(where, "regulated-domain resources need safety.notes of at least 40 characters")
-        if m.get("status") == "approved" and m.get("author", {}).get("github") is None:
-            self.err(where, "approved resources must include author.github for attribution")
+        if L.is_published(m) and m.get("author", {}).get("github") is None:
+            self.err(where, "published resources must include author.github for attribution")
         created, updated = m.get("created"), m.get("updated")
         if created and updated and updated < created:
             self.err(where, "updated date precedes created date")
@@ -294,8 +294,8 @@ class Validator:
                         self.err(where, f"{key} must not reference the resource itself")
                     elif ref not in ids:
                         self.err(where, f"{key} references unknown resource '{ref}'")
-                    elif pkg.manifest.get("status") == "approved" and self.packages[ref].manifest.get("status") != "approved" and key == "dependencies":
-                        self.err(where, f"approved resource depends on unapproved resource '{ref}'")
+                    elif key == "dependencies" and L.is_published(pkg.manifest) and not L.is_published(self.packages[ref].manifest):
+                        self.err(where, f"published resource depends on unpublished resource '{ref}'")
             # Supporting skills named in an agent must be declared as dependencies or related.
             if pkg.type == "agent":
                 secs = L.sections(L.split_frontmatter(pkg.entry_text)[1])
@@ -400,8 +400,8 @@ class Validator:
             for ref in refs:
                 if ref not in self.packages:
                     self.err("catalog/collections.yaml", f"collection '{cid}' references unknown resource '{ref}'")
-                elif self.packages[ref].manifest.get("status") != "approved":
-                    self.err("catalog/collections.yaml", f"collection '{cid}' references unapproved resource '{ref}'")
+                elif not L.is_published(self.packages[ref].manifest):
+                    self.err("catalog/collections.yaml", f"collection '{cid}' references unpublished resource '{ref}'")
 
     # ------------------------------------------------------------ driver
     def run(self, only: set[str] | None = None):

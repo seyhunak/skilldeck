@@ -1,3 +1,5 @@
+<!-- First time? See docs/SUBMISSION_GUIDE.md. Once merged, your resource is published automatically. -->
+
 ## What does this PR do?
 
 <!-- New resource(s), improvement to existing resources, app change, or tooling change. -->

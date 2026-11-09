@@ -1,3 +1,4 @@
+import AppKit
 import SkilldeckCore
 import SwiftUI
 
@@ -12,8 +13,9 @@ struct SkilldeckApp: App {
                 .frame(minWidth: 980, minHeight: 620)
                 .onOpenURL { model.handleDeepLink($0) }
                 .handlesExternalEvents(preferring: ["*"], allowing: ["*"])
-                .task {
-                    if model.autoCheckUpdates { await model.checkForUpdates(userInitiated: false) }
+                .task { await model.runUpdateLoop() }
+                .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+                    Task { await model.backgroundUpdateIfDue() }
                 }
         }
         .windowToolbarStyle(.unified)

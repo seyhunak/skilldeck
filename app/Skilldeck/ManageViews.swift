@@ -229,6 +229,8 @@ struct SettingsView: View {
     @Environment(AppModel.self) private var model
     @AppStorage("catalogEndpoint") private var endpoint = UpdateService.defaultEndpoint
     @AppStorage("autoCheckUpdates") private var autoCheck = true
+    @AppStorage("autoInstallCatalogUpdates") private var autoInstall = true
+    @AppStorage("updateCheckIntervalHours") private var interval = 6
     @AppStorage("fetchGitHubProfiles") private var fetchProfiles = true
     @AppStorage("defaultPlatform") private var defaultPlatform = "claude-code"
     @AppStorage("projectFolder") private var projectFolder = ""
@@ -255,7 +257,15 @@ struct SettingsView: View {
                     .font(.caption).foregroundStyle(.secondary)
             }
             Section("Updates & privacy") {
-                Toggle("Check for catalog updates at launch", isOn: $autoCheck)
+                Toggle("Check for new resources at launch and periodically", isOn: $autoCheck)
+                Picker("Check every", selection: $interval) {
+                    Text("Hour").tag(1); Text("6 hours").tag(6); Text("12 hours").tag(12); Text("Day").tag(24)
+                }
+                .disabled(!autoCheck)
+                Toggle("Install catalog updates automatically", isOn: $autoInstall)
+                    .disabled(!autoCheck)
+                Text("Catalog updates add and refresh browsable resources only. They're verified against their SHA-256 and can be rolled back. Resources you've installed into your tools are never changed without your approval.")
+                    .font(.caption).foregroundStyle(.secondary)
                 Toggle("Load public GitHub profiles and avatars for contributors", isOn: $fetchProfiles)
                 Text("No account, API key, or telemetry. Network requests go only to the catalog endpoint and github.com.").font(.caption).foregroundStyle(.secondary)
             }

@@ -49,6 +49,10 @@ final class AppModel {
     var isApplyingUpdate = false
     var updateError: String?
     var lastUpdateCheck: Date?
+    /// Resources added by catalog updates that the user hasn't dismissed yet.
+    var newResourceIDs: [String] = UserDefaults.standard.stringArray(forKey: "newResourceIDs") ?? [] {
+        didSet { UserDefaults.standard.set(newResourceIDs, forKey: "newResourceIDs") }
+    }
 
     // Contributors
     var profiles: [String: GitHubProfile] = [:]
@@ -62,6 +66,8 @@ final class AppModel {
 
     @ObservationIgnored @AppStorage("catalogEndpoint") var catalogEndpoint = UpdateService.defaultEndpoint
     @ObservationIgnored @AppStorage("autoCheckUpdates") var autoCheckUpdates = true
+    @ObservationIgnored @AppStorage("autoInstallCatalogUpdates") var autoInstallCatalogUpdates = true
+    @ObservationIgnored @AppStorage("updateCheckIntervalHours") var updateCheckIntervalHours = 6
     @ObservationIgnored @AppStorage("fetchGitHubProfiles") var fetchGitHubProfiles = true
     @ObservationIgnored @AppStorage("defaultPlatform") var defaultPlatform = "claude-code"
     @ObservationIgnored @AppStorage("projectFolder") var projectFolder = ""
@@ -278,6 +284,28 @@ final class AppModel {
 
     // MARK: Updates
 
+    /// Checks at launch and then every `updateCheckIntervalHours` while the app runs.
+    func runUpdateLoop() async {
+        while !Task.isCancelled {
+            await backgroundUpdateIfDue(force: true)
+            let hours = max(1, updateCheckIntervalHours)
+            try? await Task.sleep(for: .seconds(Double(hours) * 3600))
+        }
+    }
+
+    /// Background check; also used when the app becomes active after sleeping.
+    func backgroundUpdateIfDue(force: Bool = false) async {
+        guard autoCheckUpdates else { return }
+        if !force, let last = lastUpdateCheck, Date().timeIntervalSince(last) < Double(max(1, updateCheckIntervalHours)) * 3600 { return }
+        await checkForUpdates(userInitiated: false)
+        if autoInstallCatalogUpdates, updateCheck?.isNewer == true {
+            await applyCatalogUpdate()
+        }
+    }
+
+    var newResources: [Resource] { newResourceIDs.compactMap { index?.resource($0) } }
+    func dismissNewResources() { newResourceIDs = [] }
+
     func checkForUpdates(userInitiated: Bool) async {
         guard let index, !isCheckingUpdates else { return }
         isCheckingUpdates = true
@@ -307,7 +335,10 @@ final class AppModel {
             sync()
             reloadCatalog()
             updateCheck = nil
-            show("Catalog updated to \(new.catalogVersion)")
+            let added = changes.added.filter { self.index?.resource($0) != nil }
+            newResourceIDs = added + newResourceIDs.filter { !added.contains($0) && self.index?.resource($0) != nil }
+            show(added.isEmpty ? "Catalog updated to \(new.catalogVersion)"
+                 : "Catalog \(new.catalogVersion): \(added.count) new resource\(added.count == 1 ? "" : "s") — see Discover")
         } catch {
             updateError = error.localizedDescription
             show("Update failed; your current catalog was kept.", error: true)

@@ -1,5 +1,7 @@
 # Contributor guide
 
+> New here? The [Submission guide](SUBMISSION_GUIDE.md) walks you through your first pull request, including a browser-only path.
+
 Thanks for helping build Skilldeck. One pull request can add or improve one or more packages, and each package is one independently useful resource.
 
 ## 1. Pick the type
@@ -20,7 +22,7 @@ cp -R templates/skill resources/software-development/code-analysis/my-skill-id
 - `id`: lowercase kebab-case, unique, the same as the directory name.
 - `domain` and the first `use_cases` entry must match the parent directories. Both come from [`catalog/domains.yaml`](../catalog/domains.yaml).
 - List every non-entrypoint file in `content.files`.
-- Keep `status: submitted`. Maintainers set `approved` when merging, and only approved resources are published.
+- Keep `status: submitted`. Merging the PR publishes it, so merge is the approval. `deprecated` removes a resource from the catalog.
 - Only claim compatibility you have verified, and never more than [the registry](COMPATIBILITY.md) allows.
 
 The full format is in [FORMAT.md](FORMAT.md).
@@ -57,4 +59,4 @@ Fill in the template. CI (`validate-submission.yml`) runs the validator on the f
 
 ## 7. After merge
 
-A maintainer bumps `catalog_version` in `catalog/catalog.yaml`, and the release workflow publishes `catalog-v<version>`. Apps pick it up through **Check for Updates**, and your contributor page lists your resources.
+The release workflow publishes a new catalog version automatically. Apps check at launch and periodically, then show your resource under **Discover → New in the Catalog**. Your contributor page lists your resources.

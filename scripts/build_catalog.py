@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the distributable Skilldeck catalog from approved resource packages.
+"""Build the distributable Skilldeck catalog from published resource packages (status submitted or approved; merged to main).
 
 Outputs (in --out, default dist/):
   catalog.json          index: metadata, hashes, contributors, collections (no file bodies)
@@ -113,7 +113,7 @@ def diff_catalogs(previous: dict | None, resources: list[dict]) -> dict:
     return {"previous_version": previous.get("catalog_version"), "added": added, "updated": updated, "removed": removed}
 
 
-def build(root: Path, out: Path, previous: dict | None = None, repo: str | None = None) -> dict:
+def build(root: Path, out: Path, previous: dict | None = None, repo: str | None = None, auto_version: bool = False) -> dict:
     meta = L.load_yaml(root / "catalog" / "catalog.yaml")
     taxonomy = L.load_taxonomy(root)
     registry = L.load_registry(root)
@@ -135,7 +135,7 @@ def build(root: Path, out: Path, previous: dict | None = None, repo: str | None 
     for manifest_path in L.iter_manifests(root / "resources"):
         package = manifest_path.parent
         m = L.load_yaml(manifest_path)
-        if not isinstance(m, dict) or m.get("status") != "approved":
+        if not L.is_published(m):
             continue
         rid = m["id"]
         rels = sorted(p.relative_to(package).as_posix() for p in package.rglob("*") if p.is_file() and not p.is_symlink())
@@ -195,6 +195,16 @@ def build(root: Path, out: Path, previous: dict | None = None, repo: str | None 
         c["featured"] = bool(col.get("featured", False))
         collections.append(c)
     changes = diff_catalogs(previous, resources)
+    if auto_version:
+        bump = dict(changes)
+        if previous and (previous.get("collections") != collections or previous.get("contributors") != contributors):
+            bump["metadata_changed"] = True
+        new_version = L.next_catalog_version(version, (previous or {}).get("catalog_version"), bump)
+        if new_version != version:
+            old_base, version = release_base, new_version
+            release_base = f"https://github.com/{repo}/releases/download/catalog-v{version}"
+            for entry in resources + bundle_resources:
+                entry["package"]["url"] = entry["package"]["url"].replace(old_base, release_base)
     generated_at = resolve_generated_at(resources)
 
     payload = {
@@ -258,11 +268,13 @@ def main(argv=None) -> int:
     ap.add_argument("--out", type=Path, default=None)
     ap.add_argument("--previous", type=Path, help="previous release's catalog.json, for the changelog")
     ap.add_argument("--repo", help="owner/name used in download URLs")
+    ap.add_argument("--auto-version", action="store_true",
+                    help="derive catalog_version from --previous: minor bump for added/removed, patch for updated")
     args = ap.parse_args(argv)
     root = args.root.resolve()
     out = (args.out or root / "dist").resolve()
     previous = L.load_json(args.previous) if args.previous and args.previous.exists() else None
-    payload = build(root, out, previous, args.repo)
+    payload = build(root, out, previous, args.repo, auto_version=args.auto_version)
     print(f"Built catalog {payload['catalog_version']}: {payload['resources_count']} resources, "
           f"{payload['contributors_count']} contributors, {payload['collections_count']} collections -> {out}")
     return 0

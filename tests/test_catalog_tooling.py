@@ -304,13 +304,43 @@ class BuildTests(Base):
         for name in ("catalog.json", "catalog-bundle.json", "latest.json"):
             self.assertEqual((a / name).read_bytes(), (b / name).read_bytes(), name)
 
-    def test_unapproved_resources_are_not_published(self):
+    def test_deprecated_resources_are_not_published(self):
+        p = self.repo.path(SAMPLE_IDS["prompt"])
+        m = self.repo.manifest(SAMPLE_IDS["prompt"])
+        m["status"] = "deprecated"
+        self.repo.write_manifest(p, m)
+        payload = build_catalog.build(self.repo.dir, self.repo.dir / "dist", repo="x/y")
+        self.assertNotIn(SAMPLE_IDS["prompt"], [r["id"] for r in payload["resources"]])
+
+    def test_merged_submissions_are_published(self):
         p = self.repo.path(SAMPLE_IDS["prompt"])
         m = self.repo.manifest(SAMPLE_IDS["prompt"])
         m["status"] = "submitted"
         self.repo.write_manifest(p, m)
         payload = build_catalog.build(self.repo.dir, self.repo.dir / "dist", repo="x/y")
-        self.assertNotIn(SAMPLE_IDS["prompt"], [r["id"] for r in payload["resources"]])
+        self.assertIn(SAMPLE_IDS["prompt"], [r["id"] for r in payload["resources"]])
+
+    def test_auto_version_bumps_from_previous_release(self):
+        first = build_catalog.build(self.repo.dir, self.repo.dir / "d1", repo="x/y", auto_version=True)
+        prev = json.loads((self.repo.dir / "d1" / "catalog.json").read_text())
+        same = build_catalog.build(self.repo.dir, self.repo.dir / "d2", previous=prev, repo="x/y", auto_version=True)
+        self.assertEqual(first["catalog_version"], same["catalog_version"])
+        p = self.repo.path(SAMPLE_IDS["skill"])
+        m = self.repo.manifest(SAMPLE_IDS["skill"])
+        m["version"] = "1.0.1"
+        self.repo.write_manifest(p, m)
+        patched = build_catalog.build(self.repo.dir, self.repo.dir / "d3", previous=prev, repo="x/y", auto_version=True)
+        major, minor, patch = (int(x) for x in first["catalog_version"].split("."))
+        self.assertEqual(f"{major}.{minor}.{patch + 1}", patched["catalog_version"])
+        latest = json.loads((self.repo.dir / "d3" / "latest.json").read_text())
+        self.assertIn(f"catalog-v{patched['catalog_version']}/", latest["bundle"]["url"])
+        self.assertTrue(all(f"catalog-v{patched['catalog_version']}/" in r["package"]["url"] for r in patched["resources"]))
+        prev["resources"] = prev["resources"][1:]  # pretend one resource is new
+        added = build_catalog.build(self.repo.dir, self.repo.dir / "d4", previous=prev, repo="x/y", auto_version=True)
+        self.assertEqual(f"{major}.{minor + 1}.0", added["catalog_version"])
+        self.assertEqual("9.0.0", L.next_catalog_version("9.0.0", "1.4.2", {"added": ["x"]}))
+        self.assertEqual("1.4.3", L.next_catalog_version("1.0.0", "1.4.2", {"metadata_changed": True}))
+        self.assertEqual("1.4.2", L.next_catalog_version("1.0.0", "1.4.2", {"added": [], "updated": []}))
 
     def test_version_changes_detected(self):
         first = build_catalog.build(self.repo.dir, self.repo.dir / "d1", repo="x/y")
@@ -334,7 +364,7 @@ class LaunchGateTests(Base):
     def test_small_catalog_fails_launch_gate(self):
         failures, summary = check_launch_catalog.check(self.repo.dir)
         self.assertEqual(4, summary["total"])
-        self.assertTrue(any("total approved complete resources 4 < 250" in f for f in failures))
+        self.assertTrue(any("total published complete resources 4 < 250" in f for f in failures))
         self.assertTrue(any("required collection missing" in f for f in failures))
 
     def test_real_catalog_launch_gate(self):
@@ -345,7 +375,7 @@ class LaunchGateTests(Base):
 
 
 class LifecycleTests(unittest.TestCase):
-    """Submission -> validation -> approval -> build -> contributor aggregation."""
+    """Submission -> validation -> merge (publish) -> build -> contributor aggregation."""
 
     def test_submission_lifecycle(self):
         repo = TempRepo(ids=[SAMPLE_IDS["skill"]])
@@ -361,11 +391,13 @@ class LifecycleTests(unittest.TestCase):
             # 2. Validation of the changed package passes cleanly.
             v, errors = repo.validate(only={"commit-message-writing"})
             self.assertEqual([], [str(e) for e in errors])
-            # 3. Submitted resources are not published.
+            # 3. A deprecated package stays out of the catalog.
+            m["status"] = "deprecated"
+            TempRepo.write_manifest(new, m)
             payload = build_catalog.build(repo.dir, repo.dir / "dist", repo="x/y")
             self.assertNotIn("commit-message-writing", [r["id"] for r in payload["resources"]])
-            # 4. Maintainer approves; contributor is aggregated without a profile file.
-            m["status"] = "approved"
+            # 4. Merged as submitted, it is published; contributor is aggregated without a profile file.
+            m["status"] = "submitted"
             TempRepo.write_manifest(new, m)
             payload = build_catalog.build(repo.dir, repo.dir / "dist", repo="x/y")
             ids = [r["id"] for r in payload["resources"]]

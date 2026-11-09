@@ -66,7 +66,7 @@ struct SidebarView: View {
         let updates = model.installsWithUpdates.count + (model.updateCheck?.isNewer == true ? 1 : 0)
         List(selection: Binding(get: { model.selection }, set: { if let v = $0 { model.select(v) } })) {
             Section {
-                Label("Discover", systemImage: "sparkles").tag(SidebarItem.discover)
+                row("Discover", "sparkles", .discover, count: model.newResourceIDs.isEmpty ? nil : model.newResourceIDs.count)
                 row("All Resources", "square.grid.2x2", .all, count: model.index?.resources.count)
             }
             Section("Library") {

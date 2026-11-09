@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Launch gate: fail unless the approved, valid catalog meets catalog/launch_requirements.yaml.
+"""Launch gate: fail unless the published, valid catalog meets catalog/launch_requirements.yaml.
 
-Only approved packages that pass full validation are counted. This script must
+Only published packages that pass full validation are counted. This script must
 never be weakened to make an incomplete catalog pass.
 
     python3 scripts/check_launch_catalog.py
@@ -34,7 +34,7 @@ def check(root: Path) -> tuple[list[str], dict]:
     complete = {}
     for rid, pkg in v.packages.items():
         where = pkg.path.relative_to(root).as_posix()
-        if pkg.manifest.get("status") != "approved":
+        if not L.is_published(pkg.manifest):
             continue
         if errors_by_package.get(where):
             failures.append(f"{rid}: {errors_by_package[where]} validation error(s); not counted")
@@ -45,7 +45,7 @@ def check(root: Path) -> tuple[list[str], dict]:
     by_domain_type = Counter((p.manifest["domain"], p.type) for p in complete.values())
     total = len(complete)
     if total < req["minimum_total"]:
-        failures.append(f"total approved complete resources {total} < {req['minimum_total']}")
+        failures.append(f"total published complete resources {total} < {req['minimum_total']}")
     for rtype, minimum in req["minimum_by_type"].items():
         if by_type[rtype] < minimum:
             failures.append(f"{rtype}s: {by_type[rtype]} < {minimum}")
@@ -78,7 +78,7 @@ def main(argv=None) -> int:
     args = ap.parse_args(argv)
     failures, summary = check(args.root.resolve())
     print("Skilldeck launch catalog check")
-    print(f"  approved & complete: {summary['total']}")
+    print(f"  published & complete: {summary['total']}")
     for t in ("agent", "skill", "prompt", "routine"):
         print(f"  {t + 's':<9} {summary['by_type'].get(t, 0)}")
     print(f"  collections: {summary['collections']}")

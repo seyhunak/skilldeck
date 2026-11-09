@@ -12,6 +12,6 @@ Review each submission for:
 6. **Licensing:** Is the author entitled to distribute every included component under the declared license?
 7. **Maintainability:** Are dependencies, version, and platform assumptions documented?
 
-A contributor's `status` must stay `submitted` in a pull request. Maintainers set it to `approved` when merging, and only approved resources are published in the generated catalog.
+**Merging is publishing.** Every package on `main` with `status: submitted` or `approved` goes into the next catalog release automatically, so merge only what you'd stand behind. Contributors keep `submitted`. Maintainers can mark a resource `approved` to show it's been reviewed in depth, and set `deprecated` to pull it from the catalog without deleting it.
 
 Do not merge merely to meet a resource-count target. Reject duplicates, thin wrappers around generic prompts, misleading compatibility claims, and incomplete packages.

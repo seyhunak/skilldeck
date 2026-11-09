@@ -4,5 +4,5 @@ contact_links:
     url: https://github.com/seyhunak/skilldeck/security/advisories/new
     about: Report security issues privately — please do not open a public issue.
   - name: Contribute a resource
-    url: https://github.com/seyhunak/skilldeck/blob/main/docs/CONTRIBUTOR_GUIDE.md
+    url: https://github.com/seyhunak/skilldeck/blob/main/docs/SUBMISSION_GUIDE.md
     about: New agents, skills, prompts and routines are submitted as pull requests.

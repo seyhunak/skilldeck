@@ -290,3 +290,31 @@ def compare_versions(a: str, b: str) -> int:
     pa = tuple(int(x) for x in a.split("."))
     pb = tuple(int(x) for x in b.split("."))
     return (pa > pb) - (pa < pb)
+
+
+# Merging a pull request into main is the approval gate: every package on main
+# with one of these statuses is published. `deprecated` keeps a package in the
+# repository but removes it from the catalog.
+PUBLISHED_STATUSES = frozenset({"submitted", "approved"})
+
+
+def is_published(manifest) -> bool:
+    return isinstance(manifest, dict) and manifest.get("status") in PUBLISHED_STATUSES
+
+
+def next_catalog_version(configured: str, previous: str | None, changes: dict) -> str:
+    """Pick the version for a build.
+
+    A maintainer-set catalog_version above the previous release wins. Otherwise,
+    when content changed, bump the previous release: minor for added/removed
+    resources, patch for updates or collection/contributor changes. With no changes the previous version is kept.
+    """
+    if not previous or compare_versions(configured, previous) > 0:
+        return configured
+    if changes.get("added") or changes.get("removed"):
+        major, minor, _ = (int(x) for x in previous.split(".")[:3])
+        return f"{major}.{minor + 1}.0"
+    if changes.get("updated") or changes.get("metadata_changed"):
+        major, minor, patch = (int(x) for x in previous.split(".")[:3])
+        return f"{major}.{minor}.{patch + 1}"
+    return previous

@@ -36,7 +36,7 @@ safety:
   network_access: false
   handles_sensitive_data: false
   notes: Boundaries the user should know about.
-status: submitted                    # maintainers set approved on merge
+status: submitted                    # merged => published; deprecated => removed from catalog
 tested: false
 tested_with: []
 changelog: ["1.0.0: Initial submission."]

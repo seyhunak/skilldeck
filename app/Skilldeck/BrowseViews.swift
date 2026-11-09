@@ -112,6 +112,7 @@ struct DiscoverView: View {
                     if !model.searchText.isEmpty {
                         searchResults
                     } else {
+                        if !model.newResources.isEmpty { newShelf }
                         ForEach(shelves(index)) { shelf in
                             if !shelf.resources.isEmpty {
                                 VStack(alignment: .leading, spacing: 10) {
@@ -133,6 +134,27 @@ struct DiscoverView: View {
             }
             .navigationTitle("Discover")
             .searchable(text: Bindable(model).searchText, placement: .toolbar, prompt: "Search agents, skills, prompts, routines")
+        }
+    }
+
+    /// Resources added by the latest catalog updates, until the user dismisses them.
+    private var newShelf: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(alignment: .firstTextBaseline) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Label("New in the Catalog", systemImage: "sparkle").font(.title3.weight(.semibold))
+                    Text("\(model.newResources.count) resource\(model.newResources.count == 1 ? "" : "s") added by the community since your last update")
+                        .font(.callout).foregroundStyle(.secondary)
+                }
+                Spacer()
+                Button("Mark as Seen") { model.dismissNewResources() }.buttonStyle(.link)
+            }
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(spacing: 12) {
+                    ForEach(model.newResources) { ResourceCard(resource: $0).frame(width: 290) }
+                }
+                .padding(.vertical, 2)
+            }
         }
     }
 
