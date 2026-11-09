@@ -1,0 +1,1 @@
+Meet Skilldeck: two hundred fifty AI agents, skills, prompts, and routines in one Mac app. Install them into Claude Code, Codex, or Claude Desktop in a click. Built something great? Open a pull request. It ships to everyone.

@@ -27,8 +27,19 @@
   <a href="#-contribute"><b>🤝 Contribute a resource</b></a> ·
   <a href="docs/SUBMISSION_GUIDE.md"><b>📬 Submission guide</b></a> ·
   <a href="templates/"><b>🧩 Templates</b></a> ·
+  <a href="https://github.com/seyhunak/skilldeck/blob/main/docs/assets/skilldeck-explainer.mp4">🎬 Watch the explainer</a> ·
   <a href="#install-the-app">💻 Install the app</a> ·
   <a href="docs/ARCHITECTURE.md">🏗️ Architecture</a>
+</p>
+
+### 🎬 Skilldeck in 16 seconds
+
+<p align="center">
+  <a href="https://github.com/seyhunak/skilldeck/blob/main/docs/assets/skilldeck-explainer.mp4" title="Watch the Skilldeck explainer (16s, with sound)">
+    <img src="docs/assets/explainer-poster.jpg" alt="Play the Skilldeck explainer video: 250 AI resources, install into Claude Code, Codex or Claude Desktop, contribute with a pull request" width="900">
+  </a>
+  <br>
+  <sub>▶ <a href="https://github.com/seyhunak/skilldeck/blob/main/docs/assets/skilldeck-explainer.mp4"><b>Watch the explainer</b></a> (16s, with voiceover) · made with <a href="https://hyperframes.heygen.com">HyperFrames</a> and ElevenLabs. Source: <a href="video/explainer/"><code>video/explainer/</code></a></sub>
 </p>
 
 <p align="center">
