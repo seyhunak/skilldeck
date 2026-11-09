@@ -24,14 +24,25 @@
 </p>
 
 <p align="center">
+  <a href="#-contribute"><b>🤝 Contribute a resource</b></a> ·
+  <a href="docs/SUBMISSION_GUIDE.md"><b>📬 Submission guide</b></a> ·
+  <a href="templates/"><b>🧩 Templates</b></a> ·
+  <a href="#install-the-app">💻 Install the app</a> ·
+  <a href="docs/ARCHITECTURE.md">🏗️ Architecture</a>
+</p>
+
+<p align="center">
   <img src="docs/assets/screenshot-discover.png" alt="Skilldeck Discover screen" width="900">
 </p>
+
+> [!TIP]
+> **Got a prompt, skill, or agent you use every day? Share it.** Copy a [template](templates/), open a pull request, and once it's merged and the release is approved it reaches every Skilldeck app automatically. It even works entirely in the browser, with no tools to install. **[Start here →](#-contribute)**
 
 ---
 
 Skilldeck is two things that live in one repository:
 
-1. **A community content platform.** Agents, skills, prompts, and routines are plain Markdown + YAML packages under `resources/`. Every pull request is validated (schema, structure, safety, duplicate detection, compatibility claims) and every merge to `main` builds a versioned, checksummed catalog that is published as a GitHub Release.
+1. **A community content platform.** Agents, skills, prompts, and routines are plain Markdown + YAML packages under `resources/`. Every pull request is validated (schema, structure, safety, duplicate detection, compatibility claims). Every merge to `main` builds a versioned, checksummed catalog, which is published as a GitHub Release once a maintainer approves it.
 2. **A native macOS app.** Skilldeck ships with the whole catalog bundled, so it works fully offline from first launch. It lets you discover, search, and read resources, then install them into **Claude Code**, **OpenAI Codex**, **Claude Desktop**, the **Agent Skills** format, or any folder you choose, with a preview of every file it will write.
 
 ## What's in the catalog
@@ -87,23 +98,153 @@ open build/DerivedData/Build/Products/Release/Skilldeck.app
 
 **Without the app:** every resource is plain files. Copy a skill folder into `~/.claude/skills/`, or download `packages/<id>.zip` from the [latest catalog release](https://github.com/seyhunak/skilldeck/releases).
 
-## Contribute a resource
+## 🤝 Contribute
+
+Skilldeck grows through its community. **Anyone with a GitHub account can add an agent, skill, prompt, or routine.** Every contributor gets a profile page in the app with their GitHub avatar and everything they've shared.
+
+### How a submission becomes part of the app
+
+```text
+  1. You             2. CI (automatic)          3. Maintainer        4. Release (automatic)        5. Every Skilldeck app
+ ─────────────      ──────────────────────      ──────────────       ───────────────────────       ───────────────────────
+  copy a template ▶  Validate submission    ▶   review & merge  ▶   build catalog-v1.N.0     ▶    checks at launch + every
+  fill it in         schema · structure ·       into main            maintainer approves          6h, verifies SHA-256,
+  open a PR          safety · duplicates ·                           → latest.json                shows "New in the Catalog"
+                     compatibility
+```
+
+`main` is protected, so a PR can only merge once **Validate catalog changes** passes. The catalog the app reads is published only after the repository owner or an authorized maintainer approves the release.
+
+### Quick start
+
+**In the browser** (nothing to install):
+
+1. **Fork** this repo.
+2. Open the [template](templates/) for your type and copy its two files.
+3. **Add file → Create new file** at `resources/<domain>/<use-case>/<your-id>/manifest.yaml` (typing `/` creates the folders), paste, and fill in. Then add the entrypoint file next to it.
+4. **Open a pull request.** The check's summary lists anything that needs fixing.
+
+**On your machine:**
 
 ```bash
-python3 -m pip install -r requirements.txt
+gh repo fork seyhunak/skilldeck --clone && cd skilldeck && python3 -m pip install -r requirements.txt
 ```
 
 ```bash
-cp -R templates/skill resources/<domain>/<use-case>/<your-skill-id>
+cp -R templates/skill resources/software-development/code-review/my-skill-id
 ```
 
 ```bash
-python3 scripts/validate_catalog.py --only <your-skill-id>
+python3 scripts/validate_catalog.py --only my-skill-id
 ```
 
-Then open a pull request. CI runs the same validator, and a maintainer reviews it for usefulness, accuracy, and safety. **Once it's merged, a release candidate is built automatically. When the repository owner or an authorized maintainer approves it**, it's published, and every Skilldeck app picks it up at launch or on its next periodic check, listing it under *New in the Catalog*.
+```bash
+git checkout -b add-my-skill-id && git add resources && git commit -m "Add my-skill-id skill" && gh pr create --fill
+```
 
-👉 **Start with the [Submission guide](docs/SUBMISSION_GUIDE.md)**, which works entirely in the browser if you like. Then see the [Contributor guide](docs/CONTRIBUTOR_GUIDE.md) and the [package format](docs/FORMAT.md).
+### Templates
+
+| Type | Template | Entrypoint | Required `##` sections | Min. words |
+|---|---|---|---|---:|
+| **Agent**: a specialist for a whole task (ships as a Claude Code subagent) | [`templates/agent/`](templates/agent/) | `agent.md` | Purpose · When to use · Required inputs · Operating procedure · Expected output · Supporting skills · Example prompts · Error handling · Limitations · Safety boundaries | 650 |
+| **Skill**: a focused capability an agent loads when relevant ([Agent Skills](https://agentskills.io)) | [`templates/skill/`](templates/skill/) | `SKILL.md` | When to use · Inputs · Procedure · Expected output · Constraints | 400 |
+| **Prompt**: one copy-ready prompt with `{{VARIABLES}}` | [`templates/prompt/`](templates/prompt/) | `prompt.md` | Intended task · Required context · Prompt · Variables · Output format · Example usage · Customization | 300 |
+| **Routine**: a repeatable human-guided workflow | [`templates/routine/`](templates/routine/) | `routine.md` | Objective · Trigger · Prerequisites · Inputs · Steps · Decision points · Expected output · Validation checklist · Human approval | 400 |
+| **Contributor profile** (optional) | [`templates/contributor/`](templates/contributor/) | `contributors/<login>/profile.yaml` | — | — |
+
+Domains and use cases come from [`catalog/domains.yaml`](catalog/domains.yaml). The folder path must be `resources/<domain>/<first use case>/<id>/`.
+
+<details>
+<summary><b>📄 Example: a complete skill package</b> (click to expand)</summary>
+
+`resources/software-development/code-review/sql-migration-review/manifest.yaml`
+
+```yaml
+schema_version: "1.1"
+id: sql-migration-review               # same as the folder name
+name: SQL Migration Review
+type: skill
+description: Reviews a SQL schema migration for locking, data loss, and rollback risk before it runs in production.
+purpose: >
+  Catch the migrations that take a table lock for minutes or silently drop data,
+  while they are still a pull request.
+version: 1.0.0
+author:
+  name: Your Name
+  github: your-github-login            # becomes your profile page + avatar
+license: MIT
+domain: software-development
+use_cases: [code-review]
+tags: [sql, migrations, databases]
+created: "2026-11-09"
+updated: "2026-11-09"
+content:
+  entrypoint: SKILL.md
+  files: []                            # list any extra files, e.g. references/checklist.md
+compatibility:                         # keep within catalog/compatibility.yaml
+  - {platform: claude-code, level: native_install, resource_types: [skill]}
+  - {platform: codex, level: native_install, resource_types: [skill]}
+  - {platform: claude-desktop, level: native_import, resource_types: [skill]}
+  - {platform: agent-skills, level: file_export, resource_types: [skill]}
+  - {platform: generic, level: generic_export, resource_types: [skill]}
+dependencies: []
+related: []
+safety:
+  contains_scripts: false
+  network_access: false
+  handles_sensitive_data: false
+  notes: Reviews migration text only; never connects to a database.
+status: submitted                      # leave as-is; merge + approved release publishes it
+tested: false
+tested_with: []
+changelog: ["1.0.0: Initial submission."]
+```
+
+`resources/software-development/code-review/sql-migration-review/SKILL.md`
+
+```markdown
+---
+name: sql-migration-review
+description: Review a SQL schema migration for lock duration, data loss, and rollback safety. Use when a pull request adds or changes a migration file.
+---
+
+# SQL Migration Review
+
+## When to use
+A PR adds a migration (ALTER/CREATE/DROP, backfills). Not for query performance tuning.
+
+## Inputs
+- The migration file(s) and the target database engine and version.
+- Optional: approximate row counts of the affected tables.
+
+## Procedure
+1. Classify each statement: additive, destructive, or rewriting.
+2. Flag statements that take an ACCESS EXCLUSIVE lock on large tables ...
+3. ... (concrete, checkable steps with thresholds)
+
+## Expected output
+A table: statement · risk (blocker/major/minor) · why · safer alternative.
+
+## Constraints
+Never suggest running the migration. State the assumed engine version.
+```
+
+Real skills are longer (400+ words) with worked examples. Browse [`resources/`](resources/) for 250 of them.
+</details>
+
+### What makes a great submission
+
+- ✅ **Concrete**: real steps, commands, criteria, and thresholds, not "follow best practices"
+- ✅ **A defined output** someone can act on, with an example
+- ✅ **Honest** limitations and safety boundaries (finance, legal, and security content needs the disclaimer)
+- ✅ **Original**: not a near-copy of an existing resource (the validator flags ≥ 45% overlap)
+- ❌ No secrets, scripts, binaries, or symlinks. Only `.md .txt .yaml .yml .json .csv` files.
+
+📚 **Guides:** [Submission guide](docs/SUBMISSION_GUIDE.md) (step by step, plus common validation errors) · [Contributor guide](docs/CONTRIBUTOR_GUIDE.md) · [Package format](docs/FORMAT.md) · [Compatibility](docs/COMPATIBILITY.md) · [Review policy](docs/REVIEW_POLICY.md)
+
+💡 Not ready to write one? [Request a resource](https://github.com/seyhunak/skilldeck/issues/new?template=resource_request.yml) or [report a problem with one](https://github.com/seyhunak/skilldeck/issues/new?template=resource_problem.yml).
+
+**Improving the app or tooling?** See [Development & testing](docs/DEVELOPMENT.md). Run `cd app && swift test` and `python3 -m unittest discover -s tests` before opening a PR.
 
 ## Repository layout
 
