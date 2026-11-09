@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Skilldeck explainer</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      /* Concept: "your AI toolkit, dealt as a deck" — dark violet stage, cards dealt in on the voice. */
+      :root {
+        --ground: #0b0a12;
+        --panel: #16141f;
+        --line: #2a2738;
+        --ink: #f4f2fa;
+        --muted: #a7a2bb;
+        --violet: #8b74f0;
+        --violet-deep: #6e56cf;
+        --claude: #e08a6b;
+        --agent: #9c88f5;
+        --skill: #3cc8d6;
+        --prompt: #f2a24a;
+        --routine: #f07088;
+        --ok: #4ad295;
+        --display: "Montserrat", sans-serif;
+        --mono: "JetBrains Mono", monospace;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: var(--display); color: var(--ink); }
+      .bg { position: absolute; inset: 0; background:
+          radial-gradient(1100px 700px at 78% 18%, rgba(110, 86, 207, 0.28), transparent 70%),
+          radial-gradient(900px 600px at 12% 92%, rgba(60, 200, 214, 0.10), transparent 70%),
+          var(--ground); }
+      .grid { position: absolute; inset: 0; opacity: 0.18;
+        background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 96px 96px; mask-image: radial-gradient(1200px 800px at 50% 50%, #000 30%, transparent 85%); }
+      .clip { position: absolute; inset: 0; }
+      .label { font-family: var(--mono); font-weight: 700; font-size: 26px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-size: 30px; }
+
+      /* S1 — open */
+      #s1 { display: flex; align-items: center; justify-content: center; }
+      .brand { display: flex; align-items: center; gap: 44px; }
+      #s1-icon { width: 220px; height: 220px; border-radius: 50px; box-shadow: 0 40px 120px rgba(110, 86, 207, 0.55); }
+      #s1-word { font-size: 168px; font-weight: 900; letter-spacing: -0.04em; }
+
+      /* S2 — the deck */
+      #s2-head { position: absolute; left: 140px; top: 120px; width: 880px; }
+      #s2-num { font-size: 260px; font-weight: 900; letter-spacing: -0.06em; line-height: 0.9; color: var(--ink); }
+      #s2-sub { margin-top: 18px; font-size: 54px; font-weight: 700; color: var(--muted); }
+      .cards { position: absolute; left: 140px; top: 620px; display: flex; gap: 26px; }
+      .card { width: 196px; height: 280px; border-radius: 26px; background: var(--panel); border: 2px solid var(--line);
+        padding: 26px; display: flex; flex-direction: column; justify-content: space-between; }
+      .card .n { font-size: 84px; font-weight: 900; letter-spacing: -0.04em; }
+      .card .t { font-family: var(--mono); font-weight: 700; font-size: 28px; text-transform: uppercase; letter-spacing: 0; }
+      .card .bar { height: 8px; border-radius: 8px; }
+      .window { position: absolute; border-radius: 22px; overflow: hidden; border: 2px solid var(--line); background: var(--panel);
+        box-shadow: 0 50px 140px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.03); }
+      .window img { display: block; width: 100%; height: auto; }
+      #s2-win { left: 1060px; top: 150px; width: 1240px; }
+      #s2-mac { position: absolute; left: 1060px; top: 952px; width: 760px; }
+
+      /* S3 — install */
+      #s3-win { left: 90px; top: 150px; width: 1110px; }
+      #s3-head { position: absolute; left: 1250px; top: 170px; width: 560px; font-size: 64px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; }
+      .targets { position: absolute; left: 1250px; top: 400px; width: 620px; display: flex; flex-direction: column; gap: 22px; }
+      .target { height: 104px; border-radius: 22px; border: 2px solid var(--line); background: var(--panel); display: flex; align-items: center;
+        gap: 20px; padding: 0 26px; font-size: 36px; font-weight: 700; white-space: nowrap; }
+      .target .dot { width: 22px; height: 22px; border-radius: 50%; background: var(--line); }
+      .target .path { margin-left: auto; font-family: var(--mono); font-size: 28px; font-weight: 400; color: var(--muted); }
+      #s3-btn { position: absolute; left: 1250px; top: 790px; width: 620px; height: 108px; border-radius: 26px; background: var(--violet-deep);
+        display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 900; color: #fff;
+        box-shadow: 0 24px 70px rgba(110, 86, 207, 0.55); }
+      #s3-btn .done { position: absolute; inset: 0; border-radius: 26px; background: #1f8a5c; display: flex; align-items: center; justify-content: center; }
+
+      /* S4 — contribute */
+      #s4-head { position: absolute; left: 0; right: 0; top: 230px; text-align: center; font-size: 120px; font-weight: 900; letter-spacing: -0.04em; }
+      .flow { position: absolute; left: 0; right: 0; top: 560px; display: flex; justify-content: center; align-items: center; gap: 26px; }
+      .step { width: 300px; height: 210px; border-radius: 28px; border: 2px solid var(--line); background: var(--panel); padding: 28px;
+        display: flex; flex-direction: column; justify-content: space-between; }
+      .step .k { font-family: var(--mono); font-size: 28px; font-weight: 700; color: var(--muted); letter-spacing: 0; }
+      .step .v { font-size: 40px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; }
+      .arrow { width: 54px; height: 6px; border-radius: 6px; background: var(--line); }
+
+      /* S5 — close */
+      #s5 { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+      #s5-line { font-size: 112px; font-weight: 900; letter-spacing: -0.04em; }
+      #s5-brand { margin-top: 60px; display: flex; align-items: center; gap: 26px; }
+      #s5-icon { width: 104px; height: 104px; border-radius: 24px; }
+      #s5-url { font-family: var(--mono); font-size: 44px; font-weight: 700; color: var(--ink); }
+      #s5-claude { margin-top: 44px; font-family: var(--mono); font-size: 28px; font-weight: 700; letter-spacing: 0.06em; color: var(--claude); text-transform: uppercase; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="16" data-width="1920" data-height="1080">
+      <div class="bg"></div>
+      <div class="grid"></div>
+
+      <!-- S1 · "Meet Skilldeck" -->
+      <section id="s1" class="clip" data-start="0" data-duration="1.25" data-track-index="0">
+        <div class="brand">
+          <img id="s1-icon" src="assets/icon.png" alt="" />
+          <div id="s1-word">Skilldeck</div>
+        </div>
+      </section>
+
+      <!-- S2 · "250 AI agents, skills, prompts, and routines in one Mac app" -->
+      <section id="s2" class="clip" data-start="1.1" data-duration="4.9" data-track-index="1">
+        <div id="s2-head">
+          <div id="s2-num">250</div>
+          <div id="s2-sub">AI resources, ready to use</div>
+        </div>
+        <div class="cards">
+          <div class="card" id="c-agent"><div class="bar" style="background: var(--agent)"></div><div class="n">100</div><div class="t" style="color: var(--agent)">Agents</div></div>
+          <div class="card" id="c-skill"><div class="bar" style="background: var(--skill)"></div><div class="n">100</div><div class="t" style="color: var(--skill)">Skills</div></div>
+          <div class="card" id="c-prompt"><div class="bar" style="background: var(--prompt)"></div><div class="n">30</div><div class="t" style="color: var(--prompt)">Prompts</div></div>
+          <div class="card" id="c-routine"><div class="bar" style="background: var(--routine)"></div><div class="n">20</div><div class="t" style="color: var(--routine)">Routines</div></div>
+        </div>
+        <div class="window" id="s2-win" data-layout-allow-overflow><img src="assets/screenshot-discover.png" alt="" /></div>
+        <div class="label" id="s2-mac">Native Mac app · offline</div>
+      </section>
+
+      <!-- S3 · "Install them into Claude Code, Codex, or Claude Desktop in a click" -->
+      <section id="s3" class="clip" data-start="5.85" data-duration="4.65" data-track-index="2">
+        <div class="window" id="s3-win"><img src="assets/screenshot-detail.png" alt="" /></div>
+        <div id="s3-head">Install anywhere you work</div>
+        <div class="targets">
+          <div class="target" id="t1"><div class="dot"></div>Claude Code<div class="path">~/.claude</div></div>
+          <div class="target" id="t2"><div class="dot"></div>Codex<div class="path">~/.codex</div></div>
+          <div class="target" id="t3"><div class="dot"></div>Claude Desktop<div class="path">skill zip</div></div>
+        </div>
+        <div id="s3-btn">Install<div class="done" id="s3-done">Installed ✓</div></div>
+      </section>
+
+      <!-- S4 · "Built something great? Open a pull request." -->
+      <section id="s4" class="clip" data-start="10.4" data-duration="3.2" data-track-index="3">
+        <div id="s4-head">Built something great?</div>
+        <div class="flow">
+          <div class="step" id="f1"><div class="k">01 · YOU</div><div class="v">Open a pull request</div></div>
+          <div class="arrow" id="a1"></div>
+          <div class="step" id="f2"><div class="k">02 · CI</div><div class="v">Validated</div></div>
+          <div class="arrow" id="a2"></div>
+          <div class="step" id="f3"><div class="k">03 · REVIEW</div><div class="v">Merged &amp; approved</div></div>
+          <div class="arrow" id="a3"></div>
+          <div class="step" id="f4"><div class="k">04 · USERS</div><div class="v">Ships</div></div>
+        </div>
+      </section>
+
+      <!-- S5 · "It ships to everyone." -->
+      <section id="s5" class="clip" data-start="13.3" data-duration="2.7" data-track-index="4">
+        <div id="s5-line">It ships to everyone.</div>
+        <div id="s5-brand">
+          <img id="s5-icon" src="assets/icon.png" alt="" />
+          <div id="s5-url">github.com/seyhunak/skilldeck</div>
+        </div>
+        <div id="s5-claude">Open source · Proudly powered by Claude</div>
+      </section>
+
+      <audio id="vo" src="assets/vo.mp3" data-start="0" data-duration="14.69" data-track-index="9"></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const E = "power3.out";
+
+      // S1 — icon drops in, wordmark slides from behind it
+      tl.fromTo("#s1-icon", { scale: 0.86, rotate: -6 }, { scale: 1, rotate: 0, duration: 0.55, ease: "back.out(1.6)" }, 0);
+      tl.fromTo("#s1-word", { x: -40, opacity: 0.35 }, { x: 0, opacity: 1, duration: 0.45, ease: E }, 0);
+      tl.to("#s1 .brand", { scale: 0.94, opacity: 0, duration: 0.2, ease: "power2.in" }, 1.02);
+
+      // S2 — the count, then the deck is dealt, then the app window rises
+      const num = { v: 0 };
+      tl.fromTo("#s2-num", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: E }, 1.15);
+      tl.fromTo(num, { v: 0 }, { v: 250, duration: 0.9, ease: "power2.out",
+        onUpdate: () => { document.getElementById("s2-num").textContent = Math.round(num.v); } }, 1.15);
+      tl.fromTo("#s2-sub", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: E }, 1.5);
+      // dealt on "agents · skills · prompts · routines"
+      [["#c-agent", 1.75], ["#c-skill", 2.55], ["#c-prompt", 3.7], ["#c-routine", 4.15]].forEach(([id, t]) => {
+        tl.fromTo(id, { y: 160, rotate: 10, opacity: 0 }, { y: 0, rotate: 0, opacity: 1, duration: 0.45, ease: "back.out(1.4)" }, t);
+      });
+      tl.fromTo("#s2-win", { y: 140, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: E }, 4.45);
+      tl.fromTo("#s2-mac", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: E }, 4.0);
+      tl.to(["#s2-head", ".cards", "#s2-mac"], { x: -80, opacity: 0, duration: 0.3, ease: "power2.in" }, 5.65);
+      tl.to("#s2-win", { x: 120, opacity: 0, duration: 0.3, ease: "power2.in" }, 5.65);
+
+      // S3 — detail window + targets light up on each name
+      tl.fromTo("#s3-win", { x: -100, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: E }, 5.9);
+      tl.fromTo("#s3-head", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: E }, 6.05);
+      tl.fromTo(".target", { x: 60, opacity: 0 }, { x: 0, opacity: 0.45, duration: 0.35, ease: E, stagger: 0.08 }, 6.2);
+      [["#t1", 6.75], ["#t2", 7.95], ["#t3", 8.6]].forEach(([id, t]) => {
+        tl.to(id, { opacity: 1, borderColor: "#8b74f0", duration: 0.25, ease: E }, t);
+        tl.fromTo(id + " .dot", { backgroundColor: "#2a2738", scale: 1 }, { backgroundColor: "#4ad295", scale: 1.25, duration: 0.25, ease: E }, t);
+      });
+      tl.fromTo("#s3-btn", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: E }, 8.9);
+      tl.fromTo("#s3-done", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: E }, 9.6);
+      tl.to("#s3-btn", { scale: 0.94, duration: 0.1, ease: "power2.in" }, 9.5);
+      tl.to("#s3-btn", { scale: 1, duration: 0.25, ease: "back.out(2)" }, 9.6);
+      tl.to(["#s3-win", "#s3-head", ".targets", "#s3-btn"], { opacity: 0, y: -30, duration: 0.3, ease: "power2.in" }, 10.15);
+
+      // S4 — question, then the contribution flow lights left to right
+      tl.fromTo("#s4-head", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: E }, 10.6);
+      tl.fromTo(".step", { y: 50, opacity: 0 }, { y: 0, opacity: 0.4, duration: 0.3, ease: E, stagger: 0.06 }, 11.4);
+      tl.fromTo(".arrow", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: E, stagger: 0.06 }, 11.5);
+      [["#f1", 12.0], ["#a1", 12.12], ["#f2", 12.18], ["#a2", 12.3], ["#f3", 12.36], ["#a3", 12.48], ["#f4", 12.54]].forEach(([id, t]) => {
+        if (id.startsWith("#a")) tl.fromTo(id, { backgroundColor: "#2a2738" }, { backgroundColor: "#8b74f0", duration: 0.15 }, t);
+        else tl.to(id, { opacity: 1, borderColor: "#8b74f0", y: -10, duration: 0.2, ease: E }, t);
+      });
+      tl.fromTo("#f4", { backgroundColor: "#16141f" }, { backgroundColor: "#4b3aa3", duration: 0.2 }, 12.54);
+      tl.to(["#s4-head", ".flow"], { opacity: 0, scale: 0.96, duration: 0.2, ease: "power2.in" }, 13.38);
+
+      // S5 — the line, then the brand lockup to hold
+      tl.fromTo("#s5-line", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: E }, 13.42);
+      tl.fromTo("#s5-brand", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: E }, 13.6);
+      tl.fromTo("#s5-claude", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: E }, 13.75);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

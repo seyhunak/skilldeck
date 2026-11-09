@@ -19,3 +19,8 @@ __pycache__/
 xcuserdata/
 DerivedData/
 *.xcresult
+
+# HyperFrames working state
+/video/**/.hyperframes/
+/video/**/.thumbnails/
+/video/**/renders/
